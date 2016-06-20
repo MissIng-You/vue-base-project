@@ -6,8 +6,25 @@
 
 // custom mixins
 
+// border mixins
 @mixin border-variant($direction, $content...){
-  border-#{$direction}: $content
+  @if $direction == 'all' {
+    border: $content
+  } @else {
+    border-#{$direction}: $content
+  }
+}
+
+// text shadow mixins
+@mixin text-shadow-variant($content...){
+  @if $enable-text-shadows {
+    text-shadow: $content;
+  }
+}
+
+// user select mixins
+@mixin user-select(){
+  user-select: none;
 }
 
 // hr divider mixins
@@ -35,11 +52,11 @@
       height: 1px;
 
       // gradient-horizontal-three-colors()
-      @include gradient-horizontal-three-colors()
+      @include gradient-horizontal-three-colors(#fff, #000, 50%, #fff)
     } @else if $xy == "vertical" {
       width: 1px;
       height: 100%;
-      @include gradient-vertical-three-colors()
+      @include gradient-vertical-three-colors(#fff, #000, 50%, #fff)
     }
   }
 }

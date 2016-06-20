@@ -26,6 +26,25 @@
   }
 }
 
+// nav-header scss.
+.nav-header{
+  float: left;
+  padding: $cm-space-width / 2 $cm-space-width;
+
+  @include clearfix();
+
+  > .header-logo{
+    height: 60px;
+  }
+
+  > .header-title{
+    font-size: 2.0em;
+    vertical-align: middle;
+
+    @include text-shadow-variant(0 1px 1px $brand-info);
+  }
+}
+
 // new divider
 .nav-vertical-divider{
   position: relative;

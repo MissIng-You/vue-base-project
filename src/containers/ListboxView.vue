@@ -1,25 +1,19 @@
 <template>
-  <div id="sidebar" class="layout">
-    <div class="layout-left">
-      <navigation :theme="primary" :position="position" :meta="navigationMeta"></navigation>
-    </div>
-    <div class="layout-right">
-      <list :theme="primary" :meta="navigationMeta"></list>
-    </div>
+  <div id="listbox">
+    <list :theme="primary" :meta="listboxMeta"></list>
   </div>
 </template>
 
 <script>
   import customBootstrap from '../components'
 
-  let { navigation, list } = customBootstrap
+  let { list } = customBootstrap
 
   export default {
-    name: 'SidebarView',
+    name: 'ListboxView',
     data () {
       return {
-        position: 'left',
-        navigationMeta: {
+        listboxMeta: {
           title: '用户登录',
           showItemCount: 4,
           items: [{
@@ -71,7 +65,6 @@
       }
     },
     components: {
-      navigation,
       list
     }
   }

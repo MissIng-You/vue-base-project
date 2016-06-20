@@ -4,13 +4,16 @@
 @import "../bootstrap-scss/variables";
 
 // common scss variants
+$cm-sm: 544px !default;
+
 $cm-border-width: 1px !default;
 $cm-box-radius: 3px !default;
 
-$cm-space-width: $grid-gutter-width / 3 !default; // 10 px
+$cm-space-width: 30px / 3 !default; // 10 px
 
 $cm-bg: $body-bg !default;
 $cm-default: $gray-lightest !default;
+$cm-black: #222 !default;
 
 
 // login scss variants

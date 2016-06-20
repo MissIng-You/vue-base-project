@@ -5,6 +5,7 @@
   display:inline-block;
   //border: 1px solid $cm-bg;
   padding: $cm-space-width / 2 $cm-space-width;
+  color: lighten($cm-black, 15%);
 
   // reset a:link style
   &:link{
@@ -21,13 +22,21 @@
   &.box-horizontal{
     padding: $cm-space-width $cm-space-width / 2;
 
-    .box-mask, .box-content{
+    .box-mask, .box-title{
       display:inline-block;
       vertical-align: middle;
     }
   }
 
-  .box-mask, .box-content{
+  &.box-divider{
+    position: relative;
+
+    .box-title{
+      //@include xy-divider-variant(vertical);
+    }
+  }
+
+  .box-mask, .box-title{
     display:block;
     height:50%;
     margin:0 auto;

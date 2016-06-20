@@ -18,9 +18,6 @@
       transition-mode="out-in">
     </router-view>
 
-    <p class="footer">
-      Welcome to your Vue.js app!
-    </p>
   </div>
 </template>
 

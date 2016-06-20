@@ -2,8 +2,8 @@
   <div id="navigation">
     <navigation :theme="primary" :position="top" :meta="navigationMeta">
       <div slot="header">
-        <div class="navbar-header">
-          <img :src="navigationMeta.logo" alt="logo" class="header-logo">
+        <div class="nav-header">
+          <img src="../assets/images/logo.png" alt="logo" class="header-logo">
           <span class="header-title">{{navigationMeta.title}}</span>
         </div>
       </div>

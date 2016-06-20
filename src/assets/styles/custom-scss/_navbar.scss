@@ -3,18 +3,24 @@
 
 .navbar-middle{
   display: block;
-  text-align: center;
-  background-color: lighten($cm-default, 5%);
+  text-align: left;
+  background-color: darken($cm-bg, 5%);
+
+  @include clearfix();
+  @include user-select();
 
   > .nav{
     display: inline-block;
+    vertical-align: text-top;
   }
 }
 
 .navbar-sidebar{
   display: table;
   vertical-align: middle;
-  background-color: lighten($cm-default, 5%);
+  background-color: darken($cm-bg, 5%);
+
+  @include user-select();
 
   > .nav{
     display: table-cell;

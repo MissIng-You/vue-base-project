@@ -6,6 +6,11 @@ $enable-shadows: true;
 @import "../bootstrap-scss/bootstrap";
 
 
+
+// set text shadow enabled
+$enable-text-shadows: true;
+
+
 // custom variants scss.
 @import "variables";
 
@@ -18,7 +23,9 @@ $enable-shadows: true;
 
 
 // custom components scss.
+@import "layout";
 @import "login";
 @import "box";
 @import "navbar";
 @import "nav";
+@import "list";

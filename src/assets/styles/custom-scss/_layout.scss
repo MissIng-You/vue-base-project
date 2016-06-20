@@ -1,0 +1,17 @@
+
+// custom layout scss.
+
+.layout{
+
+  @include clearfix();
+
+  .layout-left{
+
+    float: left;
+  }
+
+  .layout-right{
+    float: right;
+  }
+
+}
