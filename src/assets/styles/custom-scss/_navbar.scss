@@ -1,0 +1,39 @@
+
+// custom navbar scss.
+
+.navbar-middle{
+  display: block;
+  text-align: center;
+  background-color: lighten($cm-default, 5%);
+
+  > .nav{
+    display: inline-block;
+  }
+}
+
+.navbar-sidebar{
+  display: table;
+  vertical-align: middle;
+  background-color: lighten($cm-default, 5%);
+
+  > .nav{
+    display: table-cell;
+  }
+}
+
+// nav fixed top bottom left right scss.
+.nav-fixed-top{
+  @include nav-fixed-variant(top);
+}
+
+.nav-fixed-bottom{
+  @include nav-fixed-variant(bpttom);
+}
+
+.nav-fixed-left{
+  @include nav-fixed-variant(left);
+}
+
+.nav-fixed-right{
+  @include nav-fixed-variant(right);
+}

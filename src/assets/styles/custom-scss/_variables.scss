@@ -1,0 +1,38 @@
+
+// import boostrap variables scss
+
+@import "../bootstrap-scss/variables";
+
+// common scss variants
+$cm-border-width: 1px !default;
+$cm-box-radius: 3px !default;
+
+$cm-space-width: $grid-gutter-width / 3 !default; // 10 px
+
+$cm-bg: $body-bg !default;
+$cm-default: $gray-lightest !default;
+
+
+// login scss variants
+
+$login-border-width: 1px !default;
+$login-shadow-width: 3px !default;
+$login-box-radius: 3px !default;
+
+$login-gutter-width: $grid-gutter-width / 3 !default;   // 10 px
+$login-space-width: $login-gutter-width !default; // 10 px
+
+$login-bg: $body-bg !default;
+
+// themes colors
+$login-default: $gray-lightest !default;
+$login-primary: $brand-primary !default;
+$login-success: $brand-success !default;
+$login-info: $brand-info !default;
+$login-warning: $brand-warning !default;
+$login-danger: $brand-danger !default;
+
+
+// box scss variants
+$box-border-width: 1px !default;
+

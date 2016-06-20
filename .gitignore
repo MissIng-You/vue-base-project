@@ -1,0 +1,14 @@
+.DS_Store
+node_modules/
+/src/vendor/
+dist/
+npm-debug.log
+selenium-debug.log
+test/unit/coverage
+test/e2e/reports
+/src/containers/TodoView.ts
+/src/containers/TodoView.jsx
+/src/containers/TodoView.html
+VueDemos.zip
+vue-base-project.zip
+

@@ -1,0 +1,25 @@
+<section class="login {{loginVariant}} {{loginSizeVariant}}">
+  <header class="login-header">
+    <div class="login-header-inner">
+      <h2 class="login-header-title" v-html="meta.title"></h2>
+    </div>
+    <!--<slot name="header"></slot>-->
+  </header>
+  <main class="login-body">
+    <div class="input-group">
+      <label for="#{{meta.username.id}}" class="input-group-addon">{{meta.username.display}}</label>
+      <input :id="meta.username.id" type="text" class="form-control"
+             :placeholder="meta.username.placeholder">
+    </div>
+    <div class="input-group">
+      <label for="#{{meta.password.id}}" class="input-group-addon">{{meta.password.display}}</label>
+      <input :id="meta.password.id" type="password" class="form-control" :placeholder="meta.password.placeholder">
+    </div>
+    <!--<slot name="body"></slot>-->
+  </main>
+  <footer class="login-footer">
+    <button class="btn btn-md btn-info-outline btn-block"
+            @click="login" v-html="meta.operation"></button>
+    <!--<slot name="footer"></slot>-->
+  </footer>
+</section>

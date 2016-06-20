@@ -1,0 +1,49 @@
+
+<nav class="fixed" :class="getNavbarClassByPosition">
+  <slot name="header"></slot>
+  <ul class="nav" :class="getNavClassByPosition">
+    <li class="nav-item" :id="$index" v-for="item in meta.items">
+      <a v-link="{path: item.url}" class="box" :class="getNavItemClassByPosition">
+        <i class="box-mask fa fa-2x fa-fw" :class="item.icon"></i>
+        <span class="box-title" v-html="item.title"></span>
+      </a>
+    </li>
+  </ul>
+</nav>
+
+<!--<ul class="nav nav-tabs">-->
+  <!--<li><a href="#">xxxxxx</a></li>-->
+  <!--<li><a href="#">xxxxxx</a></li>-->
+  <!--<li><a href="">xxxxxxx</a></li>-->
+  <!--<li><a href="">xxxxxxxxx</a></li>-->
+  <!--<li><a href="">xxxxx</a></li>-->
+<!--</ul>-->
+<!--<ul class="nav nav-tabs">-->
+  <!--<li class="nav-item active">-->
+    <!--<a href="" class="box">-->
+      <!--<i class="fa fa-home fa-2x fa-fw box-mask"></i>-->
+      <!--<span class="box-content">主页</span>-->
+    <!--</a>-->
+  <!--</li>-->
+  <!--<li class="nav-item">-->
+    <!--<a href="" class="box">-->
+      <!--<i class="fa fa-cog fa-2x fa-fw box-mask"></i>-->
+      <!--<span class="box-content">设置</span>-->
+    <!--</a>-->
+  <!--</li>-->
+  <!--<li class="nav-item">-->
+    <!--<a href="" class="box">-->
+      <!--<i class="fa fa-pencil fa-2x fa-fw box-mask"></i>-->
+      <!--<span class="box-content">测量</span>-->
+    <!--</a>-->
+  <!--</li>-->
+  <!--<li class="nav-item">-->
+    <!--<a href="" class="box">-->
+      <!--<i class="fa fa-book fa-2x fa-fw box-mask"></i>-->
+      <!--<span class="box-content">书籍</span>-->
+    <!--</a>-->
+  <!--</li>-->
+<!--</ul>-->
+
+
+

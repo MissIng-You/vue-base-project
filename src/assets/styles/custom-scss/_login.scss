@@ -1,0 +1,64 @@
+
+// login.scss
+
+.login {
+  display: block;
+  margin: 0 auto;
+  @include border-radius($login-box-radius);
+  @include box-shadow(0 $login-shadow-width $login-shadow-width $login-shadow-width $login-default);
+  @include border-variant(top, $login-border-width solid $login-default);
+
+  .login-header, .login-body {
+    @include border-variant(bottom, $login-border-width * 2 dotted $login-default);
+  }
+
+  .login-header{
+    position:relative;
+    padding: $login-space-width;
+
+    .login-header-inner{
+      position: relative;
+      text-align: center;
+
+      @include hr-divider-variant($login-default);
+
+      .login-header-title{
+        position:relative;
+        display:inline-block;
+        padding: 0 $login-space-width;
+        margin:0 auto;
+        background-color: $login-bg;
+      }
+    }
+  }
+
+  .login-body {
+    padding: $login-space-width;
+
+    .input-group:not(:last-child) {
+      margin-bottom: $login-gutter-width * 2;
+    }
+  }
+
+  .login-footer{
+    padding: $login-space-width;
+  }
+}
+
+// rewrite .input-group
+
+//.login-body {
+//  .input-group:not(:last-child) {
+//    margin-bottom: $login-gutter-width * 2;
+//  }
+//}
+
+// login themes
+.login-default{
+  //@include login-theme-variant()
+}
+
+// login size
+.login-sm {
+  @include size(50%, 50%)
+}

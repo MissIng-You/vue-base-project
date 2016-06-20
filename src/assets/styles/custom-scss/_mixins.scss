@@ -1,0 +1,56 @@
+
+// import bootstrap scss mixins
+
+@import "../bootstrap-scss/mixins";
+
+
+// custom mixins
+
+@mixin border-variant($direction, $content...){
+  border-#{$direction}: $content
+}
+
+// hr divider mixins
+@mixin hr-divider-variant($bg-color...){
+  &::before{
+    position: absolute;
+    display:block;
+    content: "";
+    top: 50%;
+    width: 100%;
+    height: 1px;
+    background-color: $bg-color;
+  }
+}
+
+// x,y divider mixins
+@mixin xy-divider-variant($xy){
+  &::before{
+    position: absolute;
+    display: block;
+    content: "";
+
+    @if $xy == "horizontal" {
+      width: 100%;
+      height: 1px;
+
+      // gradient-horizontal-three-colors()
+      @include gradient-horizontal-three-colors()
+    } @else if $xy == "vertical" {
+      width: 1px;
+      height: 100%;
+      @include gradient-vertical-three-colors()
+    }
+  }
+}
+
+// input group mixins
+@mixin input-group-variant($theme-color){
+
+}
+
+// nav fixed mixins
+@mixin nav-fixed-variant($direct, $offset: 0){
+  position: $direct;
+  #{$direct}: $offset;
+}

@@ -1,0 +1,44 @@
+
+// custom nav scss.
+
+// reset bootstrap .nav-inline
+.nav-inline{
+
+  .nav-item{
+    margin-right: 1px;
+
+    + .nav-item{
+      margin-left: 0;
+    }
+  }
+}
+
+// reset bootstrap .nav-stacked
+.nav-stacked{
+
+  .nav-item{
+    margin-bottom:1px;
+    margin-right: 0;
+
+    + .nav-item{
+      margin-top: 0;
+    }
+  }
+}
+
+// new divider
+.nav-vertical-divider{
+  position: relative;
+
+  .nav-item:not(:first-child){
+    @include xy-divider-variant(vertical);
+  }
+}
+
+.nav-horizontal-divider{
+  position: relative;
+
+  .nav-item:not(:first-child){
+    @include xy-divider-variant(horizontal);
+  }
+}

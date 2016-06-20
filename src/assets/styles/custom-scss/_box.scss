@@ -1,0 +1,41 @@
+
+// custom box scss.
+
+.box{
+  display:inline-block;
+  //border: 1px solid $cm-bg;
+  padding: $cm-space-width / 2 $cm-space-width;
+
+  // reset a:link style
+  &:link{
+    text-decoration: none;
+  }
+
+  &:hover,
+  &.active{
+    background-color: $cm-default;
+    text-decoration: none;
+    //@include border-variant('color', $cm-default)
+  }
+
+  &.box-horizontal{
+    padding: $cm-space-width $cm-space-width / 2;
+
+    .box-mask, .box-content{
+      display:inline-block;
+      vertical-align: middle;
+    }
+  }
+
+  .box-mask, .box-content{
+    display:block;
+    height:50%;
+    margin:0 auto;
+  }
+
+  .box-more{
+    display:block;
+    height:100%;
+    margin:0 auto;
+  }
+}

@@ -1,0 +1,24 @@
+
+// set box-shadow enabled.
+$enable-shadows: true;
+
+// import bootstrap all scss.
+@import "../bootstrap-scss/bootstrap";
+
+
+// custom variants scss.
+@import "variables";
+
+
+// custom mixins scss.
+@import "mixins";
+
+// rewrite bootstrap components.
+@import "input-group";
+
+
+// custom components scss.
+@import "login";
+@import "box";
+@import "navbar";
+@import "nav";

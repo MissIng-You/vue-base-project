@@ -1,0 +1,6 @@
+
+// custom input-group scss.
+
+.input-group-default{
+  @include input-group-variant($login-default);
+}

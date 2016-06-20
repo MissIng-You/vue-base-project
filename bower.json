@@ -1,0 +1,22 @@
+{
+  "name": "vue-demo",
+  "description": "this is a vue demo.",
+  "main": "",
+  "authors": [
+    "net-hxd@qq.com <net-hxd@qq.com>"
+  ],
+  "license": "MIT",
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "devDependencies": {
+    "jquery": "^2.2.4",
+    "arcgis-js-api": "^4.0.0"
+  }
+}
