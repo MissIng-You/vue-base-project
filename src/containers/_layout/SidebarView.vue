@@ -1,30 +1,19 @@
 <template>
-  <div id="menulist">
-    <list :theme="primary" :meta="navigationMeta"></list>
+  <div id="sidebar">
+    <navigation :theme="primary" :position="position" :meta="navigationMeta"></navigation>
     <h1>{{message}}</h1>
   </div>
 </template>
 
 <script>
-  import customBootstrap from '../components'
+  import customBootstrap from '../../components'
 
-  let { list } = customBootstrap
+  let { navigation } = customBootstrap
 
   export default {
     name: 'SidebarView',
-    // http://router.vuejs.org/en/pipeline/data.html
-    route: {
-      data: function (transition) {
-        window.setTimeout(function () {
-          transition.next({
-            message: 'data fetched!'
-          })
-        }, 1000)
-      }
-    },
     data () {
       return {
-        message: 'xxx',
         position: 'left',
         navigationMeta: {
           title: '用户登录',
@@ -78,7 +67,7 @@
       }
     },
     components: {
-      list
+      navigation
     }
   }
 </script>

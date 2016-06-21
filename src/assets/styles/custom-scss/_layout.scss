@@ -5,13 +5,21 @@
 
   @include clearfix();
 
-  .layout-left{
-
+  .layout-left,
+  .layout-center{
     float: left;
+
+    @include clearfix();
+  }
+
+  .layout-center{
+    padding: $cm-space-width;
   }
 
   .layout-right{
     float: right;
+
+    @include clearfix();
   }
 
 }

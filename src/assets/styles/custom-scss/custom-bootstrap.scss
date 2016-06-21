@@ -2,6 +2,9 @@
 // set box-shadow enabled.
 $enable-shadows: true;
 
+// set default font family
+$font-family-base: "Microsoft Yahei" !default;
+
 // import bootstrap all scss.
 @import "../bootstrap-scss/bootstrap";
 

@@ -1,33 +1,29 @@
 <template>
   <div id="app">
-    <navigation-view></navigation-view>
-    <!--<div class="nav nav-tripped">-->
-      <!--<a v-link="{ path: '/todo', activeClass: 'active' }">Todo Demo</a>-->
-      <!--<a v-link="{ path: '/hello', activeClass: 'active' }">Hello Page</a>-->
-      <!--<a v-link="{ path: '/arcgis', activeClass: 'active' }">Arcgis Page</a>-->
-      <!--<a v-link="{ path: '/baidu', activeClass: 'active' }">Alert Page</a>-->
-      <!--<a v-link="{ path: '/login' }">Login Page</a>-->
-      <!--<a v-link="{ path: '/nav' }">Navigation Page</a>-->
-    <!--</div>-->
-    <!--<img class="logo" src="../assets/images/logo.png">-->
-    <!-- main view -->
-    <router-view
-      class="view"
-      keep-alive
-      transition
-      transition-mode="out-in">
-    </router-view>
-
+    <header-view></header-view>
+    <container-view>
+      <sidebar-view slot="left"></sidebar-view>
+      <content-view slot="center"></content-view>
+    </container-view>
+    <footer-view></footer-view>
   </div>
 </template>
 
 <script>
-  import NavigationView from './NavigationView'
+  import HeaderView from '../containers/_layout/HeaderView'
+  import ContainerView from '../containers/_layout/ContainerView'
+  import SidebarView from '../containers/_layout/SidebarView'
+  import ContentView from '../containers/_layout/ContentView'
+  import FooterView from '../containers/_layout/FooterView'
 
   export default {
     name: 'AppView',
     components: {
-      NavigationView
+      HeaderView,
+      ContainerView,
+      SidebarView,
+      ContentView,
+      FooterView
     }
   }
 </script>

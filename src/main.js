@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
+import VueResource from 'vue-resource'
 import AppView from './containers/AppView'
 // import HelloView from './containers/HelloView'
 // import ArcgisView from './containers/ArcgisView'
@@ -10,6 +11,9 @@ import './assets/styles/font-awesome/css/font-awesome.min.css'
 
 Vue.config.debug = true
 Vue.config.devtools = true
+
+// use vue resource
+Vue.use(VueResource)
 
 // install router
 Vue.use(Router)
@@ -25,6 +29,7 @@ var router = new Router({
 
 router.map({
   '/sidebar': {
+    name: 'sidebar',
     component: function (resolve) {
       require.ensure([], function () {
         let sidebar = require('./containers/SidebarView')
@@ -33,6 +38,7 @@ router.map({
     }
   },
   '/arcgis': {
+    name: 'arcgis',
     component: resolve => {
       require.ensure([], () => {
         let arcgis = require('./containers/ArcgisView')
@@ -41,6 +47,7 @@ router.map({
     }
   },
   '/baidu': {
+    name: 'baidu',
     component: resolve => {
       require.ensure([], () => {
         let baidu = require('./containers/BaiduView')
@@ -49,6 +56,7 @@ router.map({
     }
   },
   '/login': {
+    name: 'login',
     component: resolve => {
       require.ensure([], () => {
         let login = require('./containers/LoginView')
@@ -57,6 +65,7 @@ router.map({
     }
   },
   '/todo': {
+    name: 'todo',
     component: resolve => {
       require.ensure([], () => {
         let todo = require('./containers/TodoView')
@@ -65,6 +74,7 @@ router.map({
     }
   },
   '/nav': {
+    name: 'nav',
     component: resolve => {
       require.ensure([], () => {
         let navigation = require('./containers/NavigationView')

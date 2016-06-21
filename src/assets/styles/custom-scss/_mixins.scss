@@ -6,6 +6,17 @@
 
 // custom mixins
 
+// vertical middle mixins
+@mixin vertical-middle($position){
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  overflow: hidden;
+  margin: auto;
+}
+
 // border mixins
 @mixin border-variant($direction, $content...){
   @if $direction == 'all' {
@@ -68,6 +79,6 @@
 
 // nav fixed mixins
 @mixin nav-fixed-variant($direct, $offset: 0){
-  position: $direct;
+  position: fixed;
   #{$direct}: $offset;
 }

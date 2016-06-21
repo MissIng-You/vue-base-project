@@ -18,6 +18,13 @@
     }
   }
 
+  // .list-vertical-middle
+  &.list-vertical-middle{
+    @include vertical-middle(absolute);
+
+    height: 50%;
+  }
+
   .list-item{
     display: inline-block;
 
