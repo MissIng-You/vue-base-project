@@ -16,7 +16,7 @@ module.exports = merge(baseWebpackConfig, {
     loaders: utils.styleLoaders()
   },
   // eval-source-map is faster for development
-  devtool: '#eval-source-map',
+  devtool: '#cheap-source-map',
   plugins: [
     //new CopyWebpackPlugin([
     //  {from: 'src/shared', to: 'vendor'},

@@ -27,6 +27,10 @@ var router = new Router({
   linkActiveClass: 'active'
 })
 
+router.alias({
+  '/sidebar': '/sidebar/list'
+})
+
 router.map({
   '/sidebar': {
     name: 'sidebar',
@@ -35,6 +39,16 @@ router.map({
         let sidebar = require('./containers/SidebarView')
         resolve(sidebar)
       }, 'sidebar')
+    },
+    subRoutes: {
+      '/list': {
+        component: function (resolve) {
+          require.ensure([], function () {
+            let sidebar = require('./containers/ListboxView')
+            resolve(sidebar)
+          }, 'sidebar.list')
+        }
+      }
     }
   },
   '/arcgis': {
@@ -89,7 +103,8 @@ router.beforeEach(function () {
 })
 
 router.redirect({
-  '*': '/baidu'
+  '*': '/login',
+  '/sidebar': '/sidebar/list'
 })
 
 router.start(AppView, '#app')

@@ -16,30 +16,44 @@
 }
 
 .navbar-sidebar{
-  display: table;
+  //display: table;
   vertical-align: middle;
   background-color: darken($cm-bg, 5%);
+  overflow-x: hidden;
+  overflow-y: scroll;
+  height: $cm-sm;
 
   @include user-select();
 
   > .nav{
-    display: table-cell;
+    //display: table-cell;
   }
 }
 
+.navbar-footer{
+  width: 100%;
+  text-align: center;
+  height: $cm-footer;
+  line-height: $cm-footer;
+  color: $cm-default;
+  background-color: $cm-black;
+
+  @include text-shadow-variant(0 1px 1px lighten($cm-black, 30%));
+}
+
 // nav fixed top bottom left right scss.
-.nav-fixed-top{
+.fixed-top{
   @include nav-fixed-variant(top);
 }
 
-.nav-fixed-bottom{
-  @include nav-fixed-variant(bpttom);
+.fixed-bottom{
+  @include nav-fixed-variant(bottom);
 }
 
-.nav-fixed-left{
+.fixed-left{
   @include nav-fixed-variant(left);
 }
 
-.nav-fixed-right{
+.fixed-right{
   @include nav-fixed-variant(right);
 }
