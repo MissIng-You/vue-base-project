@@ -18,9 +18,12 @@
 </template>
 
 <script>
+//  import Vue from 'vue'
   import customBootstrap from '../components'
+  import ApiService from '../api'
 
   let { list, navigation } = customBootstrap
+  let { getMenuList } = ApiService
 
   export default {
     name: 'SidebarView',
@@ -28,60 +31,15 @@
     route: {
       data: function (transition) {
         window.setTimeout(function () {
-          transition.next({
-            navigationMeta: {
-              title: '用户登录',
-              showItemCount: 4,
-              items: [{
-                icon: 'fa-home',
-                title: '控制面板',
-                url: '/baidu'
-              }, {
-                icon: 'fa-cog',
-                title: '设置列表',
-                url: '/todo'
-              }, {
-                icon: 'fa-cog',
-                title: '设置列表',
-                url: '/todo'
-              }, {
-                icon: 'fa-feed',
-                title: '登录页面',
-                url: '/login'
-              }, {
-                icon: 'fa-fire',
-                title: '地图页面',
-                url: '/arcgis'
-              }, {
-                icon: 'fa-fire',
-                title: '地图页面',
-                url: '/arcgis'
-              }, {
-                icon: 'fa-fire',
-                title: '地图页面',
-                url: '/arcgis'
-              }, {
-                icon: 'fa-feed',
-                title: '登录页面',
-                url: '/login'
-              }, {
-                icon: 'fa-fire',
-                title: '地图页面',
-                url: '/arcgis'
-              }, {
-                icon: 'fa-fire',
-                title: '地图页面',
-                url: '/arcgis'
-              }, {
-                icon: 'fa-fire',
-                title: '地图页面',
-                url: '/arcgis'
-              }, {
-                icon: 'fa-plus',
-                title: '更多菜单',
-                url: '/more'
-              }]
-            }
+          getMenuList(function (response) {
+            console.log(response)
+            transition.next({
+              navigationMeta: {
+                items: response.data.items
+              }
+            })
+          }, function (error) {
+            console.log(error)
           })
         }, 1000)
       }
@@ -90,6 +48,7 @@
       return {
         position: 'left',
         navigationMeta: {
+          message: 'xxx',
           title: '用户登录',
           showItemCount: 4,
           items: []

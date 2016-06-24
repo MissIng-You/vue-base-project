@@ -18,13 +18,14 @@ module.exports = merge(baseWebpackConfig, {
   // eval-source-map is faster for development
   devtool: '#cheap-source-map',
   plugins: [
-    //new CopyWebpackPlugin([
-    //  {from: 'src/shared', to: 'vendor'},
-    //  {from: 'src/vendor/arcigs/esri/nls/jsapi_zh-cn.js', to: 'vendor/arcigs/esri/nls/jsapi_zh-cn.js'},
-    //  {from: 'src/vendor/arcgis/dojox/gfx/svg.js', to: 'vendor/arcgis/dojox/gfx/svg.js'},
-    //  {from: 'src/dojo/resources/blank.gif', to: 'vendor/dojo/resources/blank.gif'},
-    //  {from: 'src/vendor/arcgis/init.js', to: 'vendor/arcgis/init.js'}
-    //]),
+    new CopyWebpackPlugin([
+      //{from: 'src/shared', to: 'vendor'},
+      //{from: 'src/vendor/arcigs/esri/nls/jsapi_zh-cn.js', to: 'vendor/arcigs/esri/nls/jsapi_zh-cn.js'},
+      //{from: 'src/vendor/arcgis/dojox/gfx/svg.js', to: 'vendor/arcgis/dojox/gfx/svg.js'},
+      //{from: 'src/dojo/resources/blank.gif', to: 'vendor/dojo/resources/blank.gif'},
+      //{from: 'src/vendor/arcgis/init.js', to: 'vendor/arcgis/init.js'}
+      {from: 'src/api', to: 'api'}
+    ]),
     //new webpack.IgnorePlugin(/\.\/jquery.js$/),
     new webpack.DefinePlugin({
       'process.env': config.dev.env
