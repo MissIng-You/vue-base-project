@@ -1,9 +1,12 @@
 <template>
   <div id="menulist" class="layout">
-    <div v-if="$loadingRouteData">Loading ...</div>
     <div class="layout-left">
-      <navigation v-if="!$loadingRouteData" :theme="primary" :position="position" :meta="navigationMeta" v-ref:sidebar></navigation>
+      <grid-loader v-if="$loadingRouteData" :color="color" :size="size"></grid-loader>
+      <navigation v-if="!$loadingRouteData" :theme="primary" :position="position"
+                  :meta="navigationMeta" v-ref:sidebar></navigation>
+
     </div>
+
     <div class="layout-center">
 
       <router-view
@@ -19,6 +22,7 @@
 
 <script>
 //  import Vue from 'vue'
+  import { GridLoader } from 'vue-spinner/dist/vue-spinner'
   import customBootstrap from '../components'
   import ApiService from '../api'
 
@@ -41,11 +45,14 @@
           }, function (error) {
             console.log(error)
           })
-        }, 1000)
+        }, 3000)
       }
     },
     data () {
       return {
+        scrollClass: 'my-scrollbar',
+        color: '#222',
+        size: '20px',
         position: 'left',
         navigationMeta: {
           message: 'xxx',
@@ -57,7 +64,8 @@
     },
     components: {
       list,
-      navigation
+      navigation,
+      GridLoader
     },
     ready () {
 //      console.log(this.$parent)

@@ -2,9 +2,9 @@
   <div id="content">
 
     <router-view
-      class="view"
+      class="animated"
       keep-alive
-      transition
+      transition="bounce"
       transition-mode="out-in">
     </router-view>
 

@@ -15,6 +15,7 @@
     "babel-runtime": "^6.0.0"
   },
   "devDependencies": {
+    "animate.css": "^3.5.1",
     "babel-core": "^6.0.0",
     "babel-loader": "^6.0.0",
     "babel-plugin-transform-runtime": "^6.0.0",
@@ -40,7 +41,7 @@
     "function-bind": "^1.0.2",
     "html-webpack-plugin": "^2.8.1",
     "http-proxy-middleware": "^0.12.0",
-    "jquery": "^2.2.4",
+    "jade-loader": "^0.8.0",
     "json-loader": "^0.5.4",
     "node-sass": "^3.7.0",
     "ora": "^0.2.0",
@@ -54,6 +55,9 @@
     "vue-mdl": "^0.8.3",
     "vue-resource": "^0.8.0",
     "vue-router": "^0.7.13",
+    "vue-scrollbar": "^1.0.4",
+    "vue-smoothscroll": "0.0.4",
+    "vue-spinner": "^1.0.2",
     "vue-style-loader": "^1.0.0",
     "vuestrap": "^1.0.3",
     "vuestrap-base-components": "^0.8.10",

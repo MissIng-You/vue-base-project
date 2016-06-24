@@ -5,6 +5,12 @@
         <img src="../../assets/images/logo.png" alt="logo" class="header-logo">
         <span class="header-title">{{navigationMeta.title}}</span>
       </div>
+      <div class="nav-footer" slot="footer">
+        <div class="box box-horizontal box-thermometer">
+          <img src="../../assets/images/logo.png" alt="logo" class="box-mask">
+          <span class="box-title">{{navigationMeta.title}}</span>
+        </div>
+      </div>
     </navigation>
   </div>
 </template>

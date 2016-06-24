@@ -4,12 +4,14 @@
 .navbar-middle{
   display: block;
   text-align: left;
-  background-color: darken($cm-bg, 5%);
+  background-color: $cm-white;
 
+  @include box-shadow(0 0 2px 2px $cm-gray);
   @include clearfix();
   @include user-select();
 
   > .nav{
+    line-height: 1.7;
     display: inline-block;
     vertical-align: text-top;
   }
@@ -18,11 +20,12 @@
 .navbar-sidebar{
   //display: table;
   vertical-align: middle;
-  background-color: darken($cm-bg, 5%);
-  overflow-x: hidden;
-  overflow-y: scroll;
+  background-color: $cm-white;
+  overflow: hidden;
   height: $cm-sm;
 
+  @include box-shadow(0 3px 2px 2px $cm-gray);
+  @include clearfix();
   @include user-select();
 
   > .nav{
@@ -38,7 +41,7 @@
   color: $cm-default;
   background-color: $cm-black;
 
-  @include text-shadow-variant(0 1px 1px lighten($cm-black, 30%));
+  @include text-shadow-variant(0 1px 1px lighten($cm-maroon, 30%));
 }
 
 // nav fixed top bottom left right scss.

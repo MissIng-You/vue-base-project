@@ -15,7 +15,19 @@ $cm-space-width: 30px / 3 !default; // 10 px
 
 $cm-bg: $body-bg !default;
 $cm-default: $gray-lightest !default;
-$cm-black: #222 !default;
+
+$cm-primary:             #0275d8 !default;
+$cm-success:             #5cb85c !default;
+$cm-info:                #5bc0de !default;
+$cm-warning:             #f0ad4e !default;
+$cm-danger:              #d9534f !default;
+
+$cm-white:               #fcfcfc !default;
+$cm-black:               #222 !default;
+$cm-gray:                #eee !default;
+$cm-twitter:             #3c8dbc !default;
+$cm-maroon:              #d81b60 !default;
+$cm-purple:              #605ca8 !default;
 
 
 // login scss variants

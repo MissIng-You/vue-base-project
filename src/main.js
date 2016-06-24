@@ -8,9 +8,26 @@ import AppView from './containers/AppView'
 // all styles
 import './assets/styles/custom-scss/custom-bootstrap.scss'
 import './assets/styles/font-awesome/css/font-awesome.min.css'
+import 'animate.css'
 
 Vue.config.debug = true
 Vue.config.devtools = true
+
+// custom define transition style.
+Vue.transition('bounce', {
+  enterClass: 'bounceInLeft',
+  leaveClass: 'bounceOutRight'
+})
+
+Vue.transition('slide', {
+  enterClass: 'slideInLeft',
+  leaveClass: 'slideOutRight'
+})
+
+Vue.transition('fade', {
+  enterClass: 'fadeIn',
+  leaveClass: 'fadeOut'
+})
 
 // use vue resource
 Vue.use(VueResource)

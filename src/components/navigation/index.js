@@ -38,11 +38,11 @@ export default {
       return item && item.url ? item.url : '/notfound'
     },
     getNavItemClassByPosition () {
-      return getClassByPosition(this.position, '', 'box-horizontal')
+      return getClassByPosition(this.position, 'box-maroon', 'box-horizontal box-purple')
     },
     getNavClassByPosition () {
       return getClassByPosition(this.position,
-        'nav-inline nav-vertical-divider',
+        'nav-inline', //  nav-vertical-divider
         'nav-stacked nav-horizontal-divider')
     },
     getNavbarClassByPosition () {
