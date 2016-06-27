@@ -2,8 +2,8 @@
   <div id="menulist" class="layout">
     <div class="layout-left">
       <grid-loader v-if="$loadingRouteData" :color="color" :size="size"></grid-loader>
-      <navigation v-if="!$loadingRouteData" :theme="primary" :position="position"
-                  :meta="navigationMeta" v-ref:sidebar></navigation>
+      <cascading-menu v-if="!$loadingRouteData" :theme="primary" :position="position"
+                  :meta="navigationMeta" v-ref:sidebar></cascading-menu>
     </div>
 
     <div class="layout-center">
@@ -25,7 +25,7 @@
   import customBootstrap from '../components'
   import ApiService from '../api'
 
-  let { navigation } = customBootstrap
+  let { navigation, cascadingMenu } = customBootstrap
   let { getMenuList } = ApiService
 
   let isLoadedOfMenuList = false
@@ -67,6 +67,7 @@
     },
     components: {
       navigation,
+      cascadingMenu,
       GridLoader
     },
     ready () {

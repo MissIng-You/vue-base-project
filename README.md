@@ -1,4 +1,4 @@
-# vue-demo
+# vue-base-project
 
 > this is a vue base project.
 

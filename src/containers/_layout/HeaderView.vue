@@ -6,9 +6,10 @@
         <span class="header-title">{{navigationMeta.title}}</span>
       </div>
       <div class="nav-footer" slot="footer">
-        <div class="box box-horizontal box-thermometer">
+        <div class="box box-horizontal box-thermometer" @click="toggleUserProfile">
           <img src="../../assets/images/logo.png" alt="logo" class="box-mask">
           <span class="box-title">{{navigationMeta.title}}</span>
+          <list v-show="userMeta.isShow" :meta="userMeta"></list>
         </div>
       </div>
     </navigation>
@@ -18,12 +19,28 @@
 <script>
   import customBootstrap from '../../components'
 
-  let { navigation } = customBootstrap
+  let { navigation, list } = customBootstrap
 
   export default {
     name: 'HeaderView',
     data () {
       return {
+        userMeta: {
+          isShow: false,
+          items: [{
+            icon: 'fa-cog',
+            title: '设置',
+            url: '/config'
+          }, {
+            icon: 'fa-signin',
+            title: '登录',
+            url: '/login'
+          }, {
+            icon: 'fa-signout',
+            title: '退出',
+            url: '/loginout'
+          }]
+        },
         navigationMeta: {
           logo: '../../../src/assets/images/logo.png',
           title: 'Vue.js Project V1.0',
@@ -56,8 +73,16 @@
         }
       }
     },
+    methods: {
+      toggleUserProfile () {
+        this.$set('userMeta.isShow', !this.userMeta.isShow)
+        this.$nextTick()
+        return
+      }
+    },
     components: {
-      navigation
+      navigation,
+      list
     }
   }
 </script>

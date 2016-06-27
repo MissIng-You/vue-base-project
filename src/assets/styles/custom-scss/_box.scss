@@ -30,6 +30,10 @@
     }
   }
 
+  &.box-no-padding{
+    padding: $cm-space-width / 2;
+  }
+
   .box-mask, .box-title{
     display:block;
     height:50%;

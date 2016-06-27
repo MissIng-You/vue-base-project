@@ -1,6 +1,13 @@
 
 // custom nav scss.
 
+// reset .nav-item > .nav
+.nav{
+  .nav{
+    margin-left: $cm-space-width * 2;
+  }
+}
+
 // reset bootstrap .nav-inline
 .nav-inline{
 

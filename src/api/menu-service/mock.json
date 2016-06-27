@@ -2,7 +2,28 @@
   "items": [{
     "icon": "fa-gitlab",
     "title": "菜单导航",
-    "url": "/list/navigation"
+    "url": "/list/navigation",
+    "subItems": [{
+      "icon": "fa-gitlab",
+      "title": "子页面1",
+      "url": "/list/navigation/1"
+    }, {
+      "icon": "fa-low-vision",
+      "title": "子页面2",
+      "url": "/list/add/2"
+    }, {
+      "icon": "fa-edit",
+      "title": "子页面3",
+      "url": "/list/modify/3"
+    }, {
+      "icon": "fa-signing",
+      "title": "子页面4",
+      "url": "/list/delete/4"
+    }, {
+      "icon": "fa-yoast",
+      "title": "子页面5",
+      "url": "/list/index/5"
+    }]
   }, {
     "icon": "fa-low-vision",
     "title": "新增页面",
@@ -14,7 +35,28 @@
   }, {
     "icon": "fa-signing",
     "title": "删除页面",
-    "url": "/list/delete"
+    "url": "/list/delete",
+    "subItems": [{
+      "icon": "fa-gitlab",
+      "title": "子页面1",
+      "url": "/list/navigation/1"
+    }, {
+      "icon": "fa-low-vision",
+      "title": "子页面2",
+      "url": "/list/add/2"
+    }, {
+      "icon": "fa-edit",
+      "title": "子页面3",
+      "url": "/list/modify/3"
+    }, {
+      "icon": "fa-signing",
+      "title": "子页面4",
+      "url": "/list/delete/4"
+    }, {
+      "icon": "fa-yoast",
+      "title": "子页面5",
+      "url": "/list/index/5"
+    }]
   }, {
     "icon": "fa-yoast",
     "title": "浏览页面",
