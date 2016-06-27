@@ -9,7 +9,9 @@
         <div class="box box-horizontal box-thermometer" @click="toggleUserProfile">
           <img src="../../assets/images/logo.png" alt="logo" class="box-mask">
           <span class="box-title">{{navigationMeta.title}}</span>
-          <list v-show="userMeta.isShow" :meta="userMeta"></list>
+        </div>
+        <div class="nav-footer-wrap" v-show="userMeta.isShow">
+          <list :meta="userMeta" orientation="vertical"></list>
         </div>
       </div>
     </navigation>
@@ -32,11 +34,11 @@
             title: '设置',
             url: '/config'
           }, {
-            icon: 'fa-signin',
+            icon: 'fa-sign-in',
             title: '登录',
             url: '/login'
           }, {
-            icon: 'fa-signout',
+            icon: 'fa-sign-out',
             title: '退出',
             url: '/loginout'
           }]
@@ -77,7 +79,6 @@
       toggleUserProfile () {
         this.$set('userMeta.isShow', !this.userMeta.isShow)
         this.$nextTick()
-        return
       }
     },
     components: {

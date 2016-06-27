@@ -55,8 +55,35 @@
 // nav-header scss.
 .nav-footer{
   float: right;
+  position: relative;
 
   @include clearfix();
+
+  &:hover{
+    cursor: pointer;
+  }
+
+  .nav-footer-wrap{
+    position: absolute;
+    right: 0;
+    margin-top: $cm-space-width;
+    padding: $cm-space-width;
+    background-color: $cm-default;
+
+    //@include border-variant(all, 1px solid $cm-gray);
+    @include border-radius(3px);
+    @include box-shadow(0 1px 1px 1px $cm-gray);
+
+    &::before{
+      position: absolute;
+      content: "";
+      top: -$cm-space-width * 2;
+      width: 0;
+      height: 0;
+      border: 10px solid transparent;
+      border-bottom-color: $cm-default;
+    }
+  }
 }
 
 // new divider

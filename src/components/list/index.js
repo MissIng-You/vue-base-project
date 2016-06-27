@@ -19,6 +19,23 @@ export default {
     orientation: {
       type: String,
       default: 'auto'
+    },
+    size: {
+      type: String
+    }
+  },
+  computed: {
+    getListboxSize () {
+      if (!this.size) return
+
+      return `list-${this.size}`
+    },
+    getBoxOrientation () {
+      if (this.orientation === 'horizontal') {
+        return 'box-horizontal'
+      } else if (this.orientation === 'vertical') {
+        return ''
+      }
     }
   }
 }
