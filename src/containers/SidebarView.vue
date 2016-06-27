@@ -4,7 +4,6 @@
       <grid-loader v-if="$loadingRouteData" :color="color" :size="size"></grid-loader>
       <navigation v-if="!$loadingRouteData" :theme="primary" :position="position"
                   :meta="navigationMeta" v-ref:sidebar></navigation>
-
     </div>
 
     <div class="layout-center">
@@ -26,17 +25,22 @@
   import customBootstrap from '../components'
   import ApiService from '../api'
 
-  let { list, navigation } = customBootstrap
+  let { navigation } = customBootstrap
   let { getMenuList } = ApiService
+
+  let isLoadedOfMenuList = false
 
   export default {
     name: 'SidebarView',
     // http://router.vuejs.org/en/pipeline/data.html
     route: {
       data: function (transition) {
+        if (isLoadedOfMenuList) return transition.next()
         window.setTimeout(function () {
           getMenuList(function (response) {
             console.log(response)
+            isLoadedOfMenuList = true
+
             transition.next({
               navigationMeta: {
                 items: response.data.items
@@ -45,12 +49,11 @@
           }, function (error) {
             console.log(error)
           })
-        }, 3000)
+        }, 1000)
       }
     },
     data () {
       return {
-        scrollClass: 'my-scrollbar',
         color: '#222',
         size: '20px',
         position: 'left',
@@ -63,7 +66,6 @@
       }
     },
     components: {
-      list,
       navigation,
       GridLoader
     },

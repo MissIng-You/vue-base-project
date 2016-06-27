@@ -1,16 +1,16 @@
 <template>
   <div>
-    <p>This is component 1</p>
+    <p>{{msg}}</p>
   </div>
 </template>
 
 <script>
   export default {
-    name: 'HelloView',
+    name: 'ModifyView',
 
     data () {
       return {
-        msg: 'hello vue'
+        msg: 'Modify View Template !'
       }
     }
   }

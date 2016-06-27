@@ -1,23 +1,23 @@
 {
   "items": [{
-    "icon": "fa-home",
-    "title": "控制面板",
-    "url": "/home"
+    "icon": "fa-gitlab",
+    "title": "菜单导航",
+    "url": "/list/navigation"
   }, {
-    "icon": "fa-home",
-    "title": "控制面板",
-    "url": "/home"
+    "icon": "fa-low-vision",
+    "title": "新增页面",
+    "url": "/list/add"
   }, {
-    "icon": "fa-home",
-    "title": "控制面板",
-    "url": "/home"
+    "icon": "fa-edit",
+    "title": "修改页面",
+    "url": "/list/modify"
   }, {
-    "icon": "fa-home",
-    "title": "控制面板",
-    "url": "/home"
+    "icon": "fa-signing",
+    "title": "删除页面",
+    "url": "/list/delete"
   }, {
-    "icon": "fa-home",
-    "title": "控制面板",
-    "url": "/home"
+    "icon": "fa-yoast",
+    "title": "浏览页面",
+    "url": "/list/index"
   }]
 }

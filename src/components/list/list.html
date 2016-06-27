@@ -1,7 +1,7 @@
 
 <ul class="list list-sm list-vertical-middle">
   <li class="list-item" :id="$index" v-for="item in meta.items">
-    <a v-link="{path: item.url}" class="box box-horizontal box-divider">
+    <a v-link="{path: item.url}" class="box box-horizontal box-right-dot">
       <i class="box-mask fa fa-2x fa-fw" :class="item.icon"></i>
       <span class="box-title" v-html="item.title"></span>
     </a>

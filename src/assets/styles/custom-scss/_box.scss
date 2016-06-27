@@ -39,6 +39,25 @@
 
 
 // themes.
+
+.box-right-dot{
+  position: relative;
+
+  .box-title{
+    &::before{
+      position: absolute;
+      content: "";
+      top: 45%;
+      right: -5px;
+      background-color: $cm-gray;
+      width: 5px;
+      height: 5px;
+
+      @include border-radius(50%);
+    }
+  }
+}
+
 .box-maroon{
   color: lighten($cm-black, 30%);
 
@@ -56,12 +75,15 @@
 .box-purple{
   color: lighten($cm-black, 30%);
 
+  @include border-variant(left, 3px solid $cm-white);
+
   &:hover,
   &.active{
     color: $cm-purple;
     background-color: darken($cm-white, 2%);
     text-decoration: none;
 
+    @include border-variant(left, 3px solid $cm-purple);
     @include text-shadow-variant(0 1px $cm-white);
   }
 

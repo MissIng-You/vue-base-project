@@ -49,7 +49,7 @@ router.alias({
 })
 
 router.map({
-  '/sidebar': {
+  '/list': {
     name: 'sidebar',
     component: function (resolve) {
       require.ensure([], function () {
@@ -58,12 +58,44 @@ router.map({
       }, 'sidebar')
     },
     subRoutes: {
-      '/list': {
+      '/navigation': {
         component: function (resolve) {
           require.ensure([], function () {
-            let sidebar = require('./containers/ListboxView')
-            resolve(sidebar)
-          }, 'sidebar.list')
+            let navigation = require('./containers/ListboxView')
+            resolve(navigation)
+          }, 'list.navigation')
+        }
+      },
+      '/add': {
+        component: function (resolve) {
+          require.ensure([], function () {
+            let add = require('./containers/AddView')
+            resolve(add)
+          }, 'list.add')
+        }
+      },
+      '/modify': {
+        component: function (resolve) {
+          require.ensure([], function () {
+            let modify = require('./containers/ModifyView')
+            resolve(modify)
+          }, 'list.modify')
+        }
+      },
+      '/delete': {
+        component: function (resolve) {
+          require.ensure([], function () {
+            let deleteView = require('./containers/DeleteView')
+            resolve(deleteView)
+          }, 'list.delete')
+        }
+      },
+      '/index': {
+        component: function (resolve) {
+          require.ensure([], function () {
+            let index = require('./containers/IndexView')
+            resolve(index)
+          }, 'list.index')
         }
       }
     }
@@ -121,7 +153,7 @@ router.beforeEach(function () {
 
 router.redirect({
   '*': '/login',
-  '/sidebar': '/sidebar/list'
+  '/list': '/list/navigation'
 })
 
 router.start(AppView, '#app')

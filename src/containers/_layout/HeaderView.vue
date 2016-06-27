@@ -47,7 +47,7 @@
           }, {
             icon: 'fa-list',
             title: '左侧菜单',
-            url: '/sidebar'
+            url: '/list'
           }, {
             icon: 'fa-plus',
             title: '更多菜单',
