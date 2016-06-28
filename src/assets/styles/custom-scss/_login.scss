@@ -4,30 +4,37 @@
 .login {
   display: block;
   margin: 0 auto;
+  background-color: $cm-white;
+
   @include border-radius($login-box-radius);
   @include box-shadow(0 $login-shadow-width $login-shadow-width $login-shadow-width $login-default);
   @include border-variant(top, $login-border-width solid $login-default);
 
   .login-header, .login-body {
-    @include border-variant(bottom, $login-border-width * 2 dotted $login-default);
+    @include border-variant(bottom, $login-border-width solid $cm-gray);
   }
 
   .login-header{
     position:relative;
     padding: $login-space-width;
 
+    @include border-variant(top, $login-border-width * 3 solid $cm-info);
+
     .login-header-inner{
       position: relative;
       text-align: center;
 
-      @include hr-divider-variant($login-default);
+      @include hr-divider-variant(2px ,$cm-black);
 
       .login-header-title{
         position:relative;
         display:inline-block;
-        padding: 0 $login-space-width;
+        padding-left: $login-space-width / 2;
         margin:0 auto;
-        background-color: $login-bg;
+        background-color: $cm-white;
+        letter-spacing: $cm-space-width;
+
+        @include text-shadow-variant(0 1px 1px $cm-black);
       }
     }
   }
@@ -38,10 +45,23 @@
     .input-group:not(:last-child) {
       margin-bottom: $login-gutter-width * 2;
     }
+
+    .input-group-addon{
+      background-color: $cm-white;
+    }
   }
 
   .login-footer{
     padding: $login-space-width;
+  }
+
+  // login theme
+  &.login-center{
+    position: absolute;
+    top: 0;
+    margin: 0;
+    left: 0;
+    right: 0;
   }
 }
 
@@ -60,5 +80,6 @@
 
 // login size
 .login-sm {
-  @include size(50%, 50%)
+  margin-top: $cm-space-width * 5;
+  @include size($cm-sm * 2 / 3, auto)
 }

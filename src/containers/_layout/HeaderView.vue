@@ -10,8 +10,8 @@
           <img src="../../assets/images/logo.png" alt="logo" class="box-mask">
           <span class="box-title">{{navigationMeta.title}}</span>
         </div>
-        <div class="nav-footer-wrap" v-show="userMeta.isShow">
-          <list :meta="userMeta" orientation="vertical"></list>
+        <div class="nav-footer-wrap animated" :class="{'fadeIn': userMeta.isShow, 'fadeOut': !userMeta.isShow}" v-show="userMeta.isShow">
+          <list :meta="userMeta" orientation="horizontal"></list>
         </div>
       </div>
     </navigation>
@@ -78,7 +78,6 @@
     methods: {
       toggleUserProfile () {
         this.$set('userMeta.isShow', !this.userMeta.isShow)
-        this.$nextTick()
       }
     },
     components: {

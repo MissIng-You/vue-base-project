@@ -4,7 +4,7 @@
     <router-view
       class="animated"
       keep-alive
-      transition="fade"
+      transition="slide"
       transition-mode="out-in">
     </router-view>
 

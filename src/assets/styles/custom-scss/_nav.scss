@@ -5,6 +5,10 @@
 .nav{
   .nav{
     margin-left: $cm-space-width * 2;
+
+    .nav-item + .nav-item{
+      @include border-variant(top, 1px dotted $cm-gray);
+    }
   }
 }
 
@@ -68,7 +72,7 @@
     right: 0;
     margin-top: $cm-space-width;
     padding: $cm-space-width;
-    background-color: $cm-default;
+    background-color: $cm-white;
 
     //@include border-variant(all, 1px solid $cm-gray);
     @include border-radius(3px);
@@ -81,7 +85,7 @@
       width: 0;
       height: 0;
       border: 10px solid transparent;
-      border-bottom-color: $cm-default;
+      border-bottom-color: $cm-white;
     }
   }
 }
@@ -90,7 +94,7 @@
 .nav-vertical-divider{
   position: relative;
 
-  .nav-item:not(:first-child){
+  > .nav-item:not(:first-child){
     @include xy-divider-variant(vertical, $cm-maroon);
   }
 }
@@ -98,7 +102,7 @@
 .nav-horizontal-divider{
   position: relative;
 
-  .nav-item:not(:first-child){
+  > .nav-item:not(:first-child){
     @include xy-divider-variant(horizontal, $cm-purple);
   }
 }

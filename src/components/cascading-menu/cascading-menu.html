@@ -9,7 +9,7 @@
            :class="{'fa-angle-double-right': item.subItems && item.subItems.length,
             'fa-angle-double-down': item.subItems && item.subItems.length && item.isOpen}"></i>
       </a>
-      <ul class="nav nav-inline" v-show="item.isOpen">
+      <ul class="nav nav-inline animated" :class="{'fadeIn': item.isOpen, 'fadeOut': !item.isOpen}" v-show="item.isOpen">
         <li class="nav-item" :id="$index" v-for="subItem in item.subItems">
           <a v-link="{path: subItem.url}" class="box box-horizontal box-no-padding">
             <i class="box-mask fa fa-1x fa-fw" :class="subItem.icon"></i>

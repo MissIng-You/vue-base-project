@@ -66,7 +66,7 @@ export default {
   methods: {
     toggleSubItems (index, item) {
       this.$set(`meta.items[${index}].isOpen`, !item.isOpen)
-      this.$nextTick()    // notify dom update
+       // this.$nextTick()    // notify dom update
       return
     }
   }

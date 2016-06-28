@@ -21,7 +21,7 @@ Vue.transition('bounce', {
 
 Vue.transition('slide', {
   enterClass: 'slideInLeft',
-  leaveClass: 'slideOutRight'
+  leaveClass: 'fadeOut'
 })
 
 Vue.transition('fade', {

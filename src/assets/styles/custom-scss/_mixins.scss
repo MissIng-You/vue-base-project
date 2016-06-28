@@ -39,15 +39,17 @@
 }
 
 // hr divider mixins
-@mixin hr-divider-variant($bg-color...){
+@mixin hr-divider-variant($hr-height: 1px ,$bg-color...){
   &::before{
     position: absolute;
     display:block;
     content: "";
     top: 50%;
     width: 100%;
-    height: 1px;
-    background-color: $bg-color;
+    height: $hr-height;
+
+    @include gradient-horizontal-three-colors(#fff, $bg-color, 50%, #fff);
+    //background-color: $bg-color;
   }
 }
 

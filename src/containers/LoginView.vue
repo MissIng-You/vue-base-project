@@ -1,6 +1,6 @@
 <template>
   <div id="login">
-    <login :theme="primary" :size="sm" :meta="loginMeta" @login="login"></login>
+    <login theme="primary" :size="sm" :meta="loginMeta" @login="login"></login>
   </div>
 </template>
 
@@ -17,12 +17,12 @@
           title: '用户登录',
           username: {
             id: 'username',
-            display: '用户',
+            display: '<i class="fa fa-lg fa-fw fa-user"></i>',
             placeholder: '请输入用户名'
           },
           password: {
             id: 'password',
-            display: '密码',
+            display: '<i class="fa fa-lg fa-fw fa-key"></i>',
             placeholder: '请输入密码'
           },
           operation: '登录'

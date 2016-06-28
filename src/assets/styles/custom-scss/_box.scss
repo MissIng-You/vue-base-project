@@ -30,14 +30,26 @@
     }
   }
 
+  // box size
+  &.box-xs{
+
+  }
+
+  // box theme
+  &.box-default{
+
+  }
+
   &.box-no-padding{
     padding: $cm-space-width / 2;
+    width: 100%;
   }
 
   .box-mask, .box-title{
     display:block;
     height:50%;
     margin:0 auto;
+    text-align: center;
   }
 }
 

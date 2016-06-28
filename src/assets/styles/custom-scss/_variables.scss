@@ -37,7 +37,7 @@ $login-shadow-width: 3px !default;
 $login-box-radius: 3px !default;
 
 $login-gutter-width: $grid-gutter-width / 3 !default;   // 10 px
-$login-space-width: $login-gutter-width !default; // 10 px
+$login-space-width: $login-gutter-width * 2 !default; // 10 * 2 px
 
 $login-bg: $body-bg !default;
 

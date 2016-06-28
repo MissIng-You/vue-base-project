@@ -1,16 +1,10 @@
 
-// import list.html
-import template from './list.html'
-
-// import box component
-import Box from '../box'
+// import box.html
+import template from './box.html'
 
 // export index.js
 export default {
-  components: {
-    Box
-  },
-  name: 'List',
+  name: 'Box',
   template: template,
   replace: true,
   props: {
@@ -34,25 +28,20 @@ export default {
     getTheme () {
       if (!this.theme) return
 
-      return `nav-${this.theme}`
+      return `box-${this.theme}`
     },
     getSize () {
       if (!this.size) return
 
-      return `nav-${this.size}`
+      return `box-${this.size}`
     },
     getOrientation () {
       if (this.orientation === 'horizontal') {
-        return 'nav-inline'
+        return 'box-horizontal'
       } else if (this.orientation === 'vertical') {
-        return 'nav-stacked'
-      }
-    },
-    getBoxOrientation () {
-      if (this.orientation === 'horizontal') {
-        return 'vertical'
-      } else if (this.orientation === 'vertical') {
-        return 'horizontal'
+        return 'box-vertical'
+      } else {
+        return ''
       }
     }
   }
