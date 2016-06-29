@@ -53,9 +53,9 @@
           '__actions'
         ],
         itemActions: [
-          { name: 'view-item', label: '', icon: 'zoom icon', class: 'ui teal button' },
-          { name: 'edit-item', label: '', icon: 'edit icon', class: 'ui orange button' },
-          { name: 'delete-item', label: '', icon: 'delete icon', class: 'ui red button' }
+          { name: 'view-item', label: '', icon: 'fa fa-eye', class: 'btn btn-xs  btn-info' },
+          { name: 'edit-item', label: '', icon: 'edit fa-edit', class: 'btn btn-xs btn-success' },
+          { name: 'delete-item', label: '', icon: 'fa fa-trash', class: 'btn btn-xs btn-danger' }
         ]
       }
     },

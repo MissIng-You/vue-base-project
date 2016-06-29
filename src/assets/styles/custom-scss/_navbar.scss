@@ -38,10 +38,10 @@
   text-align: center;
   height: $cm-footer;
   line-height: $cm-footer;
-  color: $cm-default;
-  background-color: $cm-black;
+  color: $cm-black;
+  background-color: $cm-white;
 
-  @include text-shadow-variant(0 1px 1px lighten($cm-maroon, 30%));
+  @include text-shadow-variant(0 1px 1px lighten($cm-black, 30%));
 }
 
 // nav fixed top bottom left right scss.

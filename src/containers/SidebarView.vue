@@ -1,6 +1,6 @@
 <template>
   <div id="menulist" class="layout">
-    <div class="layout-left">
+    <div class="layout-left fixed">
       <grid-loader v-if="$loadingRouteData" :color="color" :size="size"></grid-loader>
       <cascading-menu v-if="!$loadingRouteData" :theme="primary" :position="position"
                   :meta="navigationMeta" v-ref:sidebar></cascading-menu>

@@ -7,11 +7,15 @@ html,
 body{
   width: 100%;
   height: 100%;
+  //
+  //@include gradient-horizontal-three-colors($cm-gray, $cm-white, 50%, $cm-gray);
 
-  @include gradient-horizontal-three-colors($cm-gray, $cm-white, 50%, $cm-gray);
+  background-color: $cm-gray;
 }
 
 .layout{
+  overflow:auto;
+  max-height: $cm-sm;
 
   @include clearfix();
 
