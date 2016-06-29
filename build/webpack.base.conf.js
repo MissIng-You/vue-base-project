@@ -36,10 +36,7 @@ module.exports = {
   module: {
     noParse: [/vendor/],
     externals: {
-      //'esri': 'esri',
-      'jquery': 'window.jQuery',
-      'vue': 'window.Vue',
-      'esri': 'window.esri'
+      'vue': 'Vue'
     },
     preLoaders: [
       {

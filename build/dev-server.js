@@ -18,9 +18,13 @@ var compiler = webpack(webpackConfig)
 
 var devMiddleware = require('webpack-dev-middleware')(compiler, {
   publicPath: webpackConfig.output.publicPath,
+  watchOptions: {
+    aggregateTimeout: 300,
+    poll: true
+  },
   stats: {
     colors: true,
-    chunks: false
+    chunks: true    // show chunks details.
   }
 })
 

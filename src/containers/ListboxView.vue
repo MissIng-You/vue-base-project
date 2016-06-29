@@ -71,9 +71,6 @@
           }, {
             text: 'Second',
             value: 'second'
-          }, {
-            text: 'Third',
-            value: 'third'
           }
         ],
         caret: true,
