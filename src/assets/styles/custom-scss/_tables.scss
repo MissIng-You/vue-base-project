@@ -1,10 +1,17 @@
 
 // custom table scss.
 
-// Hover effect
-//
-// Placed here since it has to come after the potential zebra striping
+// reset .table component scss.
+.table {
+  font-size: $font-size-sm;
+  margin-bottom: 0;
 
+  & + .table {
+    margin-top: $cm-space-width;
+  }
+}
+
+// add .table-hover-outline scss.
 .table-hover-outline {
   thead,
   tbody {
@@ -20,9 +27,14 @@
         overflow: hidden;
         background-color: $cm-white;
       }
+    }
+  }
 
+  tbody {
+    > tr {
       &:hover,
       &.active{
+        background-color: $cm-gray;
         //@include border-variant(left, 3px solid $cm-primary);
         &::before {
           background-color: $cm-primary;

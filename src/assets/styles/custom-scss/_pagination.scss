@@ -1,0 +1,20 @@
+
+// custom pagination component scss.
+
+// add .clearfix class
+.pagination {
+  @include clearfix();
+
+  &.pagination-no-padding {
+    vertical-align: middle;   // fix vertical-align
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+}
+
+// add pointer inner .page-link
+.page-link {
+  @include hover-focus-active{
+    cursor: pointer;
+  }
+}

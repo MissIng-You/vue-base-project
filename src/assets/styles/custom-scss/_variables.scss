@@ -21,6 +21,7 @@ $cm-space-width: 30px / 3 !default; // 10 px
 $cm-bg: $body-bg !default;
 $cm-default: $gray-lightest !default;
 
+// custom theme variants.
 $cm-primary:             #0275d8 !default;
 $cm-success:             #5cb85c !default;
 $cm-info:                #5bc0de !default;
@@ -33,6 +34,16 @@ $cm-gray:                #eee !default;
 $cm-twitter:             #3c8dbc !default;
 $cm-maroon:              #d81b60 !default;
 $cm-purple:              #605ca8 !default;
+
+// custom zindex variants.
+$cm-zindex-navbar:            1000 !default;
+$cm-zindex-dropdown:          1000 !default;
+$cm-zindex-popover:           1060 !default;
+$cm-zindex-tooltip:           1070 !default;
+$cm-zindex-navbar-fixed:      1030 !default;
+$cm-zindex-navbar-sticky:     1030 !default;
+$cm-zindex-modal-bg:          1040 !default;
+$cm-zindex-modal:             1050 !default;
 
 
 // login scss variants
