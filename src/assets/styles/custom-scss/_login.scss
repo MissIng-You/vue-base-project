@@ -81,5 +81,5 @@
 // login size
 .login-sm {
   margin-top: $cm-space-width * 5;
-  @include size($cm-sm * 2 / 3, auto)
+  @include size($cm-sm-width * 2 / 3, auto)
 }

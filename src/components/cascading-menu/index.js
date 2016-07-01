@@ -57,7 +57,7 @@ export default {
     getNavClassByPosition () {
       return getClassByPosition(this.position,
         'nav-inline', //  nav-vertical-divider
-        'nav-stacked nav-horizontal-divider')
+        'nav-stacked')
     },
     getNavbarClassByPosition () {
       return getClassByPosition(this.position, 'navbar-middle', 'navbar-sidebar')

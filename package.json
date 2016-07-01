@@ -54,6 +54,7 @@
     "vue-html-loader": "^1.0.0",
     "vue-loader": "^8.3.0",
     "vue-mdl": "^0.8.3",
+    "vue-multiselect": "^0.3.0",
     "vue-resource": "^0.8.0",
     "vue-router": "^0.7.13",
     "vue-scrollbar": "^1.0.4",

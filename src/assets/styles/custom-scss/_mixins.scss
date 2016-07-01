@@ -81,8 +81,8 @@
 
 }
 
-// nav fixed mixins
-@mixin nav-fixed-variant($direct, $offset: 0){
+// fixed mixins
+@mixin fixed-variant($direct, $offset: 0){
   position: fixed;
   #{$direct}: $offset;
 }

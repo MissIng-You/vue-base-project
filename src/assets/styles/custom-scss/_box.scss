@@ -3,8 +3,8 @@
 
 .box{
   display:inline-block;
-  //border: 1px solid $cm-bg;
   padding: $cm-space-width / 2 $cm-space-width;
+  width: 100%;
   color: lighten($cm-black, 15%);
 
   // reset a:link style
@@ -89,9 +89,10 @@
 }
 
 .box-purple{
+  position: relative;
   color: lighten($cm-black, 30%);
 
-  @include border-variant(left, 3px solid $cm-white);
+  //@include border-variant(left, 3px solid $cm-white);
 
   &:hover,
   &.active{
@@ -99,8 +100,31 @@
     background-color: darken($cm-white, 2%);
     text-decoration: none;
 
-    @include border-variant(left, 3px solid $cm-purple);
+    //@include border-variant(left, 3px solid $cm-purple);
     @include text-shadow-variant(0 1px $cm-white);
+
+    .box-mask:first-child{
+      &::before{
+        color: $cm-white;
+        background-color: $cm-purple;
+      }
+    }
+  }
+
+  .box-mask:first-child{
+    &::before{
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 46px;
+      height: 46px;
+      padding: $cm-space-width / 2;
+    }
+  }
+
+  .box-title{
+    letter-spacing: 3px;
+    padding-left: $cm-space-width / 2;
   }
 
 }

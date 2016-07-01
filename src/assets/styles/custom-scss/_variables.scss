@@ -4,9 +4,14 @@
 @import "../bootstrap-scss/variables";
 
 // common scss variants
-$cm-sm: 544px !default;
-$cm-header: 70px !default;
-$cm-footer: 50px !default;
+$cm-sm-width: 544px !default;
+$cm-header-width: 70px !default;
+$cm-footer-width: 50px !default;
+
+$cm-normal-width: 1366px !default;  // 1200px = 50 * 24
+
+$cm-sidebar-max-width: 200px !default;  // 50 * 4
+$cm-sidebar-min-width: 70px !default;
 
 $cm-border-width: 1px !default;
 $cm-box-radius: 3px !default;

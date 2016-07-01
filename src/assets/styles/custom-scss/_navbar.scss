@@ -18,26 +18,36 @@
 }
 
 .navbar-sidebar{
+  width: $cm-sidebar-max-width;
+}
+
+.navbar-sidebar-min{
+  width: $cm-sidebar-min-width;
+}
+
+.navbar-sidebar,
+.navbar-sidebar-min{
   //display: table;
   vertical-align: middle;
   background-color: $cm-white;
   overflow: hidden;
-  height: $cm-sm;
+  height: $cm-sm-width;
 
   @include box-shadow(0 3px 2px 2px $cm-gray);
   @include clearfix();
   @include user-select();
 
   > .nav{
-    //display: table-cell;
+
+    @include border-variant(top, 1px dotted $cm-gray);
   }
 }
 
 .navbar-footer{
   width: 100%;
   text-align: center;
-  height: $cm-footer;
-  line-height: $cm-footer;
+  height: $cm-footer-width;
+  line-height: $cm-footer-width;
   color: $cm-black;
   background-color: $cm-white;
 
@@ -46,17 +56,17 @@
 
 // nav fixed top bottom left right scss.
 .fixed-top{
-  @include nav-fixed-variant(top);
+  @include fixed-variant(top);
 }
 
 .fixed-bottom{
-  @include nav-fixed-variant(bottom);
+  @include fixed-variant(bottom);
 }
 
 .fixed-left{
-  @include nav-fixed-variant(left);
+  @include fixed-variant(left);
 }
 
 .fixed-right{
-  @include nav-fixed-variant(right);
+  @include fixed-variant(right);
 }

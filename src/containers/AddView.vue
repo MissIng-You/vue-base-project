@@ -13,17 +13,15 @@
               pagination-component-class=""
               :pagination-component="vuetablePagination"
               :item-actions="itemActions"
-              :append-params="moreParams"
-              :per-page="perPage"
-              wrapper-class="vuetable-wrapper"
-              table-wrapper=".vuetable-wrapper"
-              loading-class="loading"
     ></vuetable>
+    <multiselect :selected.sync="selected" :options="options"></multiselect>
   </div>
 </template>
 
 <script>
   import customBootstrap from '../components'
+
+  import multiselect from 'vue-multiselect'
 
   let { vuetable, vuetablePagination } = customBootstrap
 
@@ -31,10 +29,13 @@
     name: 'AddView',
     components: {
       vuetable,
-      vuetablePagination
+      vuetablePagination,
+      multiselect
     },
     data () {
       return {
+        selected: null,
+        options: ['list', 'of', 'options'],
         vuetablePagination: 'vuetable-pagination',
         fields: [
           'name',
@@ -53,9 +54,9 @@
           '__actions'
         ],
         itemActions: [
-          { name: 'view-item', label: '', icon: 'fa fa-eye', class: 'btn btn-xs  btn-info' },
-          { name: 'edit-item', label: '', icon: 'edit fa-edit', class: 'btn btn-xs btn-success' },
-          { name: 'delete-item', label: '', icon: 'fa fa-trash', class: 'btn btn-xs btn-danger' }
+          { name: 'view-item', label: '', icon: 'fa fa-eye', class: 'btn btn-sm  btn-info' },
+          { name: 'edit-item', label: '', icon: 'edit fa-edit', class: 'btn btn-sm btn-success' },
+          { name: 'delete-item', label: '', icon: 'fa fa-trash', class: 'btn btn-sm btn-danger' }
         ]
       }
     },

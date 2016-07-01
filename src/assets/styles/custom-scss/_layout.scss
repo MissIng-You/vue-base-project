@@ -4,9 +4,11 @@
 // reset body scss.
 
 html,
-body{
+body,
+.layout{
   width: 100%;
   height: 100%;
+  overflow: hidden;
   //
   //@include gradient-horizontal-three-colors($cm-gray, $cm-white, 50%, $cm-gray);
 
@@ -14,26 +16,28 @@ body{
 }
 
 .layout{
-  overflow:auto;
-  max-height: $cm-sm;
 
   @include clearfix();
 
   .layout-left,
   .layout-center{
     float: left;
+  }
 
-    @include clearfix();
+  .layout-left{
+    width: $cm-sidebar-max-width;
   }
 
   .layout-center{
+    margin: 0 auto;
     padding: $cm-space-width;
+    overflow:auto;
+    width: $cm-normal-width - $cm-sidebar-max-width;
+    max-height: $cm-sm-width;
   }
 
   .layout-right{
     float: right;
-
-    @include clearfix();
   }
 
 }

@@ -10,11 +10,11 @@
 
   // .list-sm show 4 items
   &.list-sm{
-    width: $cm-sm;
+    width: $cm-sm-width;
 
     .list-item{
       margin: $cm-space-width / 2;
-      width: ($cm-sm - 4 * $cm-space-width) / 4;
+      width: ($cm-sm-width - 4 * $cm-space-width) / 4;
     }
   }
 

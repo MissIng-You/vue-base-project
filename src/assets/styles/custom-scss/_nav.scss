@@ -6,6 +6,8 @@
   .nav{
     margin-left: $cm-space-width * 2;
 
+    @include box-shadow($cm-space-width * 2 0 $cm-space-width * 2 $cm-gray inset);
+
     .nav-item + .nav-item{
       @include border-variant(top, 1px dotted $cm-gray);
     }

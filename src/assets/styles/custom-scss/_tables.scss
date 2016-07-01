@@ -1,0 +1,33 @@
+
+// custom table scss.
+
+// Hover effect
+//
+// Placed here since it has to come after the potential zebra striping
+
+.table-hover-outline {
+  thead,
+  tbody {
+    position: relative !important;
+
+    > tr {
+      //@include border-variant(left, 3px solid $cm-white);
+      &::before {
+        content: "";
+        position:absolute;
+        width: 3px;
+        height: 33px;
+        overflow: hidden;
+        background-color: $cm-white;
+      }
+
+      &:hover,
+      &.active{
+        //@include border-variant(left, 3px solid $cm-primary);
+        &::before {
+          background-color: $cm-primary;
+        }
+      }
+    }
+  }
+}
