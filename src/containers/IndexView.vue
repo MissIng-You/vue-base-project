@@ -6,16 +6,16 @@
         <i class="card-mask fa fa-list"></i>
         <span class="card-title">报表数据</span>
         <span class="card-search-group">
-          <i class="card-mask fa fa-search" @click="onToggleSearch"></i>
+          <i class="card-mask fa fa-fw" :class="{'fa-search': !showSearchBox, 'fa-close': showSearchBox}" @click="onToggleSearch"></i>
           <span class="card-search card-primary-outline">2016-03-04 / 2016-06-06</span>
           <span class="card-search card-primary-outline">@mod</span>
         </span>
-        <i class="card-mask fa fa-cogs pull-right" @click="onToggleConfig"></i>
+        <i class="card-mask fa fa-fw pull-right" :class="{'fa-cogs': !showConfigBox, 'fa-close': showConfigBox}" @click="onToggleConfig"></i>
       </div>
       <div class="card-body">
         <div class="card-body-modal" v-show="showSearchBox || showConfigBox">
           <div class="card-body-modal-search">
-            <list v-show="showSearchBox" :meta="searchMeta" orientation="horizontal"></list>
+            <multiselect :selected.sync="selected" :options="options"></multiselect>
           </div>
           <div class="card-body-modal-config">
             <list v-show="showConfigBox" :meta="configMeta" orientation="vertical"></list>
@@ -216,16 +216,24 @@
 
 <script>
   import customBootstrap from '../components'
+  import multiselect from 'vue-multiselect'
 
   let { list } = customBootstrap
 
   export default {
     name: 'IndexView',
     components: {
-      list
+      list,
+      multiselect
     },
     data () {
       return {
+        queryMeta: {
+          cityName: '',
+          dataArray: ''
+        },
+        selected: null,
+        options: ['复兴镇', '秦玲乡', '夏普镇'],
         showSearchBox: false,
         configMeta: {
           items: [{

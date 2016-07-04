@@ -34,8 +34,7 @@
     },
     methods: {
       login (messages) {
-        console.log(`this.meta: ${window.JSON.stringify(messages)}`)
-        window.alert('login click!')
+        this.$router.go('/list/navigation')
       }
     }
   }
