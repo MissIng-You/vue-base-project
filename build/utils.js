@@ -3,6 +3,14 @@ var config = require('../config')
 var ExtractTextPlugin = require('extract-text-webpack-plugin')
 
 exports.assetsPath = function (_path) {
+  var env = config.build.env.NODE_ENV
+
+  if (env === '"production-vs"') {
+    _path = _path.replace(/(\.\[hash:\w*])|(\.\[chunkhash])|(\.\[contenthash])/g, '.min')   // eg: "fonts/[name].[hash:7].[contenthash].[chunkhash].[ext]" replace ".[hash:7]"
+  } else if (env === '"production"') {
+    _path = _path.replace(/(\.\[hash:\w*])|(\.\[chunkhash])|(\.\[contenthash])/g, '.min')   // eg: "fonts/[name].[hash:7].[ext]" replace ".[hash:7]"
+  }
+
   return path.posix.join(config.build.assetsSubDirectory, _path)
 }
 

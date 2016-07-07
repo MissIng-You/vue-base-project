@@ -2,16 +2,16 @@
   <div id="listbox" class="listbox">
     <grid-loader v-if="$loadingRouteData" :color="color" :size="size"></grid-loader>
     <list v-if="!$loadingRouteData" :theme="primary" :meta="listboxMeta" orientation="horizontal"></list>
-    <vs-form-select
-      :model.sync="model"
-      :options="options"
-      :default-option="{text: 'Please select one',value: 'default'}"
-      type="text"
-      label="Example Label"
-      description="We'll never share your gender with anyone else."
-      :size="size"
-      :state="state">
-    </vs-form-select>
+    <!--<vs-form-select-->
+      <!--:model.sync="model"-->
+      <!--:options="options"-->
+      <!--:default-option="{text: 'Please select one',value: 'default'}"-->
+      <!--type="text"-->
+      <!--label="Example Label"-->
+      <!--description="We'll never share your gender with anyone else."-->
+      <!--:size="size"-->
+      <!--:state="state">-->
+    <!--</vs-form-select>-->
     <vs-dropdown-select
       :list="list"
       :model.sync="model"

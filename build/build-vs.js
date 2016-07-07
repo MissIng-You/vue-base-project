@@ -1,6 +1,6 @@
 // https://github.com/shelljs/shelljs
 require('shelljs/global')
-env.NODE_ENV = 'production'
+env.NODE_ENV = 'production-vs'
 
 var path = require('path')
 var config = require('../config')
@@ -38,10 +38,10 @@ var assetsPath = path.join(config.build.assetsRoot, config.build.assetsSubDirect
 
 //echo(contentsfiles)
 
-echo('operation files starting ...')
+echo('copy files starting ...')
 set('-v')
-rm('-rf', assetsPath)
-mkdir('-p', assetsPath)
+//rm('-rf', assetsPath)
+//mkdir('-p', assetsPath)
 cp('-R', 'static/', assetsPath)
 
 webpack(webpackConfig, function (err, stats) {

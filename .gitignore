@@ -1,11 +1,19 @@
 .DS_Store
 node_modules/
+packages/
 /src/vendor/
 dist/
 npm-debug.log
 selenium-debug.log
 test/unit/coverage
 test/e2e/reports
+bin/
+App_Start/
+App_Data/
+fonts/
+Log4Net/
+Maps/
+Models/
 VueDemos.zip
 vue-base-project.zip
 

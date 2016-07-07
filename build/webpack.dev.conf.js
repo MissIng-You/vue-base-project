@@ -5,6 +5,7 @@ var utils = require('./utils')
 var baseWebpackConfig = require('./webpack.base.conf')
 var HtmlWebpackPlugin = require('html-webpack-plugin')
 var CopyWebpackPlugin = require('copy-webpack-plugin')
+var FaviconsWebpackPlugin = require('favicons-webpack-plugin')
 
 // add hot-reload related code to entry chunks
 Object.keys(baseWebpackConfig.entry).forEach(function (name) {
@@ -18,6 +19,12 @@ module.exports = merge(baseWebpackConfig, {
   // eval-source-map is faster for development
   devtool: '#cheap-source-map',
   plugins: [
+    // https://github.com/jantimon/favicons-webpack-plugin
+    //new FaviconsWebpackPlugin({
+    //  logo: 'logo.png',
+    //  prefix: 'src/assets/images/',
+    //  persistentCache: true
+    //}),
     new CopyWebpackPlugin([
       //{from: 'src/shared', to: 'vendor'},
       //{from: 'src/vendor/arcigs/esri/nls/jsapi_zh-cn.js', to: 'vendor/arcigs/esri/nls/jsapi_zh-cn.js'},
@@ -31,6 +38,7 @@ module.exports = merge(baseWebpackConfig, {
       'process.env': config.dev.env
     }),
     new webpack.ProvidePlugin({
+      Vue: 'vue'
       //$: "jquery",
       //jQuery: "jquery",
       //"window.jQuery": "jquery"

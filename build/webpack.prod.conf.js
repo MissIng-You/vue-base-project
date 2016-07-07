@@ -6,6 +6,7 @@ var merge = require('webpack-merge')
 var baseWebpackConfig = require('./webpack.base.conf')
 var ExtractTextPlugin = require('extract-text-webpack-plugin')
 var HtmlWebpackPlugin = require('html-webpack-plugin')
+var CopyWebpackPlugin = require('copy-webpack-plugin')
 var env = process.env.NODE_ENV === 'testing'
   ? require('../config/test.env')
   : config.build.env
@@ -18,7 +19,7 @@ module.exports = merge(baseWebpackConfig, {
   output: {
     path: config.build.assetsRoot,
     filename: utils.assetsPath('js/[name].[chunkhash].js'),
-    chunkFilename: utils.assetsPath('js/[id].[chunkhash].js')
+    chunkFilename: utils.assetsPath('js/[name].[chunkhash].js')
   },
   vue: {
     loaders: utils.cssLoaders({
@@ -27,6 +28,14 @@ module.exports = merge(baseWebpackConfig, {
     })
   },
   plugins: [
+    new CopyWebpackPlugin([
+      //{from: 'src/shared', to: 'vendor'},
+      //{from: 'src/vendor/arcigs/esri/nls/jsapi_zh-cn.js', to: 'vendor/arcigs/esri/nls/jsapi_zh-cn.js'},
+      //{from: 'src/vendor/arcgis/dojox/gfx/svg.js', to: 'vendor/arcgis/dojox/gfx/svg.js'},
+      //{from: 'src/dojo/resources/blank.gif', to: 'vendor/dojo/resources/blank.gif'},
+      //{from: 'src/vendor/arcgis/init.js', to: 'vendor/arcgis/init.js'}
+      {from: 'src/api', to: 'api', force: true}
+    ]),
     // http://vuejs.github.io/vue-loader/workflow/production.html
     new webpack.DefinePlugin({
       'process.env': env
