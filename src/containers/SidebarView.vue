@@ -69,12 +69,6 @@
       navigation,
       cascadingMenu,
       GridLoader
-    },
-    ready () {
-//      console.log(this.$parent)
-//      console.log(this.$root.$refs.sidebar.$data.navigationMeta.items)
-//      console.log(this.$refs.list)
     }
-
   }
 </script>

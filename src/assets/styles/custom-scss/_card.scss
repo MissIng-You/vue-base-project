@@ -1,6 +1,13 @@
 
 // custom card component scss.
 
+// reset .card-header  / .card-footer
+.card-header,
+.card-body,
+.card-footer{
+  @include clearfix();
+}
+
 // add .card-body inner .card
 .card-body{
   position: relative;
@@ -36,8 +43,36 @@
   }
 }
 
-// add .card-mask inner .card / .card-header / .card-footer
+// add .card-body-divider
+.card-body-divider {
+  position: relative;
 
+  @include clearfix();
+
+  .card-body-title {
+    margin-left: 15px;
+    color: $cm-black;
+    font-size: .8em;
+    font-weight: bold;
+
+    @include xy-divider-variant(vertical, $cm-black, 10px);
+
+    // .card-body-title-*(theme)
+    &.card-body-title-success {
+      color: $cm-success;
+
+      @include xy-divider-variant(vertical, $cm-success, 10px);
+    }
+
+    &.card-body-title-danger {
+      color: $cm-danger;
+
+      @include xy-divider-variant(vertical, $cm-danger, 10px);
+    }
+  }
+}
+
+// add .card-mask inner .card / .card-header / .card-footer
 .card-header,
 .card-footer{
   position: relative;
@@ -71,7 +106,18 @@
       bottom: 25%;
       padding: 5px;
       color: $cm-white;
-      background-color: $cm-primary;
+      background-color: $cm-black;
+    }
+
+    &.card-mask-success {
+      &::before {
+        background-color: $cm-success;
+      }
+    }
+    &.card-mask-danger {
+      &::before {
+        background-color: $cm-danger;
+      }
     }
   }
 }
@@ -176,4 +222,40 @@
 // reset card theme.
 .card-blockquote {
   backgound-color: $cm-white;
+}
+
+// reset .card-subtitle
+.card-subtitle{
+  line-height: 1.0;
+  font-size: .9em;
+  font-style: italic;
+}
+
+// add .card-icon
+.card-icon{
+  padding: 2px 5px;
+  color: $cm-black;
+  background-color: darken($cm-gray, 10%);
+
+  @include border-radius(50%);
+}
+
+// add .card-state and .card-state-*(theme)
+.card-state{
+  padding: 5px 10px;
+  margin: -5px -10px;
+  color: $cm-black;
+  background-color: darken($cm-gray, 10%);
+
+  @include border-radius(50%);
+
+  &.card-state-success{
+    color: $cm-white;
+    background-color: darken($cm-success, 10%);
+  }
+
+  &.card-state-danger{
+    color: $cm-white;
+    background-color: darken($cm-danger, 10%);
+  }
 }

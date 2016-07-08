@@ -18,3 +18,20 @@
     cursor: pointer;
   }
 }
+
+// add .pagination-circle
+.pagination-circle {
+  .page-item {
+    .page-link {
+      display: inline-block;
+      text-align: center;
+      margin-left: $cm-space-width / 2;
+      padding: 2px;
+      font-size: .8em;
+
+      @include size(25px);
+      @include border-radius(50%);
+    }
+  }
+}
+

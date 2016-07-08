@@ -54,7 +54,7 @@
 }
 
 // x,y divider mixins
-@mixin xy-divider-variant($xy, $divider-color){
+@mixin xy-divider-variant($xy, $divider-color, $divider-width: 1px){
   &::before{
     position: absolute;
     display: block;
@@ -62,14 +62,14 @@
 
     @if $xy == "horizontal" {
       width: 100%;
-      height: 1px;
+      height: $divider-width;
       left: -1px;
 
       // gradient-horizontal-three-colors()
       @include gradient-horizontal-three-colors(#fff, $divider-color, 50%, #fff)
     } @else if $xy == "vertical" {
       top: -1px;
-      width: 1px;
+      width: $divider-width;
       height: 100%;
       @include gradient-vertical-three-colors(#fff, $divider-color, 50%, #fff)
     }

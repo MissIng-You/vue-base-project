@@ -39,6 +39,24 @@
   }
 }
 
+// add .nav-auto
+.nav-auto-4{
+  padding: $cm-space-width 0 0 $cm-space-width;
+
+  .nav-item{
+    margin: 0;
+    width: 25%;
+
+    .card{
+      margin-right: $cm-space-width;
+    }
+
+    + .nav-item{
+      margin-left: 0;
+    }
+  }
+}
+
 // nav-header scss.
 .nav-header{
   float: left;

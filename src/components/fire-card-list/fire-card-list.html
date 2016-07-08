@@ -1,0 +1,6 @@
+
+<ul class="nav nav-auto-4 nav-inline {{getTheme}}">
+  <li class="nav-item" :id="$index" v-for="item in meta.items">
+    <fire-card :meta="item"></fire-card>
+  </li>
+</ul>

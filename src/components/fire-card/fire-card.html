@@ -1,0 +1,13 @@
+
+<div class="card {{ getThemeByState }}">
+  <div class="card-header">
+    <i class="card-mask fa {{ getIconByState }}"></i>
+    <span class="card-title">{{ meta.name }}</span>
+    <span class="card-subtitle text-muted" v-html="getPropertyName"></span>
+    <span class="card-state pull-right {{ getStateColorByState }}" v-html="getStateName"></span>
+  </div>
+  <div class="card-footer">
+    <i class="card-icon fa fa-map-marker"></i>
+    <span class="card-title text-muted">{{ meta.address }}</span>
+  </div>
+</div>

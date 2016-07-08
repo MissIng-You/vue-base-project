@@ -3,7 +3,7 @@
 import Vue from 'vue'
 // import VueHttp from '../../utils/vue-http'
 
-import ApiContainers from '../constants'
+import ApiContainers from '../constant'
 
 let { GET_MENU_LIST_API } = ApiContainers
 
