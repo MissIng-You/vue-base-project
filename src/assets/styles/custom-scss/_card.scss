@@ -147,6 +147,7 @@
 
 // add .card-mask inner .card-search-group
 .card-search-group {
+  display: inline-block;
 
   > .card-mask {
     width: $cm-space-width;

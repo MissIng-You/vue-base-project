@@ -4,3 +4,8 @@
 .input-group-default{
   @include input-group-variant($login-default);
 }
+
+// add .input-width-sm .input-width-md .input-width-lg
+.input-width-sm{
+  width: $cm-normal-width / 6;
+}

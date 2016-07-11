@@ -11,12 +11,13 @@
           <i class="card-mask fa fa-list"></i>
           <span class="card-title">防火实时监控</span>
           <span class="card-subtitle">( 36条记录)</span>
-        <span class="card-search-group">
-          <i class="card-mask fa fa-fw" :class="{'fa-search': !showSearchBox, 'fa-close': showSearchBox}" @click="onToggleSearch"></i>
-          <span class="card-search card-primary-outline">A栋B单元</span>
-          <span class="card-search card-primary-outline">全部属性</span>
-        </span>
-          <i class="card-mask fa fa-fw pull-right" :class="{'fa-cogs': !showConfigBox, 'fa-close': showConfigBox}" @click="onToggleConfig"></i>
+          <span class="card-search-group">
+            <span class="input-group input-group-sm input-width-sm">
+              <input type="text" class="form-control" @keyup="onSearch" v-model="fireQuery.search" placeholder="在此搜索防火门位置">
+              <span class="input-group-addon btn btn-primary" @click="onSearch"><i class="fa fa-fw fa-search"></i></span>
+            </span>
+          </span>
+          <i class="card-mask fa fa-fw pull-right" :class="{'fa-cogs': !showConfigBox, 'fa-close': showConfigBox}"></i>
         </div>
         <div class="card-body">
           <div class="card-body-divider">
@@ -35,6 +36,7 @@
             </div>
           </div>
           <fire-card-list orientation="horizontal" :meta="fireCardListMeta"></fire-card-list>
+          <div>{{fireCardListMeta | json 4}}</div>
         </div>
         <div class="card-body">
           <div class="card-body-divider">
@@ -99,6 +101,9 @@
     },
     data () {
       return {
+        fireQuery: {
+          search: ''
+        },
         totalRows: 100,
         currentPage: 1,
         perPage: 10,
@@ -117,17 +122,17 @@
             name: '防火门1',
             property: 0,
             state: 1,
-            address: 'A小区B栋C单元xxx号'
+            address: 'F小区B栋C单元xxx号'
           }, {
             name: '防火门2',
             property: 0,
             state: 0,
-            address: 'A小区B栋C单元xxx号'
+            address: 'B小区B栋C单元xxx号'
           }, {
             name: '防火门3',
             property: 1,
             state: 1,
-            address: 'A小区B栋C单元xxx号'
+            address: 'C小区B栋C单元xxx号'
           }, {
             name: '防火门4',
             property: 1,
@@ -137,12 +142,12 @@
             name: '防火门5',
             property: 0,
             state: 1,
-            address: 'A小区B栋C单元xxx号'
+            address: 'E小区B栋C单元xxx号'
           }, {
             name: '防火门6',
             property: 0,
             state: 0,
-            address: 'A小区B栋C单元xxx号'
+            address: 'D小区B栋C单元xxx号'
           }, {
             name: '防火门7',
             property: 0,
@@ -150,19 +155,20 @@
             address: 'A小区B栋C单元xxx号'
           }]
         },
-        showConfigBox: false,
-        msg: 'Index View Template !'
+        showConfigBox: false
       }
     },
     methods: {
-      onToggleSearch () {
-        this.$set('showConfigBox', false)
-        this.$set('showSearchBox', !this.showSearchBox)
-      },
+      onSearch () {
+        let value = this.fireQuery.search
 
-      onToggleConfig () {
-        this.$set('showSearchBox', false)
-        this.$set('showConfigBox', !this.showConfigBox)
+        let filterItems = this.fireCardListMeta.items.filter(function (item) {
+          if (item.address && item.address.indexOf(value) > -1) {
+            return item
+          }
+        })
+
+        this.$set('fireCardListMeta.items', filterItems)
       }
     }
   }

@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import VueResource from 'vue-resource'
+import VueValidator from 'vue-validator'
 import AppView from './containers/AppView'
 // import HelloView from './containers/HelloView'
 // import ArcgisView from './containers/ArcgisView'
@@ -28,6 +29,9 @@ Vue.transition('fade', {
   enterClass: 'fadeIn',
   leaveClass: 'fadeOut'
 })
+
+// use vue validator
+Vue.use(VueValidator)
 
 // use vue resource
 Vue.use(VueResource)
