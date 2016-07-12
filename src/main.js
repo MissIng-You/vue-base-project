@@ -21,7 +21,7 @@ Vue.transition('bounce', {
 })
 
 Vue.transition('slide', {
-  enterClass: 'slideInLeft',
+  enterClass: 'fadeIn',
   leaveClass: 'fadeOut'
 })
 
@@ -35,6 +35,17 @@ Vue.use(VueValidator)
 
 // use vue resource
 Vue.use(VueResource)
+
+// use vue resource interceptors
+Vue.http.interceptors.push((request, next) => {
+  console.log('request params:')
+  console.log(request)
+
+  next((response) => {
+    console.log('response data:')
+    console.log(response)
+  })
+})
 
 // install router
 Vue.use(Router)

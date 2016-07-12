@@ -36,7 +36,6 @@
             </div>
           </div>
           <fire-card-list orientation="horizontal" :meta="fireCardListMeta"></fire-card-list>
-          <div>{{fireCardListMeta | json 4}}</div>
         </div>
         <div class="card-body">
           <div class="card-body-divider">
@@ -68,7 +67,7 @@
   import ApiService from '../api'
 
   let { fireCardList, cascadingMenu, pagination } = customBootstrap
-  let { getMenuList } = ApiService
+  let { getMenuList, getFireList } = ApiService
 
   let isLoadedOfMenuList = false
 
@@ -84,19 +83,22 @@
     route: {
       data: function (transition) {
         if (isLoadedOfMenuList) return transition.next()
-        window.setTimeout(function () {
-          getMenuList(function (response) {
-            isLoadedOfMenuList = true
+//        return getFireList()
+//          .then(function (response) {
+//            return {
+//              fireCardListMeta: {
+//                items: response.data.items
+//              }
+//            }
+//          })
 
-            transition.next({
-              navigationMeta: {
-                items: response.data.items
-              }
-            })
-          }, function (error) {
-            console.log(error)
-          })
-        }, 1000)
+        return getFireList({}, function (response) {
+          return {
+            fireCardListMeta: {
+              items: response.data.items
+            }
+          }
+        })
       }
     },
     data () {
@@ -170,6 +172,12 @@
 
         this.$set('fireCardListMeta.items', filterItems)
       }
+    },
+    ready () {
+      let self = this
+      getMenuList(function (response) {
+        self.$set('navigationMeta.items', response.data.items)
+      })
     }
   }
 </script>

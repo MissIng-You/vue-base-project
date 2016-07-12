@@ -1,19 +1,19 @@
 <template>
   <div id="addview">
-    <vuetable v-ref:vuetable
-              api-url="http://vuetable.ratiw.net/api/users"
-              pagination-path=""
-              :fields="fields"
-              :sort-order="sortOrder"
-              table-class="table table-bordered table-striped table-hover"
-              ascending-icon="fa fa-arrow-up"
-              descending-icon="fa fa-arrow-down"
-              pagination-class=""
-              pagination-info-class=""
-              pagination-component-class=""
-              :pagination-component="vuetablePagination"
-              :item-actions="itemActions"
-    ></vuetable>
+    <!--<vuetable v-ref:vuetable-->
+              <!--api-url="http://vuetable.ratiw.net/api/users"-->
+              <!--pagination-path=""-->
+              <!--:fields="fields"-->
+              <!--:sort-order="sortOrder"-->
+              <!--table-class="table table-bordered table-striped table-hover"-->
+              <!--ascending-icon="fa fa-arrow-up"-->
+              <!--descending-icon="fa fa-arrow-down"-->
+              <!--pagination-class=""-->
+              <!--pagination-info-class=""-->
+              <!--pagination-component-class=""-->
+              <!--:pagination-component="vuetablePagination"-->
+              <!--:item-actions="itemActions"-->
+    <!--&gt;</vuetable>-->
     <multiselect :selected.sync="selected" :options="options"></multiselect>
   </div>
 </template>
