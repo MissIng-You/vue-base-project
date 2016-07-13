@@ -7,12 +7,13 @@
 
     <div class="layout-center">
 
-      <router-view
-        class="view"
-        keep-alive
-        transition
-        transition-mode="out-in">
-      </router-view>
+      <!--<router-view-->
+        <!--class="view"-->
+        <!--keep-alive-->
+        <!--transition-->
+        <!--transition-mode="out-in">-->
+      <!--</router-view>-->
+      {{msg}}
 
     </div>
   </div>
@@ -20,7 +21,7 @@
 
 <script>
 //  import Vue from 'vue'
-  import customBootstrap from '../components'
+  import customBootstrap from '../../components'
 
   let { navigation, cascadingMenu } = customBootstrap
 
@@ -28,8 +29,7 @@
     name: 'SidebarView',
     data () {
       return {
-        color: '#222',
-        size: '20px',
+        msg: '这里还没有实现，后续完成。。。',
         navigationMeta: {
           items: [{
             icon: 'fa-leaf',

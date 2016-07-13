@@ -59,6 +59,28 @@ export default {
   methods: {
     btnVariant (index) {
       return (index + this.diff === this.currentPage) ? `btn-${this.variant}` : 'btn-secondary'
+    },
+    itemClick (item) {
+      console.log('item click !' + item)
+      this.$dispatch('item-click', item)
+    },
+    prevClick () {
+      let item = this.currentPage === 1 ? this.currentPage : this.currentPage - 1
+      this.$set('currentPage', item)
+
+      console.log('item click !' + item)
+      this.$dispatch('item-click', item)
+    },
+    nextClick () {
+      let item = this.currentPage === this.numberOfPages ? this.numberOfPages : this.currentPage + 1
+      this.$set('currentPage', item)
+      console.log('item click !' + item)
+      this.$dispatch('item-click', item)
+    }
+  },
+  events: {
+    'item-click:pagination': function () {
+
     }
   },
   props: {

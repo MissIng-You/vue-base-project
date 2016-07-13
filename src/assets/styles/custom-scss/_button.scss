@@ -1,0 +1,16 @@
+
+// custom button component scss
+
+// reset .btn
+.btn {
+  outline: 0;
+}
+
+// add .btn-xs
+.btn-xs {
+  padding: 2px 4px;
+
+  & + .btn-xs {
+    margin-left: 4px;
+  }
+}

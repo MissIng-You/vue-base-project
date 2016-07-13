@@ -2,13 +2,20 @@
 <nav class="" :class="getNavbarClassByPosition">
   <ul class="nav" :class="getNavClassByPosition">
     <li v-el="li" class="nav-item" :id="$index" v-for="item in meta.items">
-      <a v-link="{path: item.url}" class="box" :class="getNavItemClassByPosition" @click="toggleSubItems($index, item)">
+      <a v-if="item.url !== ''" v-link="{path: item.url}" class="box {{getNavItemClassByPosition}} {{getActiveClassByItem(item)}}" @click="toggleSubItems($index, item)">
         <i class="box-mask fa fa-2x fa-fw" :class="item.icon"></i>
         <span class="box-title" v-html="item.title"></span>
         <i class="box-mask fa fa-lg fa-fw"
            :class="{'fa-angle-double-right': item.subItems && item.subItems.length,
             'fa-angle-double-down': item.subItems && item.subItems.length && item.isOpen}"></i>
       </a>
+      <span v-if="item.url === ''" class="box {{getNavItemClassByPosition}} {{getActiveClassByItem(item)}}" @click="toggleSubItems($index, item)">
+        <i class="box-mask fa fa-2x fa-fw" :class="item.icon"></i>
+        <span class="box-title" v-html="item.title"></span>
+        <i class="box-mask fa fa-lg fa-fw"
+           :class="{'fa-angle-double-right': item.subItems && item.subItems.length,
+            'fa-angle-double-down': item.subItems && item.subItems.length && item.isOpen}"></i>
+      </span>
       <ul class="nav nav-inline animated" :class="{'fadeIn': item.isOpen, 'fadeOut': !item.isOpen}" v-show="item.isOpen">
         <li class="nav-item" :id="$index" v-for="subItem in item.subItems">
           <a v-link="{path: subItem.url}" class="box box-horizontal box-no-padding">

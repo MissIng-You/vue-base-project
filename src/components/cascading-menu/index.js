@@ -68,6 +68,9 @@ export default {
       this.$set(`meta.items[${index}].isOpen`, !item.isOpen)
        // this.$nextTick()    // notify dom update
       return
+    },
+    getActiveClassByItem (item) {
+      return item.isOpen && item.subItems && item.subItems.length > 0 ? 'active' : ''
     }
   }
 }

@@ -7,9 +7,9 @@ import AppView from './containers/AppView'
 // import ArcgisView from './containers/ArcgisView'
 
 // all styles
+import 'animate.css'
 import './assets/styles/custom-scss/custom-bootstrap.scss'
 import './assets/styles/font-awesome/css/font-awesome.min.css'
-import 'animate.css'
 
 Vue.config.debug = true
 Vue.config.devtools = true
@@ -59,78 +59,48 @@ var router = new Router({
   linkActiveClass: 'active'
 })
 
-router.alias({
-  '/sidebar': '/sidebar/list'
-})
-
 router.map({
-  '/list': {
-    name: 'sidebar',
+  '/fireDoor': {
+    name: 'fireDoor',
     component: function (resolve) {
       require.ensure([], function () {
         let sidebar = require('./containers/SidebarView')
         resolve(sidebar)
-      }, 'sidebar')
+      }, 'fireDoor')
     },
     subRoutes: {
-      '/navigation': {
+      '/monitor': {
         component: function (resolve) {
           require.ensure([], function () {
-            let navigation = require('./containers/ListboxView')
+            let navigation = require('./containers/fire-door/FireDoorMonitorView')
             resolve(navigation)
-          }, 'list.navigation')
+          }, 'fireDoor.monitor')
         }
       },
-      '/add': {
+      '/deviceManage': {
         component: function (resolve) {
           require.ensure([], function () {
-            let add = require('./containers/AddView')
+            let add = require('./containers/device/DeviceManageView')
             resolve(add)
-          }, 'list.add')
+          }, 'fireDoor.deviceManage')
         }
       },
-      '/modify': {
+      '/userManage': {
         component: function (resolve) {
           require.ensure([], function () {
-            let modify = require('./containers/ModifyView')
-            resolve(modify)
-          }, 'list.modify')
-        }
-      },
-      '/delete': {
-        component: function (resolve) {
-          require.ensure([], function () {
-            let deleteView = require('./containers/DeleteView')
+            let deleteView = require('./containers/user/UserManageView')
             resolve(deleteView)
-          }, 'list.delete')
+          }, 'fireDoor.userManage')
         }
       },
-      '/index': {
+      '/roleManage': {
         component: function (resolve) {
           require.ensure([], function () {
-            let index = require('./containers/IndexView')
+            let index = require('./containers/role/RoleManageView')
             resolve(index)
-          }, 'list.index')
+          }, 'fireDoor.roleManage')
         }
       }
-    }
-  },
-  '/arcgis': {
-    name: 'arcgis',
-    component: resolve => {
-      require.ensure([], () => {
-        let arcgis = require('./containers/ArcgisView')
-        resolve(arcgis)
-      }, 'arcgis')
-    }
-  },
-  '/baidu': {
-    name: 'baidu',
-    component: resolve => {
-      require.ensure([], () => {
-        let baidu = require('./containers/BaiduView')
-        resolve(baidu)
-      }, 'baidu')
     }
   },
   '/login': {
@@ -142,22 +112,22 @@ router.map({
       }, 'login')
     }
   },
-  '/todo': {
-    name: 'todo',
+  '/electrical': {
+    name: 'electrical',
     component: resolve => {
       require.ensure([], () => {
-        let todo = require('./containers/TodoView')
+        let todo = require('./containers/_shared/EmptyView')
         resolve(todo)
-      }, 'todo')
+      }, 'electrical')
     }
   },
-  '/nav': {
-    name: 'nav',
+  '/firePower': {
+    name: 'firePower',
     component: resolve => {
       require.ensure([], () => {
-        let navigation = require('./containers/NavigationView')
+        let navigation = require('./containers/_shared/EmptyView')
         resolve(navigation)
-      }, 'nav')
+      }, 'firePower')
     }
   }
 })
@@ -168,7 +138,7 @@ router.beforeEach(function () {
 
 router.redirect({
   '*': '/login',
-  '/list': '/list/navigation'
+  '/fireDoor': '/fireDoor/monitor'
 })
 
 router.start(AppView, '#app')

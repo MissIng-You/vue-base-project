@@ -6,12 +6,12 @@
         <span class="header-title">{{navigationMeta.title}}</span>
       </div>
       <div class="nav-footer" slot="footer">
-        <div class="box box-horizontal box-thermometer" @click="toggleUserProfile">
+        <div class="box box-horizontal box-thermometer" @focusout="toggleUserProfile" @click="toggleUserProfile">
           <img src="../../assets/images/logo.png" alt="logo" class="box-mask">
-          <span class="box-title">{{navigationMeta.title}}</span>
+          <span class="box-title">{{userMeta.username}}</span>
         </div>
         <div class="nav-footer-wrap animated" :class="{'fadeIn': userMeta.isShow, 'fadeOut': !userMeta.isShow}" v-show="userMeta.isShow">
-          <list :meta="userMeta" orientation="horizontal"></list>
+          <list :meta="userMeta" orientation="vertical"></list>
         </div>
       </div>
     </navigation>
@@ -28,6 +28,8 @@
     data () {
       return {
         userMeta: {
+          username: 'administritor',
+          role: '公司超级管理员',
           isShow: false,
           items: [{
             icon: 'fa-cog',
@@ -45,32 +47,19 @@
         },
         navigationMeta: {
           logo: '../../../src/assets/images/logo.png',
-          title: 'Vue.js Project V1.0',
-          showItemCount: 4,
+          title: '防火门远程监控系统',
           items: [{
-            icon: 'fa-home',
-            title: '控制面板',
-            url: '/baidu'
+            icon: 'fa-dashboard',
+            title: '防火门监控',
+            url: '/fireDoor'
           }, {
-            icon: 'fa-cog',
-            title: '设置列表',
-            url: '/todo'
+            icon: 'fa-cubes',
+            title: '电器火灾监控',
+            url: '/electrical'
           }, {
-            icon: 'fa-feed',
-            title: '登录页面',
-            url: '/login'
-          }, {
-            icon: 'fa-fire',
-            title: '地图页面',
-            url: '/arcgis'
-          }, {
-            icon: 'fa-list',
-            title: '左侧菜单',
-            url: '/list'
-          }, {
-            icon: 'fa-plus',
-            title: '更多菜单',
-            url: '/more'
+            icon: 'fa-wpbeginner',
+            title: '消防电源监控',
+            url: '/firePower'
           }]
         }
       }

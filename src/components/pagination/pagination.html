@@ -14,29 +14,29 @@
 
 <ul class="pagination pagination-no-padding {{ getShape }}" aria-label="Pagination">
   <li class="page-item {{ currentPage === 1 ? 'disabled' : '' }}">
-    <span class="page-link" v-bind:disabled="currentPage == 1 " v-on:click.prevent="(currentPage == 1) ? return : currentPage--">
+    <span class="page-link" v-bind:disabled="currentPage == 1 " @click="prevClick">
       <span aria-hidden="true">&laquo;</span>
     </span>
   </li>
-  <li class="page-item {{ currentPage == 1 ?  'active' : '' }}" v-show="showPrev">
-    <span class="page-link" v-on:click.prevent="currentPage = 1">1</span>
-  </li>
+  <!--<li class="page-item {{ currentPage == 1 ?  'active' : '' }}" v-show="showPrev">-->
+    <!--<span class="page-link" v-on:click="currentPage = 1">1</span>-->
+  <!--</li>-->
   <li class="page-item disabled" v-show="showPrev">
     <span class="page-link">...</span>
   </li>
   <li class="page-item {{ $index + diff == currentPage ? 'active' : '' }} {{ $index + diff != currentPage ? 'hidden-xs-down' : '' }}"
       v-for="item in pageLinks"
-      v-on:click.prevent="currentPage = $index + diff">
-    <span class="page-link">{{$index + diff}}</span>
+      v-on:click="currentPage = $index + diff">
+    <span class="page-link" @click="itemClick($index + diff)">{{$index + diff}}</span>
   </li>
   <li class="page-item disabled" v-show="showNext">
     <span class="page-link">...</span>
   </li>
-  <li class="page-item {{ numberOfPages == currentPage ? 'active' : '' }}" v-show="showNext">
-    <span class="page-link" v-on:click.prevent="currentPage = numberOfPages">{{numberOfPages}}</span>
-  </li>
+  <!--<li class="page-item {{ numberOfPages == currentPage ? 'active' : '' }}" v-show="showNext">-->
+    <!--<span class="page-link" v-on:click="currentPage = numberOfPages">{{numberOfPages}}</span>-->
+  <!--</li>-->
   <li class="page-item {{ currentPage === numberOfPages ? 'disabled' : '' }}">
-    <span class="page-link" v-bind:disabled="currentPage == numberOfPages" v-on:click.prevent="(currentPage == numberOfPages) ? return : currentPage++">
+    <span class="page-link" v-bind:disabled="currentPage == numberOfPages" @click="nextClick">
       <span aria-hidden="true">&raquo;</span>
     </span>
   </li>

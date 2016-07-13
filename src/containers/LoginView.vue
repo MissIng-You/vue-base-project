@@ -34,7 +34,8 @@
     },
     methods: {
       login (messages) {
-        this.$router.go('/list/navigation')
+        window.alert(JSON.stringify(messages))
+        this.$router.go('/fireDoor/monitor')
       }
     }
   }

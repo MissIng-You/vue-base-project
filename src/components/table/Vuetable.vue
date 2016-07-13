@@ -75,6 +75,12 @@
 <script>
   export default {
     props: {
+      'tableData': {
+        type: Array,
+        default: function () {
+          return null
+        }
+      },
       'wrapperClass': {
         type: String,
         default: function () {
@@ -248,7 +254,7 @@
       return {
         version: '1.1.1',
         eventPrefix: 'vuetable:',
-        tableData: null,
+//        tableData: null,
         tablePagination: null,
         currentPage: 1
       }

@@ -222,7 +222,7 @@
 
 // reset card theme.
 .card-blockquote {
-  backgound-color: $cm-white;
+  //background-color: #fff;
 }
 
 // reset .card-subtitle
@@ -249,6 +249,18 @@
   background-color: darken($cm-gray, 10%);
 
   @include border-radius(50%);
+
+  &.card-state-hover {
+    color: $cm-white;
+    background-color: $cm-primary;
+
+    @include border-radius(3px);
+
+    &:hover {
+      cursor: pointer;
+      background-color: darken($cm-primary, 10%);
+    }
+  }
 
   &.card-state-success{
     color: $cm-white;

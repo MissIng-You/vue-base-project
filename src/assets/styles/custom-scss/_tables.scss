@@ -13,32 +13,15 @@
 
 // add .table-hover-outline scss.
 .table-hover-outline {
-  thead,
-  tbody {
-    position: relative !important;
-
-    > tr {
-      //@include border-variant(left, 3px solid $cm-white);
-      &::before {
-        content: "";
-        position:absolute;
-        width: 3px;
-        height: 33px;
-        overflow: hidden;
-        background-color: $cm-white;
-      }
-    }
-  }
-
   tbody {
     > tr {
+      border: none !important;
+      outline: 1px solid $cm-white;
+
       &:hover,
       &.active{
-        background-color: $cm-gray;
-        //@include border-variant(left, 3px solid $cm-primary);
-        &::before {
-          background-color: $cm-primary;
-        }
+        color: $cm-primary;
+        outline: 1px solid $cm-primary;
       }
     }
   }

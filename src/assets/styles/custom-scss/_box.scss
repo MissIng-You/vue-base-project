@@ -140,8 +140,9 @@
   }
 
   .box-title{
+    width: $cm-footer-wrap-width - $cm-space-width - 50px;
     margin-left: -$cm-space-width;
-    padding: $cm-space-width / 2 $cm-space-width;
+    padding: $cm-space-width / 2 0 $cm-space-width / 2 $cm-space-width ;
 
     @include text-truncate();
   }

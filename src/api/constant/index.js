@@ -35,7 +35,7 @@ const getBaseUrlByNodeEnv = () => {
       baseUrl = '/Ajax'
       break
     case 'production':
-      baseUrl = '/'
+      baseUrl = ''
       break
     case 'development':
       baseUrl = ''

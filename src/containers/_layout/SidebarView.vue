@@ -1,6 +1,6 @@
 <template>
   <div id="sidebar">
-    <navigation :theme="primary" :position="position" :meta="navigationMeta"></navigation>
+    <navigation :theme="primary" position="left" :meta="navigationMeta"></navigation>
     <h1>{{message}}</h1>
   </div>
 </template>
@@ -14,54 +14,28 @@
     name: 'SidebarView',
     data () {
       return {
-        position: 'left',
         navigationMeta: {
-          title: '用户登录',
-          showItemCount: 4,
           items: [{
-            icon: 'fa-home',
-            title: '控制面板',
-            url: '/baidu'
+            icon: 'fa-leaf',
+            title: '实时监控',
+            url: '/fireDoor/monitor'
           }, {
-            icon: 'fa-cog',
-            title: '设置列表',
-            url: '/todo'
+            icon: 'fa-object-group',
+            title: '设备管理',
+            url: '/fireDoor/deviceManage'
           }, {
-            icon: 'fa-feed',
-            title: '登录页面',
-            url: '/login'
-          }, {
-            icon: 'fa-fire',
-            title: '地图页面',
-            url: '/arcgis'
-          }, {
-            icon: 'fa-fire',
-            title: '地图页面',
-            url: '/arcgis'
-          }, {
-            icon: 'fa-fire',
-            title: '地图页面',
-            url: '/arcgis'
-          }, {
-            icon: 'fa-feed',
-            title: '登录页面',
-            url: '/login'
-          }, {
-            icon: 'fa-fire',
-            title: '地图页面',
-            url: '/arcgis'
-          }, {
-            icon: 'fa-fire',
-            title: '地图页面',
-            url: '/arcgis'
-          }, {
-            icon: 'fa-fire',
-            title: '地图页面',
-            url: '/arcgis'
-          }, {
-            icon: 'fa-plus',
-            title: '更多菜单',
-            url: '/more'
+            icon: 'fa-cogs',
+            title: '系统管理',
+            url: '/fireDoor/sysManage',
+            subItems: [{
+              icon: 'fa-users',
+              title: '用户管理',
+              url: '/fireDoor/userManage'
+            }, {
+              icon: 'fa-gears',
+              title: '角色管理',
+              url: '/fireDoor/roleManage'
+            }]
           }]
         }
       }
