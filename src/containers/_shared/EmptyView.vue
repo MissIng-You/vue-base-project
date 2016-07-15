@@ -26,7 +26,7 @@
   let { navigation, cascadingMenu } = customBootstrap
 
   export default {
-    name: 'SidebarView',
+    name: 'EmptyView',
     data () {
       return {
         msg: '这里还没有实现，后续完成。。。',

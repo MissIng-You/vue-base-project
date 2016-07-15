@@ -1,0 +1,27 @@
+
+// add modal component scss.
+
+// reset .modal-footer
+.modal-header,
+.modal-body,
+.modal-footer {
+  padding: $cm-space-width;
+
+  @include clearfix();
+}
+
+.modal-footer {
+  text-align: left;
+}
+
+.modal-sm {
+  width: $cm-modal-sm-width;
+}
+
+.modal-md {
+  width: $cm-modal-md-width;
+}
+
+.modal-lg {
+  width: $cm-modal-lg-width;
+}

@@ -5,18 +5,30 @@
     </div>
     <!--<slot name="header"></slot>-->
   </header>
-  <main class="login-body">
-    <div class="input-group input-group-lg">
-      <label for="#{{meta.username.id}}" class="input-group-addon">{{{meta.username.display}}}</label>
-      <input :id="meta.username.id" type="text" class="form-control"
-             :placeholder="meta.username.placeholder">
-    </div>
-    <div class="input-group input-group-lg">
-      <label for="#{{meta.password.id}}" class="input-group-addon">{{{meta.password.display}}}</label>
-      <input :id="meta.password.id" type="password" class="form-control" :placeholder="meta.password.placeholder">
-    </div>
-    <!--<slot name="body"></slot>-->
-  </main>
+  <validator name="validation">
+    <form class="login-body" novalidate>
+      <div class="input-group input-group-lg">
+        <label for="#{{meta.username.id}}" class="input-group-addon">{{{meta.username.label}}}</label>
+        <input :id="meta.username.id" type="text" class="form-control"
+               :placeholder="meta.username.placeholder" @keypress.enter="login"
+               field="username" v-validate="meta.username.validate" v-model="meta.username.value">
+        <!--<span v-if="$validation.username.touched" v-for="error in $validation.username.errors" class="description">{{error.message}}</span>-->
+      </div>
+      <div class="input-group input-group-lg">
+        <label for="#{{meta.password.id}}" class="input-group-addon">{{{meta.password.label}}}</label>
+        <input :id="meta.password.id" v-model="meta.password.value" type="password" class="form-control"
+               :placeholder="meta.password.placeholder" @keypress.enter="login"
+               field="password" v-validate="meta.password.validate">
+        <!--<span v-if="$validation.password.touched" v-for="error in $validation.password.errors" class="description">{{error.message}}</span>-->
+      </div>
+      <!--<div class="errors" v-if="$validation.touched">-->
+        <!--<validator-errors :validation="$validation"></validator-errors>-->
+      <!--</div>-->
+      <!--<div>{{$validation | json}}</div>-->
+      <div class="login-message {{getLoginMessageState}}" v-show="meta.message">{{meta.message}}</div>
+      <!--<slot name="body"></slot>-->
+    </form>
+  </validator>
   <footer class="login-footer">
     <button class="btn btn-md btn-info btn-block btn-lg"
             @click="login" v-html="meta.operation"></button>

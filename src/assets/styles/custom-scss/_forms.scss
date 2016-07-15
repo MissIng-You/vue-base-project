@@ -1,0 +1,32 @@
+
+// custom form component scss.
+
+// add .form-horizontal
+.form-horizontal {
+  @include clearfix();
+
+  .form-group {
+    margin-bottom: $cm-space-width;
+
+    @include clearfix();
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}
+
+// add .form-mask
+.form-group {
+  position: relative;
+
+  @include clearfix();
+
+  .form-mask {
+    position: absolute;
+    margin: 4px 8px;
+    background-color: $cm-gray;
+    color: $cm-danger;
+    font-size: .8em;
+  }
+}

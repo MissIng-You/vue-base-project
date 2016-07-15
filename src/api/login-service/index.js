@@ -1,10 +1,10 @@
 import Vue from 'vue'
 import ApiContainers from '../constant'
 
-let { GET_FIRE_LIST_API } = ApiContainers
+let { CHECK_LOGIN_API } = ApiContainers
 
-const getFireList = (query, resolve, reject) => {
-  return Vue.http.get(GET_FIRE_LIST_API, query)
+const checkLogin = (query, resolve, reject) => {
+  return Vue.http.get(CHECK_LOGIN_API, query)
     .then(resolve, reject)
 /*  let args = arguments.length
   switch (args) {
@@ -20,5 +20,5 @@ const getFireList = (query, resolve, reject) => {
 }
 
 // export fire-service.js
-export default getFireList
+export default checkLogin
 

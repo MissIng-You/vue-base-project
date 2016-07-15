@@ -27,12 +27,33 @@ export default {
     },
     loginSizeVariant () {
       return `login-${this.size}`
+    },
+    getLoginMessageState () {
+      switch (this.meta.state) {
+        case 'success':
+          return 'login-message-success'
+        case 'error':
+          return 'login-message-danger'
+        default:
+          return ''
+      }
     }
   },
   methods: {
     login () {
-      console.log('components click!')
-      this.$dispatch('login', this.meta)
+      let self = this
+
+      self.$validate(true, function () {
+        if (self.$validation.invalid) {
+          let errorLength = self.$validation.errors.length
+          self.$set('meta.state', 'error')
+          self.$set('meta.message', self.$validation.errors[errorLength - 1].message)
+          console.table(self.$validation.errors)
+          return
+        }
+
+        self.$dispatch('login', self.meta)
+      })
     }
   }
 }

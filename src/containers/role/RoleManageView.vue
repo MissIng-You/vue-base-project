@@ -25,7 +25,7 @@
   let { vuetable, vuetablePagination } = customBootstrap
 
   export default {
-    name: 'AddView',
+    name: 'RoleManageView',
     components: {
       vuetable,
       vuetablePagination,

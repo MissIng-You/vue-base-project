@@ -38,7 +38,8 @@ module.exports = merge(baseWebpackConfig, {
       'process.env': config.dev.env
     }),
     new webpack.ProvidePlugin({
-      Vue: 'vue'
+      Vue: 'vue',
+      Vue: 'Vue'
       //$: "jquery",
       //jQuery: "jquery",
       //"window.jQuery": "jquery"

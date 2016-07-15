@@ -55,7 +55,7 @@
   let isLoadedOfFireList = false
 
   export default {
-    name: 'IndexView',
+    name: 'FireDoorMonitorView',
     components: {
       fireCardList,
       cascadingMenu,

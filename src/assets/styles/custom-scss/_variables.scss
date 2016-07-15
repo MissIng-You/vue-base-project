@@ -4,6 +4,11 @@
 @import "../bootstrap-scss/variables";
 
 // common scss variants
+
+$cm-modal-sm-width: 330px !default;
+$cm-modal-md-width: 660px !default;
+$cm-modal-lg-width: 990px !default;
+
 $cm-sm-width: 544px !default;
 $cm-header-width: 60px !default;
 $cm-footer-width: 50px !default;

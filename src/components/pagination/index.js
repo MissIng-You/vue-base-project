@@ -61,6 +61,8 @@ export default {
       return (index + this.diff === this.currentPage) ? `btn-${this.variant}` : 'btn-secondary'
     },
     itemClick (item) {
+      this.$set('currentPage', item)
+
       console.log('item click !' + item)
       this.$dispatch('item-click', item)
     },

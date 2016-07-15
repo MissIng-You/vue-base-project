@@ -18,9 +18,9 @@
       <span aria-hidden="true">&laquo;</span>
     </span>
   </li>
-  <!--<li class="page-item {{ currentPage == 1 ?  'active' : '' }}" v-show="showPrev">-->
-    <!--<span class="page-link" v-on:click="currentPage = 1">1</span>-->
-  <!--</li>-->
+  <li class="page-item {{ currentPage === 1 ?  'active' : '' }}" v-show="showPrev">
+    <span class="page-link" @click="itemClick(1)">1</span>
+  </li>
   <li class="page-item disabled" v-show="showPrev">
     <span class="page-link">...</span>
   </li>
@@ -32,9 +32,9 @@
   <li class="page-item disabled" v-show="showNext">
     <span class="page-link">...</span>
   </li>
-  <!--<li class="page-item {{ numberOfPages == currentPage ? 'active' : '' }}" v-show="showNext">-->
-    <!--<span class="page-link" v-on:click="currentPage = numberOfPages">{{numberOfPages}}</span>-->
-  <!--</li>-->
+  <li class="page-item {{ numberOfPages === currentPage ? 'active' : '' }}" v-show="showNext">
+    <span class="page-link" @click="itemClick(numberOfPages)">{{numberOfPages}}</span>
+  </li>
   <li class="page-item {{ currentPage === numberOfPages ? 'disabled' : '' }}">
     <span class="page-link" v-bind:disabled="currentPage == numberOfPages" @click="nextClick">
       <span aria-hidden="true">&raquo;</span>

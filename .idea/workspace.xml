@@ -2,44 +2,43 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ab832d90-4bdc-4a03-84b6-0fda2600036b" name="默认的" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/WebClient_node_modules.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/assets/styles/custom-scss/_animated.scss" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/assets/styles/custom-scss/_button.scss" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/containers/_shared/EmptyView.vue" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/containers/device/DeviceManageView.vue" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/containers/fire-door/FireDoorMonitorView.vue" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/containers/role/RoleManageView.vue" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/containers/AddView.vue" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/containers/ArcgisView.vue" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/containers/BaiduView.vue" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/containers/IndexView.vue" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/containers/ListboxView.vue" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/containers/ModifyView.vue" afterPath="" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/api/login-service/index.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/api/login-service/mock.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/api/user-service/addUserMock.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/api/user-service/deleteUserMock.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/api/user-service/getUserByIDMock.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/api/user-service/getUserListMock.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/api/user-service/index.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/api/user-service/updateUserMock.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/assets/styles/custom-scss/_forms.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/assets/styles/custom-scss/_label.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/assets/styles/custom-scss/_modal.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/containers/user/AddUserView.vue" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/containers/user/DeleteUserView.vue" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/containers/user/UpdateUserView.vue" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/src/containers/NavigationView.vue" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/containers/TodoView.vue" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/VueDemos.iml" afterPath="$PROJECT_DIR$/.idea/VueDemos.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" afterPath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/package.json" afterPath="$PROJECT_DIR$/package.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/api/constant/index.js" afterPath="$PROJECT_DIR$/src/api/constant/index.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/api/fire-service/mock.json" afterPath="$PROJECT_DIR$/src/api/fire-service/mock.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/assets/styles/custom-scss/_box.scss" afterPath="$PROJECT_DIR$/src/assets/styles/custom-scss/_box.scss" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/webpack.dev.conf.js" afterPath="$PROJECT_DIR$/build/webpack.dev.conf.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/api/constant/constants.js" afterPath="$PROJECT_DIR$/src/api/constant/constants.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/api/constant/mock-constants.js" afterPath="$PROJECT_DIR$/src/api/constant/mock-constants.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/api/fire-service/index.js" afterPath="$PROJECT_DIR$/src/api/fire-service/index.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/api/index.js" afterPath="$PROJECT_DIR$/src/api/index.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/api/menu-service/index.js" afterPath="$PROJECT_DIR$/src/api/menu-service/index.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/assets/styles/custom-scss/_card.scss" afterPath="$PROJECT_DIR$/src/assets/styles/custom-scss/_card.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/assets/styles/custom-scss/_nav.scss" afterPath="$PROJECT_DIR$/src/assets/styles/custom-scss/_nav.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/assets/styles/custom-scss/_tables.scss" afterPath="$PROJECT_DIR$/src/assets/styles/custom-scss/_tables.scss" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/assets/styles/custom-scss/_login.scss" afterPath="$PROJECT_DIR$/src/assets/styles/custom-scss/_login.scss" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/assets/styles/custom-scss/_variables.scss" afterPath="$PROJECT_DIR$/src/assets/styles/custom-scss/_variables.scss" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/assets/styles/custom-scss/custom-bootstrap.scss" afterPath="$PROJECT_DIR$/src/assets/styles/custom-scss/custom-bootstrap.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/cascading-menu/cascading-menu.html" afterPath="$PROJECT_DIR$/src/components/cascading-menu/cascading-menu.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/cascading-menu/index.js" afterPath="$PROJECT_DIR$/src/components/cascading-menu/index.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/login/index.js" afterPath="$PROJECT_DIR$/src/components/login/index.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/login/login.html" afterPath="$PROJECT_DIR$/src/components/login/login.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/pagination/index.js" afterPath="$PROJECT_DIR$/src/components/pagination/index.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/pagination/pagination.html" afterPath="$PROJECT_DIR$/src/components/pagination/pagination.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/table/Vuetable.vue" afterPath="$PROJECT_DIR$/src/components/table/Vuetable.vue" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/containers/LoginView.vue" afterPath="$PROJECT_DIR$/src/containers/LoginView.vue" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/containers/SidebarView.vue" afterPath="$PROJECT_DIR$/src/containers/SidebarView.vue" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/containers/_layout/HeaderView.vue" afterPath="$PROJECT_DIR$/src/containers/_layout/HeaderView.vue" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/containers/_layout/SidebarView.vue" afterPath="$PROJECT_DIR$/src/containers/_layout/SidebarView.vue" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main.js" afterPath="$PROJECT_DIR$/src/main.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/containers/DeleteView.vue" afterPath="$PROJECT_DIR$/src/containers/user/UserManageView.vue" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/containers/_shared/EmptyView.vue" afterPath="$PROJECT_DIR$/src/containers/_shared/EmptyView.vue" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/containers/fire-door/FireDoorMonitorView.vue" afterPath="$PROJECT_DIR$/src/containers/fire-door/FireDoorMonitorView.vue" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/containers/role/RoleManageView.vue" afterPath="$PROJECT_DIR$/src/containers/role/RoleManageView.vue" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/containers/user/UserManageView.vue" afterPath="$PROJECT_DIR$/src/containers/user/UserManageView.vue" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/utils/vue-http.js" afterPath="$PROJECT_DIR$/src/utils/vue-http.js" />
     </list>
     <ignored path="VueDemos.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -60,21 +59,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="main.js" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main.js">
+      <file leaf-file-name="AddUserView.vue" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/containers/user/AddUserView.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.6885813">
-              <caret line="137" column="0" selection-start-line="137" selection-start-column="0" selection-end-line="137" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="LoginView.vue" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/containers/LoginView.vue">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.64285713">
-              <caret line="15" column="20" selection-start-line="15" selection-start-column="20" selection-end-line="15" selection-end-column="20" />
+            <state vertical-scroll-proportion="-12.5">
+              <caret line="23" column="34" selection-start-line="23" selection-start-column="34" selection-end-line="23" selection-end-column="34" />
               <folding />
             </state>
           </provider>
@@ -83,87 +72,88 @@
       <file leaf-file-name="UserManageView.vue" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/containers/user/UserManageView.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-10.928572">
-              <caret line="17" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
+            <state vertical-scroll-proportion="-8.714286">
+              <caret line="105" column="43" selection-start-line="105" selection-start-column="43" selection-end-line="105" selection-end-column="43" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="RoleManageView.vue" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/containers/role/RoleManageView.vue">
+      <file leaf-file-name="Vuetable.vue" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/components/table/Vuetable.vue">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.6872727">
+              <caret line="24" column="19" selection-start-line="24" selection-start-column="19" selection-end-line="24" selection-end-column="19" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="UpdateUserView.vue" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/containers/user/UpdateUserView.vue">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-1.8314607">
+              <caret line="76" column="32" selection-start-line="76" selection-start-column="32" selection-end-line="76" selection-end-column="32" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DeleteUserView.vue" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/containers/user/DeleteUserView.vue">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-1.8314607">
+              <caret line="50" column="19" selection-start-line="50" selection-start-column="18" selection-end-line="50" selection-end-column="19" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="addUserMock.json" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/api/user-service/addUserMock.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-2.5714285">
+              <caret line="4" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="deleteUserMock.json" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/api/user-service/deleteUserMock.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-2.5714285">
+              <caret line="4" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="getUserByIDMock.json" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/api/user-service/getUserByIDMock.json">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="-5.142857">
-              <caret line="20" column="36" selection-start-line="20" selection-start-column="36" selection-end-line="20" selection-end-column="36" />
-              <folding>
-                <element signature="n#vuetable#0;n#div#0;n#template#0;n#!!top" expanded="false" />
-                <element signature="e#1169#1304#0" expanded="false" />
-                <element signature="e#1323#1458#0" expanded="false" />
-                <element signature="e#1480#1644#0" expanded="false" />
-                <element signature="e#1646#1810#0" expanded="false" />
-                <element signature="e#1812#1976#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="FireDoorMonitorView.vue" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/containers/fire-door/FireDoorMonitorView.vue">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-9.642858">
-              <caret line="59" column="19" selection-start-line="59" selection-start-column="19" selection-end-line="59" selection-end-column="19" />
-              <folding>
-                <element signature="n#span#2;n#div#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="false" />
-                <element signature="e#3483#3641#0" expanded="false" />
-                <element signature="e#3757#3813#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="DeviceManageView.vue" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/containers/device/DeviceManageView.vue">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="13.785714">
-              <caret line="56" column="18" selection-start-line="56" selection-start-column="18" selection-end-line="56" selection-end-column="18" />
-              <folding>
-                <element signature="e#2327#2406#0" expanded="false" />
-                <element signature="e#2546#3236#0" expanded="false" />
-                <element signature="e#3313#3448#0" expanded="false" />
-                <element signature="e#3624#3788#0" expanded="false" />
-                <element signature="e#3790#3954#0" expanded="false" />
-                <element signature="e#3956#4120#0" expanded="false" />
-                <element signature="e#4144#4464#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="AppView.vue" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/containers/AppView.vue">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-12.214286">
-              <caret line="19" column="20" selection-start-line="19" selection-start-column="20" selection-end-line="19" selection-end-column="20" />
+              <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SidebarView.vue" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/containers/SidebarView.vue">
+      <file leaf-file-name="getUserListMock.json" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/api/user-service/getUserListMock.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="4.785714">
-              <caret line="32" column="25" selection-start-line="32" selection-start-column="25" selection-end-line="32" selection-end-column="25" />
+            <state vertical-scroll-proportion="-33.714287">
+              <caret line="71" column="15" selection-start-line="71" selection-start-column="15" selection-end-line="71" selection-end-column="15" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="EmptyView.vue" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/containers/_shared/EmptyView.vue">
+      <file leaf-file-name="updateUserMock.json" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/api/user-service/updateUserMock.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-12.214286">
-              <caret line="19" column="11" selection-start-line="19" selection-start-column="11" selection-end-line="19" selection-end-column="11" />
+            <state vertical-scroll-proportion="-2.5714285">
+              <caret line="4" column="0" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -184,37 +174,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/build/webpack.prod.conf.js" />
-        <option value="$PROJECT_DIR$/build/dev-client.js" />
-        <option value="$PROJECT_DIR$/build/webpack.base.conf.js" />
-        <option value="$PROJECT_DIR$/build/build-vs.js" />
-        <option value="$PROJECT_DIR$/src/api/constants.js" />
-        <option value="$PROJECT_DIR$/src/components/fire-card-list/index.js" />
-        <option value="$PROJECT_DIR$/src/components/fire-card-list/fire-card-list.html" />
-        <option value="$PROJECT_DIR$/src/components/fire-card/fire-card.html" />
-        <option value="$PROJECT_DIR$/src/components/fire-card/index.js" />
-        <option value="$PROJECT_DIR$/src/assets/styles/custom-scss/_mixins.scss" />
-        <option value="$PROJECT_DIR$/src/components/index.js" />
-        <option value="$PROJECT_DIR$/src/assets/styles/custom-scss/_pagination.scss" />
-        <option value="$PROJECT_DIR$/src/assets/styles/custom-scss/_input-group.scss" />
-        <option value="$PROJECT_DIR$/src/api/constant/constants.js" />
-        <option value="$PROJECT_DIR$/src/api/constant/mock-constants.js" />
-        <option value="$PROJECT_DIR$/src/api/menu-service/index.js" />
-        <option value="$PROJECT_DIR$/src/containers/TodoView.vue" />
-        <option value="$PROJECT_DIR$/src/api/index.js" />
-        <option value="$PROJECT_DIR$/src/api/fire-service/index.js" />
-        <option value="$PROJECT_DIR$/src/containers/BaiduView.vue" />
-        <option value="$PROJECT_DIR$/src/containers/AddView.vue" />
-        <option value="$PROJECT_DIR$/src/api/constant/index.js" />
-        <option value="$PROJECT_DIR$/src/containers/_layout/SidebarView.vue" />
-        <option value="$PROJECT_DIR$/src/api/fire-service/mock.json" />
-        <option value="$PROJECT_DIR$/src/components/login/login.html" />
-        <option value="$PROJECT_DIR$/src/components/login/index.js" />
-        <option value="$PROJECT_DIR$/src/containers/LoginView.vue" />
-        <option value="$PROJECT_DIR$/src/components/pagination/pagination.html" />
-        <option value="$PROJECT_DIR$/src/components/pagination/index.js" />
-        <option value="$PROJECT_DIR$/src/assets/styles/custom-scss/_card.scss" />
-        <option value="$PROJECT_DIR$/src/components/table/Vuetable.vue" />
         <option value="$PROJECT_DIR$/src/assets/styles/custom-scss/_button.scss" />
         <option value="$PROJECT_DIR$/src/assets/styles/custom-scss/_tables.scss" />
         <option value="$PROJECT_DIR$/src/containers/RoleManageView.vue" />
@@ -225,16 +184,47 @@
         <option value="$PROJECT_DIR$/src/components/cascading-menu/index.js" />
         <option value="$PROJECT_DIR$/src/components/cascading-menu/cascading-menu.html" />
         <option value="$PROJECT_DIR$/src/containers/_layout/HeaderView.vue" />
-        <option value="$PROJECT_DIR$/src/assets/styles/custom-scss/_variables.scss" />
         <option value="$PROJECT_DIR$/src/assets/styles/custom-scss/_box.scss" />
         <option value="$PROJECT_DIR$/src/assets/styles/custom-scss/_nav.scss" />
         <option value="$PROJECT_DIR$/src/assets/styles/custom-scss/_animated.scss" />
-        <option value="$PROJECT_DIR$/src/assets/styles/custom-scss/custom-bootstrap.scss" />
         <option value="$PROJECT_DIR$/src/containers/fire-monitor/FireDoorMonitorView.vue" />
-        <option value="$PROJECT_DIR$/src/containers/device-manage/DeviceManageView.vue" />
         <option value="$PROJECT_DIR$/src/containers/role-manage/RoleManageView.vue" />
-        <option value="$PROJECT_DIR$/src/containers/_shared/EmptyView.vue" />
         <option value="$PROJECT_DIR$/src/main.js" />
+        <option value="$PROJECT_DIR$/src/containers/device-manage/DeviceManageView.vue" />
+        <option value="$PROJECT_DIR$/src/api/login-service/mock.json" />
+        <option value="$PROJECT_DIR$/src/assets/styles/custom-scss/_login.scss" />
+        <option value="$PROJECT_DIR$/src/components/login/index.js" />
+        <option value="$PROJECT_DIR$/src/components/login/login.html" />
+        <option value="$PROJECT_DIR$/src/containers/role/RoleManageView.vue" />
+        <option value="$PROJECT_DIR$/src/containers/fire-door/FireDoorMonitorView.vue" />
+        <option value="$PROJECT_DIR$/src/containers/_shared/EmptyView.vue" />
+        <option value="$PROJECT_DIR$/src/utils/vue-http.js" />
+        <option value="$PROJECT_DIR$/src/api/index.js" />
+        <option value="$PROJECT_DIR$/build/webpack.dev.conf.js" />
+        <option value="$PROJECT_DIR$/src/api/fire-service/index.js" />
+        <option value="$PROJECT_DIR$/src/api/login-service/index.js" />
+        <option value="$PROJECT_DIR$/src/api/menu-service/index.js" />
+        <option value="$PROJECT_DIR$/src/components/pagination/pagination.html" />
+        <option value="$PROJECT_DIR$/src/components/pagination/index.js" />
+        <option value="$PROJECT_DIR$/src/assets/styles/custom-scss/_variables.scss" />
+        <option value="$PROJECT_DIR$/src/assets/styles/custom-scss/_card.scss" />
+        <option value="$PROJECT_DIR$/src/api/user-service/addUserMock.json" />
+        <option value="$PROJECT_DIR$/src/assets/styles/custom-scss/_label.scss" />
+        <option value="$PROJECT_DIR$/src/assets/styles/custom-scss/custom-bootstrap.scss" />
+        <option value="$PROJECT_DIR$/src/assets/styles/custom-scss/_modal.scss" />
+        <option value="$PROJECT_DIR$/src/assets/styles/custom-scss/_forms.scss" />
+        <option value="$PROJECT_DIR$/src/containers/user/DeleteUserView.vue" />
+        <option value="$PROJECT_DIR$/src/containers/LoginView.vue" />
+        <option value="$PROJECT_DIR$/src/api/constant/mock-constants.js" />
+        <option value="$PROJECT_DIR$/src/api/user-service/index.js" />
+        <option value="$PROJECT_DIR$/src/api/constant/constants.js" />
+        <option value="$PROJECT_DIR$/src/api/user-service/deleteUserMock.json" />
+        <option value="$PROJECT_DIR$/src/api/user-service/getUserByIDMock.json" />
+        <option value="$PROJECT_DIR$/src/api/user-service/getUserListMock.json" />
+        <option value="$PROJECT_DIR$/src/api/user-service/updateUserMock.json" />
+        <option value="$PROJECT_DIR$/src/containers/user/UserManageView.vue" />
+        <option value="$PROJECT_DIR$/src/containers/user/UpdateUserView.vue" />
+        <option value="$PROJECT_DIR$/src/containers/user/AddUserView.vue" />
       </list>
     </option>
   </component>
@@ -280,6 +270,13 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope">
+        <subPane subId="更改的文件" />
+        <subPane subId="测试" />
+        <subPane subId="问题" />
+        <subPane subId="Project Files" />
+        <subPane subId="默认的" />
+      </pane>
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -326,7 +323,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="containers" />
+              <option name="myItemId" value="components" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -347,30 +344,8 @@
               <option name="myItemId" value="components" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
-          </PATH>
-          <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="VueDemos" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="WebClient" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="assets" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="styles" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="font-awesome" />
+              <option name="myItemId" value="table" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -388,15 +363,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="assets" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="styles" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="custom-scss" />
+              <option name="myItemId" value="api" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -414,29 +381,11 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="assets" />
+              <option name="myItemId" value="api" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="styles" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="VueDemos" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="WebClient" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="assets" />
+              <option name="myItemId" value="constant" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -450,7 +399,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="node_modules" />
+              <option name="myItemId" value="config" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -464,44 +413,11 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="node_modules" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="vue-tables" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="VueDemos" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="WebClient" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="node_modules" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="vue-tables" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="lib" />
+              <option name="myItemId" value="build" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
-      </pane>
-      <pane id="Scope">
-        <subPane subId="更改的文件" />
-        <subPane subId="测试" />
-        <subPane subId="问题" />
-        <subPane subId="Project Files" />
-        <subPane subId="默认的" />
       </pane>
       <pane id="Scratches">
         <subPane>
@@ -544,19 +460,19 @@
     <property name="nodejs_interpreter_path" value="D:\Program Files\nodejs\node.exe" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="E:\192.168.10.222\防火门远程监控系统\02-软件产品研发\06-程序开发\02-程序源代码\WjFireDoor\WjFireDoor\WebClient\src\containers\_shared" />
-      <recent name="E:\192.168.10.222\高位水池\02-软件产品研发\06-程序开发\02-程序源代码\WjDeviceCloud\WjDeviceCloud\WebClient\src\api" />
-      <recent name="E:\192.168.10.222\高位水池\02-软件产品研发\06-程序开发\02-程序源代码\WjDeviceCloud\WjDeviceCloud\WebClient\src\components" />
-      <recent name="E:\192.168.10.222\高位水池\02-软件产品研发\06-程序开发\02-程序源代码\WjDeviceCloud\WjDeviceCloud\WebClient\src\components\fire-card" />
-      <recent name="E:\192.168.10.222\高位水池\02-软件产品研发\06-程序开发\02-程序源代码\WjDeviceCloud\WjDeviceCloud\WebClient\src\api\constant" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\192.168.10.222\防火门远程监控系统\02-软件产品研发\06-程序开发\02-程序源代码\WjFireDoor\WjFireDoor\WebClient\src\containers\device-manage" />
+      <recent name="E:\192.168.10.222\防火门远程监控系统\02-软件产品研发\06-程序开发\02-程序源代码\WjFireDoor\WjFireDoor\WebClient\src\containers" />
       <recent name="E:\192.168.10.222\防火门远程监控系统\02-软件产品研发\06-程序开发\02-程序源代码\WjFireDoor\WjFireDoor\WebClient\src\containers\user-manage" />
       <recent name="E:\192.168.10.222\防火门远程监控系统\02-软件产品研发\06-程序开发\02-程序源代码\WjFireDoor\WjFireDoor\WebClient\src\containers\role-manage" />
-      <recent name="E:\192.168.10.222\防火门远程监控系统\02-软件产品研发\06-程序开发\02-程序源代码\WjFireDoor\WjFireDoor\WebClient\src\containers\device-manage" />
       <recent name="E:\192.168.10.222\防火门远程监控系统\02-软件产品研发\06-程序开发\02-程序源代码\WjFireDoor\WjFireDoor\WebClient\src\containers\fire-monitor" />
-      <recent name="E:\192.168.10.222\高位水池\02-软件产品研发\06-程序开发\02-程序源代码\WjDeviceCloud\WjDeviceCloud\WebClient\src\api\constant" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\192.168.10.222\防火门远程监控系统\02-软件产品研发\06-程序开发\02-程序源代码\WjFireDoor\WjFireDoor\WebClient\src\api\user-service" />
+      <recent name="E:\192.168.10.222\防火门远程监控系统\02-软件产品研发\06-程序开发\02-程序源代码\WjFireDoor\WjFireDoor\WebClient\src\containers\user" />
+      <recent name="E:\192.168.10.222\防火门远程监控系统\02-软件产品研发\06-程序开发\02-程序源代码\WjFireDoor\WjFireDoor\WebClient\src\api" />
+      <recent name="E:\192.168.10.222\防火门远程监控系统\02-软件产品研发\06-程序开发\02-程序源代码\WjFireDoor\WjFireDoor\WebClient\src\containers\_shared" />
+      <recent name="E:\192.168.10.222\高位水池\02-软件产品研发\06-程序开发\02-程序源代码\WjDeviceCloud\WjDeviceCloud\WebClient\src\api" />
     </key>
   </component>
   <component name="RunManager" selected="npm.bulid-in-vs">
@@ -706,7 +622,13 @@
       <option name="project" value="LOCAL" />
       <updated>1468286948308</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="整理项目结构&#10;">
+      <created>1468403612440</created>
+      <option name="number" value="00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1468403612440</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TodoView">
@@ -722,23 +644,23 @@
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24274014" sideWeight="0.5131579" order="3" side_tool="true" content_ui="combo" x="523" y="29" width="319" height="647" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24944155" sideWeight="0.54769737" order="3" side_tool="true" content_ui="combo" x="523" y="29" width="319" height="647" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32730263" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="版本控制" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32894737" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="调试" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3280507" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.36133122" sideWeight="0.50410753" order="9" side_tool="true" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24944155" sideWeight="0.4868421" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24944155" sideWeight="0.45230263" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32730263" sideWeight="0.4973939" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="运行" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="false" show_stripe_button="true" weight="1.0" sideWeight="0.49589247" order="13" side_tool="false" content_ui="tabs" x="4" y="17" width="1358" height="693" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2256143" sideWeight="0.5756579" order="1" side_tool="true" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24944155" sideWeight="0.54769737" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="层次结构" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32978722" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2256143" sideWeight="0.50328946" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="消息" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32894737" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2256143" sideWeight="0.50328946" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -766,7 +688,8 @@
     <MESSAGE value="修改监控页面样式 &#10;" />
     <MESSAGE value="添加表单插件样式&#10;" />
     <MESSAGE value="移除vue-table异常&#10;" />
-    <option name="LAST_COMMIT_MESSAGE" value="移除vue-table异常&#10;" />
+    <MESSAGE value="整理项目结构&#10;" />
+    <option name="LAST_COMMIT_MESSAGE" value="整理项目结构&#10;" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -775,38 +698,15 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/components/pagination/pagination.html">
+    <entry file="file://$PROJECT_DIR$/src/assets/styles/bootstrap-scss/_reboot.scss">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-5.785714">
-          <caret line="18" column="11" selection-start-line="18" selection-start-column="11" selection-end-line="18" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/package.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.03272727">
-          <caret line="18" column="22" selection-start-line="18" selection-start-column="22" selection-end-line="18" selection-end-column="22" />
+        <state vertical-scroll-proportion="18.305084">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/fire-card-list/fire-card-list.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-1.9285715">
-          <caret line="3" column="31" selection-start-line="3" selection-start-column="31" selection-end-line="3" selection-end-column="31" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/fire-card/fire-card.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-3.857143">
-          <caret line="6" column="96" selection-start-line="6" selection-start-column="3" selection-end-line="6" selection-end-column="96" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/node_modules/vue-tables/lib/computed/all-columns.js">
+    <entry file="file://$PROJECT_DIR$/src/assets/styles/bootstrap-scss/_pagination.scss">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -814,7 +714,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/node_modules/vue-tables/lib/computed/custom-columns.js">
+    <entry file="file://$PROJECT_DIR$/src/assets/styles/bootstrap-scss/_normalize.scss">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -822,7 +722,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/node_modules/vue-tables/lib/computed/custom-q.js">
+    <entry file="file://$PROJECT_DIR$/src/assets/styles/bootstrap-scss/_mixins.scss">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -830,7 +730,23 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/node_modules/vue-tables/lib/computed/list-columns-object.js">
+    <entry file="file://$PROJECT_DIR$/src/assets/styles/bootstrap-scss/_media.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="4.576271">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/assets/styles/bootstrap-scss/_list-group.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="7.322034">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/assets/styles/bootstrap-scss/_jumbotron.scss">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -838,129 +754,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/node_modules/vue-tables/lib/computed/q.js">
+    <entry file="file://$PROJECT_DIR$/src/assets/styles/bootstrap-scss/_input-group.scss">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/node_modules/vue-tables/lib/computed/templates-keys.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/node_modules/vue-tables/lib/methods/set-page.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/node_modules/vue-tables/lib/v-client-table.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/node_modules/vue-tables/lib/table-template.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-17.357143">
-          <caret line="27" column="20" selection-start-line="27" selection-start-column="20" selection-end-line="27" selection-end-column="20" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/table/VuetablePagination.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-14.5">
-          <caret line="46" column="3" selection-start-line="46" selection-start-column="3" selection-end-line="46" selection-end-column="3" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/table/VuetablePaginationBootstrap.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-12.571428">
-          <caret line="22" column="28" selection-start-line="22" selection-start-column="13" selection-end-line="22" selection-end-column="28" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/table/VuetablePaginationDropdown.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="27.285715">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/table/VuetablePaginationMixin.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="27.285715">
-          <caret line="44" column="21" selection-start-line="44" selection-start-column="21" selection-end-line="44" selection-end-column="21" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/table/Vuetable.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-23.5">
-          <caret line="253" column="14" selection-start-line="253" selection-start-column="14" selection-end-line="253" selection-end-column="14" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/assets/styles/bootstrap-scss/_grid.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/assets/styles/bootstrap-scss/_dropdown.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/assets/styles/bootstrap-scss/_card.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.64285713">
-          <caret line="107" column="20" selection-start-line="107" selection-start-column="20" selection-end-line="107" selection-end-column="20" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/assets/styles/bootstrap-scss/_buttons.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-4.5254235">
-          <caret line="123" column="24" selection-start-line="123" selection-start-column="24" selection-end-line="123" selection-end-column="24" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/assets/styles/bootstrap-scss/_button-group.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/assets/styles/bootstrap-scss/_carousel.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
+        <state vertical-scroll-proportion="105.71429">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
@@ -968,40 +764,138 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/assets/styles/custom-scss/_card.scss">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-4.915254">
-          <caret line="264" column="23" selection-start-line="264" selection-start-column="23" selection-end-line="264" selection-end-column="23" />
+        <state vertical-scroll-proportion="-3.3898306">
+          <caret line="277" column="11" selection-start-line="277" selection-start-column="11" selection-end-line="277" selection-end-column="11" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/assets/styles/custom-scss/_tables.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-6.101695">
-          <caret line="20" column="14" selection-start-line="20" selection-start-column="14" selection-end-line="20" selection-end-column="14" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/cascading-menu/index.js">
+    <entry file="file://$PROJECT_DIR$/build/webpack.base.conf.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="69" column="12" selection-start-line="69" selection-start-column="12" selection-end-line="69" selection-end-column="12" />
+          <caret line="38" column="12" selection-start-line="38" selection-start-column="12" selection-end-line="38" selection-end-column="24" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/cascading-menu/cascading-menu.html">
+    <entry file="file://$PROJECT_DIR$/build/webpack.dev.conf.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-9.642858">
-          <caret line="18" column="6" selection-start-line="18" selection-start-column="6" selection-end-line="25" selection-end-column="11" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="39" column="29" selection-start-line="39" selection-start-column="16" selection-end-line="39" selection-end-column="29" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/assets/styles/custom-scss/_navbar.scss">
+    <entry file="file://$PROJECT_DIR$/src/assets/styles/bootstrap-scss/_alert.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-5.1355934">
+          <caret line="29" column="1" selection-start-line="29" selection-start-column="1" selection-end-line="29" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/assets/styles/bootstrap-scss/_labels.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-1.8305085">
+          <caret line="42" column="11" selection-start-line="42" selection-start-column="1" selection-end-line="42" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/assets/styles/custom-scss/_login.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.30508474">
+          <caret line="73" column="8" selection-start-line="73" selection-start-column="8" selection-end-line="73" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/vue-mdl/src/mixins/prop-fill.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="8" column="7" selection-start-line="8" selection-start-column="7" selection-end-line="8" selection-end-column="7" />
+          <folding>
+            <element signature="n#!!doc" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/vue-mdl/src/select.vue">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/vue-mdl/src/dialog.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.42545456">
+          <caret line="16" column="15" selection-start-line="16" selection-start-column="15" selection-end-line="16" selection-end-column="15" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/login/login.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-16.071428">
+          <caret line="37" column="0" selection-start-line="37" selection-start-column="0" selection-end-line="37" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/assets/styles/custom-scss/_animated.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/assets/styles/custom-scss/_box.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/assets/styles/bootstrap-scss/_close.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/assets/styles/custom-scss/custom-bootstrap.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-10.406779">
+          <caret line="37" column="17" selection-start-line="36" selection-start-column="21" selection-end-line="37" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/utils/vue-http.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/assets/styles/bootstrap-scss/_modal.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.7283237">
+          <caret line="144" column="33" selection-start-line="144" selection-start-column="33" selection-end-line="144" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/assets/styles/bootstrap-scss/_variables.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-9.711864">
+          <caret line="660" column="44" selection-start-line="660" selection-start-column="44" selection-end-line="660" selection-end-column="44" />
           <folding />
         </state>
       </provider>
@@ -1009,87 +903,36 @@
     <entry file="file://$PROJECT_DIR$/src/assets/styles/custom-scss/_variables.scss">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-2.7457628">
-          <caret line="9" column="38" selection-start-line="9" selection-start-column="38" selection-end-line="9" selection-end-column="38" />
+          <caret line="9" column="22" selection-start-line="9" selection-start-column="22" selection-end-line="9" selection-end-column="22" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/assets/styles/custom-scss/_box.scss">
+    <entry file="file://$PROJECT_DIR$/src/assets/styles/bootstrap-scss/_custom-forms.scss">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-5.745763">
-          <caret line="144" column="70" selection-start-line="144" selection-start-column="70" selection-end-line="144" selection-end-column="70" />
+        <state vertical-scroll-proportion="-9.18644">
+          <caret line="110" column="0" selection-start-line="110" selection-start-column="0" selection-end-line="110" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/assets/styles/custom-scss/_button.scss">
+    <entry file="file://$PROJECT_DIR$/src/assets/styles/bootstrap-scss/_forms.scss">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-4.881356">
-          <caret line="16" column="0" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
+        <state vertical-scroll-proportion="-3.9152544">
+          <caret line="127" column="19" selection-start-line="127" selection-start-column="19" selection-end-line="127" selection-end-column="19" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/assets/styles/custom-scss/_nav.scss">
+    <entry file="file://$PROJECT_DIR$/src/assets/styles/custom-scss/_modal.scss">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-4.5254235">
-          <caret line="124" column="0" selection-start-line="124" selection-start-column="0" selection-end-line="124" selection-end-column="0" />
+        <state vertical-scroll-proportion="-7.6271186">
+          <caret line="25" column="28" selection-start-line="25" selection-start-column="28" selection-end-line="25" selection-end-column="28" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/assets/styles/custom-scss/_animated.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-2.7457628">
-          <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/assets/styles/custom-scss/custom-bootstrap.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-5.440678">
-          <caret line="33" column="15" selection-start-line="33" selection-start-column="15" selection-end-line="33" selection-end-column="15" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/containers/_layout/ContainerView.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/containers/_layout/SidebarView.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/containers/_layout/HeaderView.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-7.714286">
-          <caret line="12" column="35" selection-start-line="12" selection-start-column="20" selection-end-line="12" selection-end-column="35" />
-          <folding>
-            <element signature="e#1294#1390#0" expanded="false" />
-            <element signature="e#1392#1492#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/containers/_layout/FooterView.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/containers/_layout/ContentView.vue">
+    <entry file="file://$PROJECT_DIR$/src/assets/styles/custom-scss/_input-group.scss">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -1099,91 +942,181 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/containers/fire-door/FireDoorMonitorView.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-9.642858">
-          <caret line="59" column="19" selection-start-line="59" selection-start-column="19" selection-end-line="59" selection-end-column="19" />
+        <state vertical-scroll-proportion="-0.64285713">
+          <caret line="14" column="12" selection-start-line="14" selection-start-column="12" selection-end-line="14" selection-end-column="12" />
           <folding>
             <element signature="n#span#2;n#div#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="false" />
-            <element signature="e#3483#3641#0" expanded="false" />
-            <element signature="e#3757#3813#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/containers/device/DeviceManageView.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="13.785714">
-          <caret line="56" column="18" selection-start-line="56" selection-start-column="18" selection-end-line="56" selection-end-column="18" />
-          <folding>
-            <element signature="e#2327#2406#0" expanded="false" />
-            <element signature="e#2546#3236#0" expanded="false" />
-            <element signature="e#3313#3448#0" expanded="false" />
-            <element signature="e#3624#3788#0" expanded="false" />
-            <element signature="e#3790#3954#0" expanded="false" />
-            <element signature="e#3956#4120#0" expanded="false" />
-            <element signature="e#4144#4464#0" expanded="false" />
+            <element signature="e#3493#3651#0" expanded="false" />
+            <element signature="e#3767#3823#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/containers/role/RoleManageView.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-5.142857">
-          <caret line="20" column="36" selection-start-line="20" selection-start-column="36" selection-end-line="20" selection-end-column="36" />
+        <state vertical-scroll-proportion="-5.214286">
+          <caret line="81" column="4" selection-start-line="81" selection-start-column="4" selection-end-line="96" selection-end-column="5" />
           <folding>
             <element signature="n#vuetable#0;n#div#0;n#template#0;n#!!top" expanded="false" />
-            <element signature="e#1169#1304#0" expanded="false" />
-            <element signature="e#1323#1458#0" expanded="false" />
-            <element signature="e#1480#1644#0" expanded="false" />
-            <element signature="e#1646#1810#0" expanded="false" />
-            <element signature="e#1812#1976#0" expanded="false" />
+            <element signature="e#1176#1311#0" expanded="false" />
+            <element signature="e#1330#1465#0" expanded="false" />
+            <element signature="e#1487#1651#0" expanded="false" />
+            <element signature="e#1653#1817#0" expanded="false" />
+            <element signature="e#1819#1983#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/containers/user/UserManageView.vue">
+    <entry file="file://$PROJECT_DIR$/src/assets/styles/custom-scss/_forms.scss">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-10.928572">
-          <caret line="17" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
+        <state vertical-scroll-proportion="-2.6949153">
+          <caret line="18" column="17" selection-start-line="18" selection-start-column="17" selection-end-line="18" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/assets/styles/custom-scss/_label.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-1.5254238">
+          <caret line="5" column="25" selection-start-line="5" selection-start-column="25" selection-end-line="5" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/api/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/containers/LoginView.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.64285713">
-          <caret line="15" column="20" selection-start-line="15" selection-start-column="20" selection-end-line="15" selection-end-column="20" />
+        <state vertical-scroll-proportion="-13.571428">
+          <caret line="73" column="9" selection-start-line="73" selection-start-column="9" selection-end-line="73" selection-end-column="9" />
+          <folding>
+            <element signature="e#364#1127#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-8.357142">
+          <caret line="37" column="37" selection-start-line="37" selection-start-column="37" selection-end-line="37" selection-end-column="37" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/containers/AppView.vue">
+    <entry file="file://$PROJECT_DIR$/src/containers/ListboxView.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-12.214286">
-          <caret line="19" column="20" selection-start-line="19" selection-start-column="20" selection-end-line="19" selection-end-column="20" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/containers/SidebarView.vue">
+    <entry file="file://$PROJECT_DIR$/src/api/constant/mock-constants.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="4.785714">
-          <caret line="32" column="25" selection-start-line="32" selection-start-column="25" selection-end-line="32" selection-end-column="25" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="23" column="63" selection-start-line="23" selection-start-column="63" selection-end-line="23" selection-end-column="63" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/containers/_shared/EmptyView.vue">
+    <entry file="file://$PROJECT_DIR$/src/api/user-service/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-12.214286">
-          <caret line="19" column="11" selection-start-line="19" selection-start-column="11" selection-end-line="19" selection-end-column="11" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="21" column="28" selection-start-line="21" selection-start-column="28" selection-end-line="21" selection-end-column="28" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main.js">
+    <entry file="file://$PROJECT_DIR$/src/api/constant/constants.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6885813">
-          <caret line="137" column="0" selection-start-line="137" selection-start-column="0" selection-end-line="137" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="24" column="0" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/api/user-service/addUserMock.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-2.5714285">
+          <caret line="4" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/api/user-service/getUserByIDMock.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-5.142857">
+          <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/api/user-service/getUserListMock.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-33.714287">
+          <caret line="71" column="15" selection-start-line="71" selection-start-column="15" selection-end-line="71" selection-end-column="15" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/api/user-service/deleteUserMock.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-2.5714285">
+          <caret line="4" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/api/user-service/updateUserMock.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-2.5714285">
+          <caret line="4" column="0" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/containers/user/UpdateUserView.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-1.8314607">
+          <caret line="76" column="32" selection-start-line="76" selection-start-column="32" selection-end-line="76" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/containers/user/DeleteUserView.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-1.8314607">
+          <caret line="50" column="19" selection-start-line="50" selection-start-column="18" selection-end-line="50" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/containers/user/AddUserView.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-12.5">
+          <caret line="23" column="34" selection-start-line="23" selection-start-column="34" selection-end-line="23" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/containers/user/UserManageView.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-8.714286">
+          <caret line="105" column="43" selection-start-line="105" selection-start-column="43" selection-end-line="105" selection-end-column="43" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/table/Vuetable.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.6872727">
+          <caret line="24" column="19" selection-start-line="24" selection-start-column="19" selection-end-line="24" selection-end-column="19" />
           <folding />
         </state>
       </provider>

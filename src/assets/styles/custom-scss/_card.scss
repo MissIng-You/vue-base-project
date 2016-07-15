@@ -272,3 +272,18 @@
     background-color: darken($cm-danger, 10%);
   }
 }
+
+// add .card-sm / .card-md / .card-lg
+.card-sm {
+  margin: 0 auto;
+  width: $cm-modal-sm-width;
+}
+.card-md {
+  margin: 0 auto;
+  width: $cm-modal-md-width;
+}
+.card-lg {
+  margin: 0 auto;
+  width: $cm-modal-lg-width;
+}
+
