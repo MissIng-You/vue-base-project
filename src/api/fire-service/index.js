@@ -1,24 +1,36 @@
 import Vue from 'vue'
 import ApiContainers from '../constant'
 
-let { GET_FIRE_LIST_API } = ApiContainers
+let {
+  GET_FIRE_LIST_API,
+  GET_FIRE_BY_ID_API,
+  ADD_FIRE_API,
+  UPDATE_FIRE_API,
+  DELETE_FIRE_API } = ApiContainers
 
-const getFireList = (query, resolve, reject) => {
-  return Vue.http.get(GET_FIRE_LIST_API, query)
+const postService = (url, query, resolve, reject) => {
+  return Vue.http.post(url, query)
     .then(resolve, reject)
-/*  let args = arguments.length
-  switch (args) {
-    case 1:
-      return Vue.http.get(GET_FIRE_LIST_API).then(args[0])
-    case 2:
-      return Vue.http.get(GET_FIRE_LIST_API, args[0]).then(args[1])
-    case 3:
-      return Vue.http.get(GET_FIRE_LIST_API, args[0]).then(args[1], args[2])
-    default:
-      console.error('arguments count is more !')
-  }*/
+}
+
+const userService = {
+  getFireList: (query, resolve, reject) => {
+    return postService(GET_FIRE_LIST_API, query, resolve, reject)
+  },
+  getFireById: (query, resolve, reject) => {
+    return postService(GET_FIRE_BY_ID_API, query, resolve, reject)
+  },
+  addFire: (data, resolve, reject) => {
+    return postService(ADD_FIRE_API, data, resolve, reject)
+  },
+  updateFire: (data, resolve, reject) => {
+    return postService(UPDATE_FIRE_API, data, resolve, reject)
+  },
+  deleteFire: (data, resolve, reject) => {
+    return postService(DELETE_FIRE_API, data, resolve, reject)
+  }
 }
 
 // export fire-service.js
-export default getFireList
+export default userService
 

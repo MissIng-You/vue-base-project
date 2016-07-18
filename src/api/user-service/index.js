@@ -8,26 +8,26 @@ let {
   UPDATE_USER_API,
   DELETE_USER_API } = ApiContainers
 
+const postService = (url, query, resolve, reject) => {
+  return Vue.http.post(url, query)
+    .then(resolve, reject)
+}
+
 const userService = {
   getUserList: (query, resolve, reject) => {
-    return Vue.http.post(GET_USER_LIST_API, query)
-      .then(resolve, reject)
+    return postService(GET_USER_LIST_API, query, resolve, reject)
   },
   getUserById: (query, resolve, reject) => {
-    return Vue.http.post(GET_USER_BY_ID_API, query)
-      .then(resolve, reject)
+    return postService(GET_USER_BY_ID_API, query, resolve, reject)
   },
   addUser: (data, resolve, reject) => {
-    return Vue.http.post(ADD_USER_API, data)
-      .then(resolve, reject)
+    return postService(ADD_USER_API, data, resolve, reject)
   },
   updateUser: (data, resolve, reject) => {
-    return Vue.http.post(UPDATE_USER_API, data)
-      .then(resolve, reject)
+    return postService(UPDATE_USER_API, data, resolve, reject)
   },
   deleteUser: (data, resolve, reject) => {
-    return Vue.http.post(DELETE_USER_API, data)
-      .then(resolve, reject)
+    return postService(DELETE_USER_API, data, resolve, reject)
   }
 }
 

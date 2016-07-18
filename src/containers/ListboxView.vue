@@ -22,8 +22,7 @@
       :force-default="forceDefault"
       :arrow="arrow"
       :caret="caret"
-      :dropup="dropup"
-      return-object>
+      :dropup="dropup">
     </vs-dropdown-select>
   </div>
 </template>

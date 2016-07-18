@@ -37,7 +37,12 @@
         newTodo: '',
         todos: [
           { text: 'Add todos' }
-        ]
+        ],
+        fileds: [{
+          id: '',
+          name: '',
+          validate: ['require']
+        }]
       }
     },
     methods: {

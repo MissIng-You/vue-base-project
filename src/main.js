@@ -52,7 +52,7 @@ Vue.use(Router)
 
 // routing
 var router = new Router({
-  hashbang: true,
+  hashbang: false,
   history: true,
   saveScrollPosition: true,
   transitionOnLoad: true,

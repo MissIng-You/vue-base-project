@@ -14,9 +14,9 @@
         <span class="card-state card-state-hover pull-right" @click="onTableAdd"><i class="fa fa-fw fa-plus"></i></span>
       </div>
       <div class="card-body">
-        <add-user-view></add-user-view>
-        <update-user-view :meta="userMeta"></update-user-view>
-        <delete-user-view :meta="userMeta"></delete-user-view>
+        <add-user-view :meta="addUserMeta" :validate="addUserValidateMeta"></add-user-view>
+        <update-user-view :meta="updateUserMeta"></update-user-view>
+        <delete-user-view :meta="deleteUserMeta"></delete-user-view>
         <vuetable v-ref:vuetable
                   api-url="/api/user-service/getUserListMock.json"
                   :show-pagination="userDefineMeta.showPagination"
@@ -89,6 +89,10 @@
           totalCount: 100,
           currentPage: 1
         },
+        addUserMeta: {},
+        addUserValidateMeta: [],
+        updateUserMeta: {},
+        deleteUserMeta: {},
         userListMeta: {
           totalCount: 0,
           items: []
@@ -134,7 +138,7 @@
       _getUserById (userQuery) {
         let self = this
         getUserById(userQuery, function (response) {
-          self.$set('userMeta', response.data)
+          self.$set('updateUserMeta', response.data)
         })
       },
       _searchUser () {
@@ -181,7 +185,7 @@
           UserID: data.UserID,
           UserName: data.UserName
         }
-        this.$set('userMeta', tempUserMeta)
+        this.$set('deleteUserMeta', tempUserMeta)
         this._toggleModalType('deleteUserModal')
       }
     },

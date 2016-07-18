@@ -10,24 +10,25 @@
           <div class="form-group">
             <label for="UserName" class="col-sm-4 control-label">用户名称<i class="form-mask fa fa-hashtag"></i></label>
             <div class="col-sm-8">
-              <input type="text" v-model="userMeta.UserName" class="form-control form-control-sm" id="UserName" placeholder="请输入用户名">
+              <input type="text" v-model="meta.UserName" class="form-control form-control-sm" id="UserName" placeholder="请输入用户名">
             </div>
           </div>
           <div class="form-group">
             <label for="Telphone" class="col-sm-4 control-label">手机号码<i class="form-mask fa fa-hashtag"></i></label>
             <div class="col-sm-8">
-              <input type="text" v-model="userMeta.Telphone"  class="form-control  form-control-sm" id="Telphone" placeholder="请输入手机号码">
+              <input type="text" v-model="meta.Telphone"  class="form-control  form-control-sm" id="Telphone" placeholder="请输入手机号码">
             </div>
           </div>
           <div class="form-group">
             <label for="RoleID" class="col-sm-4 control-label">用户角色<i class="form-mask fa fa-hashtag"></i></label>
             <div class="col-sm-8">
-              <input type="text" v-model="userMeta.RoleID" class="form-control  form-control-sm" id="RoleID" placeholder="请选择角色类型">
+              <input type="text" v-model="meta.RoleID" class="form-control  form-control-sm" id="RoleID" placeholder="请选择角色类型">
             </div>
           </div>
         </form>
       </div>
       <div slot="modal-footer">
+        <div class="alert alert-danger alert-sm">{{validateMessage}}</div>
         <div class="label label-vertical label-info label-pill">{{message}}</div>
         <div class="pull-right">
           <button type="button" @click="onAddUser" class="btn btn-success btn-xs" ><i class="fa fa-fw fa-lg fa-check-circle"></i>确定</button>
@@ -49,18 +50,24 @@
     components: {
       modal: vuestrapBase.modal
     },
+    props: {
+      meta: {
+        type: Object,
+        default: function () {
+          return {}
+        }
+      },
+      validate: {
+        type: Array,
+        default: function () {
+          return []
+        }
+      }
+    },
     data () {
       return {
-        userMeta: {
-          UserID: '',
-          UserName: '',
-          RoleID: '',
-          Telphone: '',
-          AddTime: '',
-          ModifyTiem: '',
-          UserState: 0
-        },
-        message: ''
+        message: '',
+        validateMessage: 'xxxxxxxxxxxxxxx'
       }
     },
     methods: {
@@ -73,17 +80,17 @@
         }, 1000)
       },
       _resetUser () {
-        this.$set('userMeta.UserName', '')
-        this.$set('userMeta.RoleID', '')
-        this.$set('userMeta.Telphone', '')
+        this.$set('meta.UserName', '')
+        this.$set('meta.RoleID', '')
+        this.$set('meta.Telphone', '')
       },
       onAddUser () {
         let self = this
-        let postData = this.userMeta
+        let postData = this.meta
         addUser(postData, function (response) {
           let data = response.data
           let message = ''
-          console.log(self.userMeta)
+          console.log(self.meta)
           console.log(response.data)
           if (data && data.Success) {
             message = '操作成功，即将跳转...'
