@@ -8,9 +8,9 @@
     <div class="layout-center">
 
       <router-view
-        class="view"
+        class="animated"
         keep-alive
-        transition
+        transition="slide"
         transition-mode="out-in">
       </router-view>
 
@@ -35,6 +35,10 @@
             icon: 'fa-leaf',
             title: '实时监控',
             url: '/fireDoor/monitor'
+          }, {
+            icon: 'fa-flag',
+            title: '防火门管理',
+            url: '/fireDoor/fireManage'
           }, {
             icon: 'fa-object-group',
             title: '设备管理',

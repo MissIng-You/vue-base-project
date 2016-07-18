@@ -1,7 +1,7 @@
 
 // mvc api
 const GET_MENU_LIST_API = '/Menu/GetMenuList'
-const GET_FIRE_LIST_API = '/Fire/GetFireList'
+const GET_FIRE_MONITOR_LIST_API = '/Fire/GetFireList'
 const CHECK_LOGIN_API = '/Login/CheckLogin'
 
 // device manage api
@@ -34,7 +34,7 @@ const DELETE_ROLE_API = '/Role/DeleteRole'
 
 const ApiContainersRelative = {
   GET_MENU_LIST_API,
-  GET_FIRE_LIST_API,
+  GET_FIRE_MONITOR_LIST_API,
   CHECK_LOGIN_API,
 
   // user api
@@ -59,11 +59,11 @@ const ApiContainersRelative = {
   DELETE_DEVICE_API,
 
   // fire api
-  GET_DEVICE_LIST_API,
-  GET_DEVICE_BY_ID_API,
-  ADD_DEVICE_API,
-  UPDATE_DEVICE_API,
-  DELETE_DEVICE_API
+  GET_FIRE_LIST_API,
+  GET_FIRE_BY_ID_API,
+  ADD_FIRE_API,
+  UPDATE_FIRE_API,
+  DELETE_FIRE_API
 }
 
 export default ApiContainersRelative

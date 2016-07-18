@@ -13,7 +13,7 @@ const postService = (url, query, resolve, reject) => {
     .then(resolve, reject)
 }
 
-const userService = {
+const deviceService = {
   getDeviceList: (query, resolve, reject) => {
     return postService(GET_DEVICE_LIST_API, query, resolve, reject)
   },
@@ -32,5 +32,5 @@ const userService = {
 }
 
 // export device-service.js
-export default userService
+export default deviceService
 

@@ -1,7 +1,7 @@
 
 // mock api
 const GET_MENU_LIST_API = '/api/menu-service/mock.json'
-const GET_FIRE_LIST_API = '/api/fire-service/mock.json'
+const GET_FIRE_MONITOR_LIST_API = '/api/monitor-service/mock.json'
 const CHECK_LOGIN_API = '/api/login-service/mock.json'
 
 // device manage mock api
@@ -12,11 +12,11 @@ const UPDATE_DEVICE_API = '/api/device-service/updateDeviceMock.json'
 const DELETE_DEVICE_API = '/api/device-service/deleteDeviceMock.json'
 
 // fire manage mock api
-const GET_FIRE_LIST_API = '/api/device-service/getFireListMock.json'
-const GET_FIRE_BY_ID_API = '/api/device-service/getFireByIdMock.json'
-const ADD_FIRE_API = '/api/device-service/addFireMock.json'
-const UPDATE_FIRE_API = '/api/device-service/updateFireMock.json'
-const DELETE_FIRE_API = '/api/device-service/deleteFireMock.json'
+const GET_FIRE_LIST_API = '/api/fire-service/getFireListMock.json'
+const GET_FIRE_BY_ID_API = '/api/fire-service/getFireByIdMock.json'
+const ADD_FIRE_API = '/api/fire-service/addFireMock.json'
+const UPDATE_FIRE_API = '/api/fire-service/updateFireMock.json'
+const DELETE_FIRE_API = '/api/fire-service/deleteFireMock.json'
 
 // user manage mock api
 const GET_USER_LIST_API = '/api/user-service/getUserListMock.json'
@@ -34,7 +34,7 @@ const DELETE_ROLE_API = '/api/role-service/deleteRoleMock.json'
 
 const ApiContainersRelative = {
   GET_MENU_LIST_API,
-  GET_FIRE_LIST_API,
+  GET_FIRE_MONITOR_LIST_API,
   CHECK_LOGIN_API,
 
   // user api
@@ -59,11 +59,11 @@ const ApiContainersRelative = {
   DELETE_DEVICE_API,
 
   // fire api
-  GET_DEVICE_LIST_API,
-  GET_DEVICE_BY_ID_API,
-  ADD_DEVICE_API,
-  UPDATE_DEVICE_API,
-  DELETE_DEVICE_API
+  GET_FIRE_LIST_API,
+  GET_FIRE_BY_ID_API,
+  ADD_FIRE_API,
+  UPDATE_FIRE_API,
+  DELETE_FIRE_API
 }
 
 export default ApiContainersRelative

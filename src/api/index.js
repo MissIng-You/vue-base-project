@@ -1,7 +1,7 @@
 
 // import all services.
 import getMenuList from './menu-service'
-import getFireList from './monitor-service'
+import getFireMonitorList from './monitor-service'
 import checkLogin from './login-service'
 
 import userService from './user-service'
@@ -11,7 +11,7 @@ import deviceService from './device-service'
 
 const ApiService = {
   getMenuList,
-  getFireList,
+  getFireMonitorList,
   checkLogin,
   userService,
   roleService,

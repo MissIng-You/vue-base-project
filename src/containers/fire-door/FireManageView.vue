@@ -14,11 +14,11 @@
         <span class="card-state card-state-hover pull-right" @click="onTableAdd"><i class="fa fa-fw fa-plus"></i></span>
       </div>
       <div class="card-body">
-        <add-device-view :meta="addDeviceMeta" :validate="addDeviceValidateMeta"></add-device-view>
-        <update-device-view :meta="updateDeviceMeta"></update-device-view>
-        <delete-device-view :meta="deleteDeviceMeta"></delete-device-view>
+        <add-fire-view :meta="addFireMeta" :validate="addFireValidateMeta"></add-fire-view>
+        <update-fire-view :meta="updateFireMeta"></update-fire-view>
+        <delete-fire-view :meta="deleteFireMeta"></delete-fire-view>
         <vuetable v-ref:vuetable
-                  api-url="/api/user-service/getDeviceListMock.json"
+                  api-url="/api/user-service/getFireListMock.json"
                   :show-pagination="userDefineMeta.showPagination"
                   pagination-path=""
                   :load-on-start="userDefineMeta.loadOnStart"
@@ -50,31 +50,31 @@
 <script>
   import customBootstrap from '../../components'
   import ApiService from '../../api'
-  import AddDeviceView from './AddDeviceView'
-  import UpdateDeviceView from './UpdateDeviceView'
-  import DeleteDeviceView from './DeleteDeviceView'
+  import AddFireView from './AddFireView'
+  import UpdateFireView from './UpdateFireView'
+  import DeleteFireView from './DeleteFireView'
 
   let { pagination, vuetable } = customBootstrap
   let {
-    getDeviceList,
-    getDeviceById
-    } = ApiService.deviceService
+    getFireList,
+    getFireById
+    } = ApiService.fireService
   let isLoadedOfFirst = false
 
   export default {
-    name: 'DeviceManageView',
+    name: 'FireManageView',
     components: {
       pagination,
       vuetable,
-      AddDeviceView,
-      UpdateDeviceView,
-      DeleteDeviceView
+      AddFireView,
+      UpdateFireView,
+      DeleteFireView
     },
     route: {
       data: function (transition) {
         if (isLoadedOfFirst) return transition.next()
 
-        this._searchDevice()
+        this._searchFire()
       }
     },
     data () {
@@ -89,10 +89,10 @@
           totalCount: 100,
           currentPage: 1
         },
-        addDeviceMeta: {},
-        addDeviceValidateMeta: [],
-        updateDeviceMeta: {},
-        deleteDeviceMeta: {},
+        addFireMeta: {},
+        addFireValidateMeta: [],
+        updateFireMeta: {},
+        deleteFireMeta: {},
         userListMeta: {
           totalCount: 0,
           items: []
@@ -102,11 +102,11 @@
           showPagination: false,
           loadOnStart: false,
           fields: [
-            {name: 'DeviceID', visible: false},
-            {name: 'DeviceID', visible: false},
-            {name: 'DeviceName', title: '登录名称'},
+            {name: 'FireID', visible: false},
+            {name: 'FireID', visible: false},
+            {name: 'FireName', title: '登录名称'},
             {name: 'Telphone', title: '手机号码'},
-            {name: 'DeviceState', title: '用户状态'},
+            {name: 'FireState', title: '用户状态'},
             {name: 'AddTime', title: '注册时间'},
             {name: '__actions', title: '操作列'}
           ],
@@ -127,21 +127,21 @@
       }
     },
     methods: {
-      _getDeviceList (userQuery) {
+      _getFireList (userQuery) {
         let self = this
-        getDeviceList(userQuery, function (response) {
+        getFireList(userQuery, function (response) {
           let data = response.data
           self.$set('userListMeta.totalCount', data.Total)
           self.$set('userListMeta.items', data.Items)
         })
       },
-      _getDeviceById (userQuery) {
+      _getFireById (userQuery) {
         let self = this
-        getDeviceById(userQuery, function (response) {
-          self.$set('updateDeviceMeta', response.data)
+        getFireById(userQuery, function (response) {
+          self.$set('updateFireMeta', response.data)
         })
       },
-      _searchDevice () {
+      _searchFire () {
         let { search, pageIndex, pageSize } = this.queryMeta
         let searchSplits = search.replace(/\s+/g, ' ').split(' ')   // 去掉多余的空格，并以空格分隔
         let queryParams = {
@@ -155,38 +155,38 @@
 
         console.log(queryParams)
 
-        this._getDeviceList(queryParams)
+        this._getFireList(queryParams)
       },
       _toggleModalType (type) {
         this.$broadcast('show::modal', type)
       },
       onItemClick (item) {
         this.$set('queryMeta.pageIndex', item)    // 设置为当前页
-        this._searchDevice()
+        this._searchFire()
       },
       onSearch () {
         this.$set('queryMeta.pageIndex', 1)  // 默认设置为第一页
-        this._searchDevice()
+        this._searchFire()
       },
       onTableAdd () {
-        this._toggleModalType('addDeviceModal')
+        this._toggleModalType('addFireModal')
       },
       onTableUpdate (data) {
-        if (!data.DeviceID) return
-        let queryDevice = {
-          userid: data.DeviceID
+        if (!data.FireID) return
+        let queryFire = {
+          userid: data.FireID
         }
-        this._getDeviceById(queryDevice)
-        this._toggleModalType('updateDeviceModal')
+        this._getFireById(queryFire)
+        this._toggleModalType('updateFireModal')
       },
       onTableDelete (data) {
-        if (!data.DeviceID || !data.DeviceName) return
-        let tempDeviceMeta = {
-          DeviceID: data.DeviceID,
-          DeviceName: data.DeviceName
+        if (!data.FireID || !data.FireName) return
+        let tempFireMeta = {
+          FireID: data.FireID,
+          FireName: data.FireName
         }
-        this.$set('deleteDeviceMeta', tempDeviceMeta)
-        this._toggleModalType('deleteDeviceModal')
+        this.$set('deleteFireMeta', tempFireMeta)
+        this._toggleModalType('deleteFireModal')
       }
     },
     events: {

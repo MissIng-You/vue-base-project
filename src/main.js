@@ -77,6 +77,14 @@ router.map({
           }, 'fireDoor.monitor')
         }
       },
+      '/fireManage': {
+        component: function (resolve) {
+          require.ensure([], function () {
+            let navigation = require('./containers/fire-door/FireManageView')
+            resolve(navigation)
+          }, 'fireDoor.fireManage')
+        }
+      },
       '/deviceManage': {
         component: function (resolve) {
           require.ensure([], function () {

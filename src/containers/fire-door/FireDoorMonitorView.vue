@@ -50,7 +50,7 @@
   import ApiService from '../../api'
 
   let { fireCardList, cascadingMenu, pagination } = customBootstrap
-  let { getFireList } = ApiService
+  let { getFireMonitorList } = ApiService
 
   let isLoadedOfFireList = false
 
@@ -66,7 +66,7 @@
       data: function (transition) {
         if (isLoadedOfFireList) return transition.next()
 
-        return getFireList({}, function (response) {
+        return getFireMonitorList({}, function (response) {
           return {
             errorFireListMeta: {
               totalCount: response.data.items.length,
@@ -112,7 +112,7 @@
     methods: {
       onSearch () {
         let self = this
-        getFireList(this.fireQuery, function (response) {
+        getFireMonitorList(this.fireQuery, function (response) {
           self.$set('successFireListMeta', response.data)
           self.$set('errorFireListMeta', response.data)
         })
@@ -121,7 +121,7 @@
         let self = this
         self.$set('fireQuery.pageIndex', item)
 
-        getFireList(this.fireQuery, function (response) {
+        getFireMonitorList(this.fireQuery, function (response) {
           self.$set('successFireListMeta', response.data)
         })
       },
@@ -129,7 +129,7 @@
         let self = this
         self.$set('fireQuery.pageIndex', item)
 
-        getFireList(this.fireQuery, function (response) {
+        getFireMonitorList(this.fireQuery, function (response) {
           self.$set('errorFireListMeta', response.data)
         })
       }
