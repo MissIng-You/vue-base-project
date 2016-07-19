@@ -5,3 +5,14 @@
 .label-vertical {
   vertical-align: middle;
 }
+
+.label {
+  font-weight: normal;
+}
+
+// reset .label-group
+.label-group {
+  .label {
+    margin-right: $cm-space-width;
+  }
+}

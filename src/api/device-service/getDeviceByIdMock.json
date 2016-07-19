@@ -1,8 +1,8 @@
 {
-  "UserID": "01973025-171E-4B27-ADC9-1F4C50BB7ECA",
-  "RoleID": "01973025-171E-4B27-ADC9-1F4C50BB7ECA",
-  "UserName": "test1",
-  "Telphone": "14078749473",
-  "UserState": 1,
-  "AddTime": "2016-06-30"
+  "DeviceID": "01973025-171E-4B27-ADC9-1F4C50BB7ECA",
+  "DeviceCode": "01973025-171E-4B27-ADC9-1F4C50BB7ECA",
+  "DeviceName": "设备1",
+  "Address": "test1",
+  "AddressCoordinate": "14078749473",
+  "JZCoordinate": "成都市环球中心"
 }

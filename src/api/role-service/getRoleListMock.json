@@ -2,76 +2,76 @@
   "Total": 140,
   "Items": [
     {
-      "UserID": "01973025-171E-4B27-ADC9-1F4C50BB7ECA",
       "RoleID": "01973025-171E-4B27-ADC9-1F4C50BB7ECA",
-      "UserName": "test1",
-      "Telphone": "14078749473",
+      "RoleName": "管理员",
+      "Description": "测试角色",
       "UserState": 1,
-      "AddTime": "2016-06-30"
+      "AddTime": "2016-06-30",
+      "ModifyTime": "2016-07-18"
     },
     {
-      "UserID": "01973025-171E-4B27-ADC9-1F4C50BB7ECA",
       "RoleID": "01973025-171E-4B27-ADC9-1F4C50BB7ECA",
-      "UserName": "test1",
-      "Telphone": "14078749473",
+      "RoleName": "管理员",
+      "Description": "测试角色",
       "UserState": 1,
-      "AddTime": "2016-06-30"
+      "AddTime": "2016-06-30",
+      "ModifyTime": "2016-07-18"
     },
     {
-      "UserID": "01973025-171E-4B27-ADC9-1F4C50BB7ECA",
       "RoleID": "01973025-171E-4B27-ADC9-1F4C50BB7ECA",
-      "UserName": "test1",
-      "Telphone": "14078749473",
+      "RoleName": "管理员",
+      "Description": "测试角色",
       "UserState": 1,
-      "AddTime": "2016-06-30"
+      "AddTime": "2016-06-30",
+      "ModifyTime": "2016-07-18"
     },
     {
-      "UserID": "01973025-171E-4B27-ADC9-1F4C50BB7ECA",
       "RoleID": "01973025-171E-4B27-ADC9-1F4C50BB7ECA",
-      "UserName": "test1",
-      "Telphone": "14078749473",
+      "RoleName": "管理员",
+      "Description": "测试角色",
       "UserState": 1,
-      "AddTime": "2016-06-30"
+      "AddTime": "2016-06-30",
+      "ModifyTime": "2016-07-18"
     },
     {
-      "UserID": "01973025-171E-4B27-ADC9-1F4C50BB7ECA",
       "RoleID": "01973025-171E-4B27-ADC9-1F4C50BB7ECA",
-      "UserName": "test1",
-      "Telphone": "14078749473",
+      "RoleName": "管理员",
+      "Description": "测试角色",
       "UserState": 1,
-      "AddTime": "2016-06-30"
+      "AddTime": "2016-06-30",
+      "ModifyTime": "2016-07-18"
     },
     {
-      "UserID": "01973025-171E-4B27-ADC9-1F4C50BB7ECA",
       "RoleID": "01973025-171E-4B27-ADC9-1F4C50BB7ECA",
-      "UserName": "test1",
-      "Telphone": "14078749473",
+      "RoleName": "管理员",
+      "Description": "测试角色",
       "UserState": 1,
-      "AddTime": "2016-06-30"
+      "AddTime": "2016-06-30",
+      "ModifyTime": "2016-07-18"
     },
     {
-      "UserID": "01973025-171E-4B27-ADC9-1F4C50BB7ECA",
       "RoleID": "01973025-171E-4B27-ADC9-1F4C50BB7ECA",
-      "UserName": "test1",
-      "Telphone": "14078749473",
+      "RoleName": "管理员",
+      "Description": "测试角色",
       "UserState": 1,
-      "AddTime": "2016-06-30"
+      "AddTime": "2016-06-30",
+      "ModifyTime": "2016-07-18"
     },
     {
-      "UserID": "01973025-171E-4B27-ADC9-1F4C50BB7ECA",
       "RoleID": "01973025-171E-4B27-ADC9-1F4C50BB7ECA",
-      "UserName": "test1",
-      "Telphone": "14078749473",
+      "RoleName": "管理员",
+      "Description": "测试角色",
       "UserState": 1,
-      "AddTime": "2016-06-30"
+      "AddTime": "2016-06-30",
+      "ModifyTime": "2016-07-18"
     },
     {
-      "UserID": "01973025-171E-4B27-ADC9-1F4C50BB7ECA",
       "RoleID": "01973025-171E-4B27-ADC9-1F4C50BB7ECA",
-      "UserName": "test1",
-      "Telphone": "14078749473",
+      "RoleName": "管理员",
+      "Description": "测试角色",
       "UserState": 1,
-      "AddTime": "2016-06-30"
+      "AddTime": "2016-06-30",
+      "ModifyTime": "2016-07-18"
     }
    ]
 }

@@ -48,6 +48,7 @@
     "jade-loader": "^0.8.0",
     "json-loader": "^0.5.4",
     "node-sass": "^3.7.0",
+    "nprogress": "^0.2.0",
     "ora": "^0.2.0",
     "sass-loader": "^3.2.0",
     "scss-loader": "0.0.1",

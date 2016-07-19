@@ -4,7 +4,7 @@
     <div class="card card-blockquote">
       <div class="card-header card-primary-outline">
         <i class="card-mask fa fa-users"></i>
-        <span class="card-title">角色管理</span>
+        <span class="card-title">用户管理</span>
         <span class="card-search-group">
             <span class="input-group input-group-sm input-width-sm">
               <input type="text" class="form-control" @keypress.enter="onSearch" v-model="queryMeta.search" placeholder="在此搜索用户/手机信息">
@@ -14,11 +14,11 @@
         <span class="card-state card-state-hover pull-right" @click="onTableAdd"><i class="fa fa-fw fa-plus"></i></span>
       </div>
       <div class="card-body">
-        <add-role-view :meta="addRoleMeta" :validate="addRoleValidateMeta"></add-role-view>
-        <update-role-view :meta="updateRoleMeta" :validate="updateRoleValidateMeta"></update-role-view>
-        <delete-role-view :meta="deleteRoleMeta"></delete-role-view>
+        <add-community-view :meta="addCommunityMeta" :validate="addCommunityValidateMeta"></add-community-view>
+        <update-community-view :meta="updateCommunityMeta"></update-community-view>
+        <delete-community-view :meta="deleteCommunityMeta"></delete-community-view>
         <vuetable v-ref:vuetable
-                  api-url="/api/user-service/getRoleListMock.json"
+                  api-url="/api/user-service/getCommunityListMock.json"
                   :show-pagination="userDefineMeta.showPagination"
                   pagination-path=""
                   :load-on-start="userDefineMeta.loadOnStart"
@@ -50,31 +50,31 @@
 <script>
   import customBootstrap from '../../components'
   import ApiService from '../../api'
-  import AddRoleView from './AddRoleView'
-  import UpdateRoleView from './UpdateRoleView'
-  import DeleteRoleView from './DeleteRoleView'
+  import AddCommunityView from './AddCommunityView'
+  import UpdateCommunityView from './UpdateCommunityView'
+  import DeleteCommunityView from './DeleteCommunityView'
 
   let { pagination, vuetable } = customBootstrap
   let {
-    getRoleList,
-    getRoleById
+    getCommunityList,
+    getCommunityById
     } = ApiService.roleService
   let isLoadedOfFirst = false
 
   export default {
-    name: 'RoleManageView',
+    name: 'CommunityManageView',
     components: {
       pagination,
       vuetable,
-      AddRoleView,
-      UpdateRoleView,
-      DeleteRoleView
+      AddCommunityView,
+      UpdateCommunityView,
+      DeleteCommunityView
     },
     route: {
       data: function (transition) {
         if (isLoadedOfFirst) return transition.next()
 
-        this._searchRole()
+        this._searchCommunity()
       }
     },
     data () {
@@ -89,41 +89,10 @@
           totalCount: 100,
           currentPage: 1
         },
-        addRoleMeta: {},
-        addRoleValidateMeta: [
-          {
-            id: 'RoleName',
-            label: '角色名称',
-            name: 'RoleName',
-            placeholder: '请输入角色名称',
-            validate: { required: { rule: true, message: '角色名称是必须的' } }
-          },
-          {
-            id: 'Description',
-            label: '角色描述',
-            name: 'Description',
-            placeholder: '请输入描述信息',
-            validate: { required: { rule: true, message: '角色描述是必须的' } }
-          }
-        ],
-        updateRoleValidateMeta: [
-          {
-            id: 'RoleName',
-            label: '角色名称',
-            name: 'RoleName',
-            placeholder: '请输入角色名称',
-            validate: { required: { rule: true, message: '角色名称是必须的' } }
-          },
-          {
-            id: 'Description',
-            label: '角色描述',
-            name: 'Description',
-            placeholder: '请输入描述信息',
-            validate: { required: { rule: true, message: '角色描述是必须的' } }
-          }
-        ],
-        updateRoleMeta: {},
-        deleteRoleMeta: {},
+        addCommunityMeta: {},
+        addCommunityValidateMeta: [],
+        updateCommunityMeta: {},
+        deleteCommunityMeta: {},
         userListMeta: {
           totalCount: 0,
           items: []
@@ -133,11 +102,12 @@
           showPagination: false,
           loadOnStart: false,
           fields: [
-            {name: 'RoleID', visible: false},
-            {name: 'RoleName', title: '角色名称'},
-            {name: 'Description', title: '角色描述'},
+            {name: 'CommunityID', visible: false},
+            {name: 'CommunityID', visible: false},
+            {name: 'CommunityName', title: '登录名称'},
+            {name: 'Telphone', title: '手机号码'},
+            {name: 'CommunityState', title: '用户状态'},
             {name: 'AddTime', title: '注册时间'},
-            {name: 'ModifyTime', title: '修改时间'},
             {name: '__actions', title: '操作列'}
           ],
           itemActions: [
@@ -157,21 +127,21 @@
       }
     },
     methods: {
-      _getRoleList (userQuery) {
+      _getCommunityList (userQuery) {
         let self = this
-        getRoleList(userQuery, function (response) {
+        getCommunityList(userQuery, function (response) {
           let data = response.data
           self.$set('userListMeta.totalCount', data.Total)
           self.$set('userListMeta.items', data.Items)
         })
       },
-      _getRoleById (userQuery) {
+      _getCommunityById (userQuery) {
         let self = this
-        getRoleById(userQuery, function (response) {
-          self.$set('updateRoleMeta', response.data)
+        getCommunityById(userQuery, function (response) {
+          self.$set('updateCommunityMeta', response.data)
         })
       },
-      _searchRole () {
+      _searchCommunity () {
         let { search, pageIndex, pageSize } = this.queryMeta
         let searchSplits = search.replace(/\s+/g, ' ').split(' ')   // 去掉多余的空格，并以空格分隔
         let queryParams = {
@@ -185,38 +155,38 @@
 
         console.log(queryParams)
 
-        this._getRoleList(queryParams)
+        this._getCommunityList(queryParams)
       },
       _toggleModalType (type) {
         this.$broadcast('show::modal', type)
       },
       onItemClick (item) {
         this.$set('queryMeta.pageIndex', item)    // 设置为当前页
-        this._searchRole()
+        this._searchCommunity()
       },
       onSearch () {
         this.$set('queryMeta.pageIndex', 1)  // 默认设置为第一页
-        this._searchRole()
+        this._searchCommunity()
       },
       onTableAdd () {
-        this._toggleModalType('addRoleModal')
+        this._toggleModalType('addCommunityModal')
       },
       onTableUpdate (data) {
-        if (!data.RoleID) return
-        let queryRole = {
-          roleid: data.RoleID
+        if (!data.CommunityID) return
+        let queryCommunity = {
+          userid: data.CommunityID
         }
-        this._getRoleById(queryRole)
-        this._toggleModalType('updateRoleModal')
+        this._getCommunityById(queryCommunity)
+        this._toggleModalType('updateCommunityModal')
       },
       onTableDelete (data) {
-        if (!data.RoleID || !data.RoleName) return
-        let tempRoleMeta = {
-          RoleID: data.RoleID,
-          RoleName: data.RoleName
+        if (!data.CommunityID || !data.CommunityName) return
+        let tempCommunityMeta = {
+          CommunityID: data.CommunityID,
+          CommunityName: data.CommunityName
         }
-        this.$set('deleteRoleMeta', tempRoleMeta)
-        this._toggleModalType('deleteRoleModal')
+        this.$set('deleteCommunityMeta', tempCommunityMeta)
+        this._toggleModalType('deleteCommunityModal')
       }
     },
     events: {

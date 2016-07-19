@@ -1,5 +1,5 @@
 <template>
-  <div id="add-view">
+  <div id="Delete-view">
     <modal id="deleteUserModal" size="sm" :fade="true">
       <div slot="modal-header">
         <i class="modal-mask fa fa-trash"></i>
@@ -27,7 +27,7 @@
   let { deleteUser } = ApiService.userService
 
   export default {
-    name: 'AddUserView',
+    name: 'DeleteUserView',
     components: {
       modal: vuestrapBase.modal
     },

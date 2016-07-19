@@ -4,7 +4,7 @@
     <div class="card card-blockquote">
       <div class="card-header card-primary-outline">
         <i class="card-mask fa fa-users"></i>
-        <span class="card-title">用户管理</span>
+        <span class="card-title">设备管理</span>
         <span class="card-search-group">
             <span class="input-group input-group-sm input-width-sm">
               <input type="text" class="form-control" @keypress.enter="onSearch" v-model="queryMeta.search" placeholder="在此搜索用户/手机信息">
@@ -15,7 +15,7 @@
       </div>
       <div class="card-body">
         <add-device-view :meta="addDeviceMeta" :validate="addDeviceValidateMeta"></add-device-view>
-        <update-device-view :meta="updateDeviceMeta"></update-device-view>
+        <update-device-view :meta="updateDeviceMeta" :validate="addDeviceValidateMeta"></update-device-view>
         <delete-device-view :meta="deleteDeviceMeta"></delete-device-view>
         <vuetable v-ref:vuetable
                   api-url="/api/user-service/getDeviceListMock.json"
@@ -90,7 +90,39 @@
           currentPage: 1
         },
         addDeviceMeta: {},
-        addDeviceValidateMeta: [],
+        addDeviceValidateMeta: [{
+          id: 'DeviceID',
+          label: '设备编号',
+          name: 'DeviceID',
+          placeholder: '请输入设备编号',
+          validate: {
+            required: {rule: true, message: '设备编号是必须的'}
+          }
+        }, {
+          id: 'DeviceName',
+          label: '设备名称',
+          name: 'DeviceName',
+          placeholder: '请输入设备名称',
+          validate: {
+            required: {rule: true, message: '设备名称是必须的'}
+          }
+        }, {
+          id: 'Address',
+          label: '详细地址',
+          name: 'Address',
+          placeholder: '请输入详细地址',
+          validate: {
+            required: {rule: true, message: '详细地址是必须的'}
+          }
+        }, {
+          id: 'JZCoordinate',
+          label: '基站地址',
+          name: 'JZCoordinate',
+          placeholder: '请输入基站地址',
+          validate: {
+            required: {rule: true, message: '基站地址是必须的'}
+          }
+        }],
         updateDeviceMeta: {},
         deleteDeviceMeta: {},
         userListMeta: {
@@ -102,12 +134,12 @@
           showPagination: false,
           loadOnStart: false,
           fields: [
-            {name: 'DeviceID', visible: false},
-            {name: 'DeviceID', visible: false},
-            {name: 'DeviceName', title: '登录名称'},
-            {name: 'Telphone', title: '手机号码'},
-            {name: 'DeviceState', title: '用户状态'},
-            {name: 'AddTime', title: '注册时间'},
+            {name: 'DeviceID', visible: false, title: '设备编号'},
+            {name: 'DeviceCode', title: '设备编码'},
+            {name: 'DeviceName', title: '设备名称'},
+            {name: 'Address', title: '详细地址'},
+            {name: 'AddressCoordinate', visible: false, title: '地址坐标'},
+            {name: 'JZCoordinate', title: '基站地址'},
             {name: '__actions', title: '操作列'}
           ],
           itemActions: [

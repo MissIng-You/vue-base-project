@@ -3,31 +3,24 @@
     <modal id="updateFireModal" size="sm" :fade="true">
       <div slot="modal-header">
         <i class="modal-mask fa fa-pencil"></i>
-        <span class="modal-title">修改用户</span>
+        <span class="modal-title">修改防火门信息</span>
       </div>
       <div slot="modal-body">
-        <form class="form-horizontal">
-          <div class="form-group">
-            <label for="FireName" class="col-sm-4 control-label">用户名称<i class="form-mask fa fa-hashtag"></i></label>
-            <div class="col-sm-8">
-              <input type="text" v-model="meta.FireName" class="form-control form-control-sm" id="FireName" placeholder="请输入用户名">
-            </div>
-          </div>
-          <div class="form-group">
-            <label for="Telphone" class="col-sm-4 control-label">手机号码<i class="form-mask fa fa-hashtag"></i></label>
-            <div class="col-sm-8">
-              <input type="text" v-model="meta.Telphone"  class="form-control  form-control-sm" id="Telphone" placeholder="请输入手机号码">
-            </div>
-          </div>
-          <div class="form-group">
-            <label for="FireID" class="col-sm-4 control-label">用户角色<i class="form-mask fa fa-hashtag"></i></label>
-            <div class="col-sm-8">
-              <input type="text" v-model="meta.FireID" class="form-control  form-control-sm" id="FireID" placeholder="请选择角色类型">
-            </div>
-          </div>
-        </form>
+        <validator name="validation">
+          <form class="form-horizontal">
+            <template v-for="field in validate">
+              <div class="form-group">
+                <label :for="field.id" class="col-sm-4 control-label">{{field.label}}<i class="form-mask fa fa-hashtag"></i></label>
+                <div class="col-sm-8">
+                  <input type="text" v-model="field.value" class="form-control form-control-sm" :field="field.name" :id="field.id" :placeholder="field.placeholder" v-validate="field.validate">
+                </div>
+              </div>
+            </template>
+          </form>
+        </validator>
       </div>
       <div slot="modal-footer">
+        <div  v-if="!!validateMessage" class="alert alert-danger alert-sm">{{validateMessage}}</div>
         <div class="label label-vertical label-info label-pill">{{message}}</div>
         <div class="pull-right">
           <button type="button" @click="onAddFire" class="btn btn-success btn-xs" ><i class="fa fa-fw fa-lg fa-check-circle"></i>确定</button>
@@ -42,7 +35,7 @@
   import ApiService from '../../api'
   import vuestrapBase from 'vuestrap-base-components'
 
-  let { updateFire } = ApiService.userService
+  let { updateFire } = ApiService.fireService
 
   export default {
     name: 'UpdateFireView',
@@ -55,11 +48,48 @@
         default: function () {
           return {}
         }
+      },
+      validate: {
+        type: Array,
+        default: function () {
+          return []
+        }
       }
     },
     data () {
       return {
-        message: ''
+        message: '',
+        validateMessage: ''
+      }
+    },
+    watch: {
+      'validate': function (newVal, oldVal) {
+        let self = this
+        for (let index = 0; index < newVal.length; index++) {
+          let fieldItem = newVal[index]
+          self.$set(`meta.${fieldItem.id}`, fieldItem.value)
+        }
+      },
+      'meta': {
+        deep: true,
+        handler: function (newVal, oldVal) {
+          let validate = this.validate
+          let self = this
+          // 遍历所有属性值
+          for (let [apiKey, apiValue] of Object.entries(newVal)) {
+            // 遍历所有验证列表
+            for (let index = 0; index < validate.length; index++) {
+              let fieldItem = validate[index]
+
+              if (fieldItem.id === apiKey) {
+                self.validate[index].value = apiValue
+                // 设置验证集合中，每个相对应的字段的值
+                self.$set(`validate[${index}].${fieldItem.id}`, apiValue)
+                break
+              }
+            }
+          }
+        }
       }
     },
     methods: {
@@ -72,12 +102,14 @@
         }, 1000)
       },
       _resetFire () {
-        this.$set('meta.FireName', '')
-        this.$set('meta.FireID', '')
-        this.$set('meta.Telphone', '')
+        this.$set('meta.FireDoorID', '')
+        this.$set('meta.FloorID', '')
+        this.$set('meta.FireDoorAddress', '')
+        this.$set('meta.FireDoorType', '')
       },
-      onAddFire () {
+      _addUser () {
         let self = this
+
         let postData = this.meta
         updateFire(postData, function (response) {
           let data = response.data
@@ -95,9 +127,26 @@
           self.$set('message', message)
         })
       },
+      _validate () {
+        let self = this
+        self.$validate(true, function () {
+          if (self.$validation.invalid) {
+            let errorLength = self.$validation.errors.length
+            self.$set('validateMessage', self.$validation.errors[errorLength - 1].message)
+            console.table(self.$validation.errors)
+            return
+          }
+
+          self._addUser()
+        })
+      },
+      onAddFire () {
+        this._validate()
+      },
       onCancelFire () {
         this._hideModal()
       }
     }
   }
+
 </script>

@@ -42,13 +42,13 @@ export default {
   methods: {
     login () {
       let self = this
-
+      console.log(self)
       self.$validate(true, function () {
         if (self.$validation.invalid) {
           let errorLength = self.$validation.errors.length
           self.$set('meta.state', 'error')
           self.$set('meta.message', self.$validation.errors[errorLength - 1].message)
-          console.table(self.$validation.errors)
+//          console.table(self.$validation.errors)
           return
         }
 

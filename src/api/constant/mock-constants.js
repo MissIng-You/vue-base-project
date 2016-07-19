@@ -1,7 +1,8 @@
 
 // mock api
 const GET_MENU_LIST_API = '/api/menu-service/mock.json'
-const GET_FIRE_MONITOR_LIST_API = '/api/monitor-service/mock.json'
+const GET_SUCCESS_FIRE_MONITOR_LIST_API = '/api/monitor-service/successMock.json'
+const GET_ERROR_FIRE_MONITOR_LIST_API = '/api/monitor-service/errorMock.json'
 const CHECK_LOGIN_API = '/api/login-service/mock.json'
 
 // device manage mock api
@@ -32,9 +33,17 @@ const ADD_ROLE_API = '/api/role-service/addRoleMock.json'
 const UPDATE_ROLE_API = '/api/role-service/updateRoleMock.json'
 const DELETE_ROLE_API = '/api/role-service/deleteRoleMock.json'
 
+// community manage mock api
+const GET_COMMUNITY_LIST_API = '/api/community-service/getCommunityListMock.json'
+const GET_COMMUNITY_BY_ID_API = '/api/community-service/getCommunityByIdMock.json'
+const ADD_COMMUNITY_API = '/api/community-service/addCommunityMock.json'
+const UPDATE_COMMUNITY_API = '/api/community-service/updateCommunityMock.json'
+const DELETE_COMMUNITY_API = '/api/community-service/deleteCommunityMock.json'
+
 const ApiContainersRelative = {
   GET_MENU_LIST_API,
-  GET_FIRE_MONITOR_LIST_API,
+  GET_SUCCESS_FIRE_MONITOR_LIST_API,
+  GET_ERROR_FIRE_MONITOR_LIST_API,
   CHECK_LOGIN_API,
 
   // user api
@@ -63,7 +72,14 @@ const ApiContainersRelative = {
   GET_FIRE_BY_ID_API,
   ADD_FIRE_API,
   UPDATE_FIRE_API,
-  DELETE_FIRE_API
+  DELETE_FIRE_API,
+
+  // community api
+  GET_COMMUNITY_LIST_API,
+  GET_COMMUNITY_BY_ID_API,
+  ADD_COMMUNITY_API,
+  UPDATE_COMMUNITY_API,
+  DELETE_COMMUNITY_API
 }
 
 export default ApiContainersRelative

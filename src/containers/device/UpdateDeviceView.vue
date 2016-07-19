@@ -3,34 +3,28 @@
     <modal id="updateDeviceModal" size="sm" :fade="true">
       <div slot="modal-header">
         <i class="modal-mask fa fa-pencil"></i>
-        <span class="modal-title">修改用户</span>
+        <span class="modal-title">修改设备</span>
       </div>
       <div slot="modal-body">
-        <form class="form-horizontal">
-          <div class="form-group">
-            <label for="DeviceName" class="col-sm-4 control-label">用户名称<i class="form-mask fa fa-hashtag"></i></label>
-            <div class="col-sm-8">
-              <input type="text" v-model="meta.DeviceName" class="form-control form-control-sm" id="DeviceName" placeholder="请输入用户名">
-            </div>
-          </div>
-          <div class="form-group">
-            <label for="Telphone" class="col-sm-4 control-label">手机号码<i class="form-mask fa fa-hashtag"></i></label>
-            <div class="col-sm-8">
-              <input type="text" v-model="meta.Telphone"  class="form-control  form-control-sm" id="Telphone" placeholder="请输入手机号码">
-            </div>
-          </div>
-          <div class="form-group">
-            <label for="DeviceID" class="col-sm-4 control-label">用户角色<i class="form-mask fa fa-hashtag"></i></label>
-            <div class="col-sm-8">
-              <input type="text" v-model="meta.DeviceID" class="form-control  form-control-sm" id="DeviceID" placeholder="请选择角色类型">
-            </div>
-          </div>
-        </form>
+        <validator name="validation">
+          <form class="form-horizontal">
+            <template v-for="field in validate">
+              <div class="form-group">
+                <label :for="field.id" class="col-sm-4 control-label">{{field.label}}<i class="form-mask fa fa-hashtag"></i></label>
+                <div class="col-sm-8">
+                  <input type="text" v-model="field.value" class="form-control form-control-sm"
+                         :id="field.id" :field="field.name" :placeholder="field.placeholder" v-validate="field.validate">
+                </div>
+              </div>
+            </template>
+          </form>
+        </validator>
       </div>
       <div slot="modal-footer">
+        <div class="alert alert-danger alert-sm" v-if="!!validateMessage">{{validateMessage}}</div>
         <div class="label label-vertical label-info label-pill">{{message}}</div>
         <div class="pull-right">
-          <button type="button" @click="onAddDevice" class="btn btn-success btn-xs" ><i class="fa fa-fw fa-lg fa-check-circle"></i>确定</button>
+          <button type="button" @click="onUpdateDevice" class="btn btn-success btn-xs" ><i class="fa fa-fw fa-lg fa-check-circle"></i>确定</button>
           <button type="button" @click="onCancelDevice" class="btn btn-defualt btn-xs"><i class="fa fa-fw fa-lg fa-times-circle"></i>取消</button>
         </div>
       </div>
@@ -42,7 +36,7 @@
   import ApiService from '../../api'
   import vuestrapBase from 'vuestrap-base-components'
 
-  let { updateDevice } = ApiService.userService
+  let { updateDevice } = ApiService.deviceService
 
   export default {
     name: 'UpdateDeviceView',
@@ -55,11 +49,49 @@
         default: function () {
           return {}
         }
+      },
+      validate: {
+        type: Array,
+        default: function () {
+          return []
+        }
       }
     },
     data () {
       return {
-        message: ''
+        message: '',
+        validateMessage: ''
+      }
+    },
+    watch: {
+      'validate': function (newVal, oldVal) {
+        let self = this
+        for (let index = 0; index < newVal.length; index++) {
+          let fieldItem = newVal[index]
+          console.log(newVal)
+          self.$set(`meta.${fieldItem.id}`, fieldItem.value)
+        }
+      },
+      'meta': {
+        deep: true,
+        handler: function (newVal, oldVal) {
+          let validate = this.validate
+          let self = this
+          // 遍历所有属性值
+          for (let [apiKey, apiValue] of Object.entries(newVal)) {
+            // 遍历所有验证列表
+            for (let index = 0; index < validate.length; index++) {
+              let fieldItem = validate[index]
+
+              if (fieldItem.id === apiKey) {
+                self.validate[index].value = apiValue
+                // 设置验证集合中，每个相对应的字段的值
+                self.$set(`validate[${index}].${fieldItem.id}`, apiValue)
+                break
+              }
+            }
+          }
+        }
       }
     },
     methods: {
@@ -74,9 +106,9 @@
       _resetDevice () {
         this.$set('meta.DeviceName', '')
         this.$set('meta.DeviceID', '')
-        this.$set('meta.Telphone', '')
+        this.$set('meta.Address', '')
       },
-      onAddDevice () {
+      _updateDevice () {
         let self = this
         let postData = this.meta
         updateDevice(postData, function (response) {
@@ -94,6 +126,22 @@
           }
           self.$set('message', message)
         })
+      },
+      _validate () {
+        let self = this
+        self.$validate(true, function () {
+          if (self.$validation.invalid) {
+            let errorLength = self.$validation.errors.length
+            console.table(self.$validation.errors)
+            self.$set('validateMessage', self.$validation.errors[errorLength - 1].message)
+            return
+          }
+
+          self._updateDevice()
+        })
+      },
+      onUpdateDevice () {
+        this._validate()
       },
       onCancelDevice () {
         this._hideModal()

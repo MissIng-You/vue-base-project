@@ -1,24 +1,24 @@
 import Vue from 'vue'
 import ApiContainers from '../constant'
 
-let { GET_FIRE_MONITOR_LIST_API } = ApiContainers
+let {
+  GET_SUCCESS_FIRE_MONITOR_LIST_API,
+  GET_ERROR_FIRE_MONITOR_LIST_API } = ApiContainers
 
-const getFireMonitorList = (query, resolve, reject) => {
-  return Vue.http.get(GET_FIRE_MONITOR_LIST_API, query)
+const postService = (url, query, resolve, reject) => {
+  return Vue.http.post(url, query)
     .then(resolve, reject)
-/*  let args = arguments.length
-  switch (args) {
-    case 1:
-      return Vue.http.get(GET_FIRE_LIST_API).then(args[0])
-    case 2:
-      return Vue.http.get(GET_FIRE_LIST_API, args[0]).then(args[1])
-    case 3:
-      return Vue.http.get(GET_FIRE_LIST_API, args[0]).then(args[1], args[2])
-    default:
-      console.error('arguments count is more !')
-  }*/
 }
 
-// export fire-service.js
-export default getFireMonitorList
+const monitorService = {
+  getSuccessFireMonitorList: (query, resolve, reject) => {
+    return postService(GET_SUCCESS_FIRE_MONITOR_LIST_API, query, resolve, reject)
+  },
+  getErrorFireMonitorList: (query, resolve, reject) => {
+    return postService(GET_ERROR_FIRE_MONITOR_LIST_API, query, resolve, reject)
+  }
+}
+
+// export monitor-service.js
+export default monitorService
 

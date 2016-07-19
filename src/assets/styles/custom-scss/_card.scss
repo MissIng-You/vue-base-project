@@ -5,7 +5,17 @@
 .card-header,
 .card-body,
 .card-footer{
+  background-color: transparent;
+  padding: $cm-space-width;
+
   @include clearfix();
+}
+
+// reset .card-footer
+.card-header {
+  & + .card-footer {
+    @include border-variant('top', none);
+  }
 }
 
 // add .card-body inner .card
@@ -13,6 +23,10 @@
   position: relative;
   padding: $cm-space-width;
   background-color: $card-cap-bg;
+
+  &.card-body-transparent {
+    background-color: transparent;
+  }
 
   & + .card-body {
     border-top: 1px solid $card-border-color;
@@ -98,7 +112,7 @@
   }
 
   > .card-mask {
-    width: $cm-space-width;
+    width: $cm-space-width * 2;
 
     &::before {
       position: absolute;

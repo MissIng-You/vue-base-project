@@ -15,7 +15,7 @@
       </div>
       <div class="card-body">
         <add-user-view :meta="addUserMeta" :validate="addUserValidateMeta"></add-user-view>
-        <update-user-view :meta="updateUserMeta"></update-user-view>
+        <update-user-view :meta="updateUserMeta" :validate="addUserValidateMeta"></update-user-view>
         <delete-user-view :meta="deleteUserMeta"></delete-user-view>
         <vuetable v-ref:vuetable
                   api-url="/api/user-service/getUserListMock.json"
@@ -90,7 +90,31 @@
           currentPage: 1
         },
         addUserMeta: {},
-        addUserValidateMeta: [],
+        addUserValidateMeta: [{
+          id: 'UserName',
+          label: '用户名称',
+          name: 'UserName',
+          placeholder: '请输入用户名称',
+          validate: {
+            required: {rule: true, message: '用户名称是必须的'}
+          }
+        }, {
+          id: 'Telphone',
+          label: '手机号码',
+          name: 'Telphone',
+          placeholder: '请输入手机号码',
+          validate: {
+            required: {rule: true, message: '手机号码是必须的'}
+          }
+        }, {
+          id: 'RoleID',
+          label: '用户角色',
+          name: 'RoleID',
+          placeholder: '请输入用户角色',
+          validate: {
+            required: {rule: true, message: '用户角色是必须的'}
+          }
+        }],
         updateUserMeta: {},
         deleteUserMeta: {},
         userListMeta: {
@@ -108,6 +132,7 @@
             {name: 'Telphone', title: '手机号码'},
             {name: 'UserState', title: '用户状态'},
             {name: 'AddTime', title: '注册时间'},
+            {name: 'ModifyTime', title: '修改时间'},
             {name: '__actions', title: '操作列'}
           ],
           itemActions: [

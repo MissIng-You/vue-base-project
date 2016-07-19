@@ -22,12 +22,22 @@ export default {
 
       // 属性值与状态值相同，则表示正常；反之表示异常
       if (this.meta.state === this.meta.property) {
-        theme = 'card-success-outline'
+        theme = 'card-default-outline'
       } else {
-        theme = 'card-danger-outline'
+        theme = 'card-default-outline'
       }
 
       return theme
+    },
+    showMessageByState () {
+      let messageState = false
+
+      // 二者相等，表示正常，否则，表示异常
+      if (this.meta.state === this.meta.property) {
+        messageState = true
+      }
+
+      return messageState
     },
     getIconByState () {
       let stateIcon = ''
@@ -36,7 +46,7 @@ export default {
       if (this.meta.state === this.meta.property) {
         stateIcon = 'fa-info-circle card-mask-success'
       } else {
-        stateIcon = 'fa-info-circle card-mask-danger'
+        stateIcon = 'fa-warning card-mask-danger'
       }
 
       return stateIcon
@@ -56,11 +66,11 @@ export default {
     getStateName () {
       let propertyName = ''
 
-      // "0"表示"开"；"1"表示"关"
-      if (this.meta.state === 0) {
-        propertyName = '开'
+      // "0"表示正常；"1"表示异常
+      if (this.meta.state === this.meta.property) {
+        propertyName = '正常'
       } else {
-        propertyName = '关'
+        propertyName = `异常(${this.getStates.length})`
       }
 
       return propertyName
@@ -70,12 +80,52 @@ export default {
 
       // "0"表示正常；"1"表示异常
       if (this.meta.state === this.meta.property) {
-        stateColor = 'card-state-success'
+        stateColor = 'label-success'
       } else {
-        stateColor = 'card-state-danger'
+        stateColor = 'label-danger'
       }
 
       return stateColor
+    },
+    getStates () {
+      let descriptions = []
+
+      if (this.meta.description) {
+        descriptions = this.meta.description.split(',')
+      } else if (this.meta.description === '') {
+        descriptions.push('未提供异常描述')
+      }
+
+      return descriptions
+    },
+    getStatesColor () {
+      let statesColor = ''
+
+      if (this.meta.description) {
+        statesColor = 'label-default'
+      } else if (this.meta.description === '') {
+        statesColor = 'label-default'
+      } else {
+        statesColor = 'label-success'
+      }
+
+      return statesColor
+    }
+  },
+  methods: {
+    getStatesStyle (state) {
+     /* let length = state && state.length
+      let width = '100%'
+
+      if (length <= 4) {
+        width = '33.33%'
+      } else if (length <= 8) {
+        width = '50%'
+      }
+
+      return {
+        width
+      }  */
     }
   }
 }

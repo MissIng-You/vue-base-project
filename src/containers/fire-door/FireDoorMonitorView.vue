@@ -7,7 +7,7 @@
         <span class="card-subtitle">({{getTotalCount}}条记录)</span>
         <span class="card-search-group">
             <span class="input-group input-group-sm input-width-sm">
-              <input type="text" class="form-control" @keyup="onSearch" v-model="fireQuery.search" placeholder="在此搜索防火门位置">
+              <input type="text" class="form-control" @keyup="onSearch" v-model="queryMeta.search" placeholder="在此搜索防火门位置">
               <span class="input-group-addon btn btn-primary" @click="onSearch"><i class="fa fa-fw fa-search"></i></span>
             </span>
           </span>
@@ -50,7 +50,7 @@
   import ApiService from '../../api'
 
   let { fireCardList, cascadingMenu, pagination } = customBootstrap
-  let { getFireMonitorList } = ApiService
+  let { getSuccessFireMonitorList, getErrorFireMonitorList } = ApiService.monitorService
 
   let isLoadedOfFireList = false
 
@@ -66,18 +66,8 @@
       data: function (transition) {
         if (isLoadedOfFireList) return transition.next()
 
-        return getFireMonitorList({}, function (response) {
-          return {
-            errorFireListMeta: {
-              totalCount: response.data.items.length,
-              items: response.data.items
-            },
-            successFireListMeta: {
-              totalCount: response.data.items.length,
-              items: response.data.items
-            }
-          }
-        })
+        this._getFireMonitorList(0)
+        this._getFireMonitorList(1)
       }
     },
     computed: {
@@ -87,10 +77,8 @@
     },
     data () {
       return {
-        fireQuery: {
-          search: '',
-          pageIndex: 1,
-          pageSize: 8
+        queryMeta: {
+          search: ''
         },
         paginationMeta: {
           perPage: 8,
@@ -110,36 +98,88 @@
       }
     },
     methods: {
-      onSearch () {
+      _getQueryParams (state) {
+        let { perPage, successCurrentPage, errorCurrentPage } = this.paginationMeta
+        let pageIndex = 0
+
+        if (+state === 0) {
+          pageIndex = successCurrentPage
+        } else {
+          pageIndex = errorCurrentPage
+        }
+
+        let queryData = {
+          page: {
+            Page: pageIndex,
+            Size: perPage
+          },
+          state: state
+        }
+
+        return queryData
+      },
+      _getSuccessFireMonitorList () {
         let self = this
-        getFireMonitorList(this.fireQuery, function (response) {
-          self.$set('successFireListMeta', response.data)
-          self.$set('errorFireListMeta', response.data)
+        let queryParams = this._getQueryParams(0)
+        getSuccessFireMonitorList(queryParams, function (response) {
+          let data = response.data
+          if (!data) return
+          self.$set('successFireListMeta.items', data.Items)
+          self.$set('successFireListMeta.totalCount', data.Total)
         })
+      },
+      _getErrorFireMonitorList () {
+        let self = this
+        let queryParams = this._getQueryParams(1)
+
+        getErrorFireMonitorList(queryParams, function (response) {
+          let data = response.data
+          if (!data) return
+          self.$set('errorFireListMeta.items', data.Items)
+          self.$set('errorFireListMeta.totalCount', data.Total)
+        })
+      },
+      _getFireMonitorList (state) {
+        let self = this
+        let queryParams = this._getQueryParams(state)
+
+        console.log(typeof state)
+
+        if (+state === 0) {    // "0" 表示正常
+          getSuccessFireMonitorList(queryParams, function (response) {
+            let data = response.data
+            if (!data) return
+            self.$set('successFireListMeta.items', data.Items)
+            self.$set('successFireListMeta.totalCount', data.Total)
+          })
+        } else if (+state === 1) {
+          getErrorFireMonitorList(queryParams, function (response) {
+            let data = response.data
+            if (!data) return
+            self.$set('errorFireListMeta.items', data.Items)
+            self.$set('errorFireListMeta.totalCount', data.Total)
+          })
+        }
+      },
+      onSearch () {
+        this._getFireMonitorList(0)   // 获取正常数据
+        this._getFireMonitorList(1)   // 获取异常数据
       },
       onSuccessItemClick (item) {
-        let self = this
-        self.$set('fireQuery.pageIndex', item)
-
-        getFireMonitorList(this.fireQuery, function (response) {
-          self.$set('successFireListMeta', response.data)
-        })
+        this.$set('paginationMeta.successCurrentPage', item)
+        this._getFireMonitorList(0)
       },
       onErrorItemClick (item) {
-        let self = this
-        self.$set('fireQuery.pageIndex', item)
-
-        getFireMonitorList(this.fireQuery, function (response) {
-          self.$set('errorFireListMeta', response.data)
-        })
+        this.$set('paginationMeta.errorCurrentPage', item)
+        this._getFireMonitorList(1)
       }
     },
     watch: {
-      'successFireListMeta': function (newVal, oldVal) {
-        this.$set('paginationMeta.successTotalCount', newVal.totalCount)
+      'successFireListMeta.totalCount': function (newVal, oldVal) {
+        this.$set('paginationMeta.successTotalCount', newVal)
       },
-      'errorFireListMeta': function (newVal, oldVal) {
-        this.$set('paginationMeta.errorTotalCount', newVal.totalCount)
+      'errorFireListMeta.totalCount': function (newVal, oldVal) {
+        this.$set('paginationMeta.errorTotalCount', newVal)
       }
     }
   }

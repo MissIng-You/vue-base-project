@@ -1,12 +1,6 @@
 {
-  "totalCount": 14,
-  "items": [
-    {
-      "name": "防火门1",
-      "property": 0,
-      "state": 1,
-      "address": "F小区B栋C单元xxx号"
-    },
+  "Total": 124,
+  "Items": [
     {
       "name": "防火门2",
       "property": 0,
@@ -20,32 +14,14 @@
       "address": "C小区B栋C单元xxx号"
     },
     {
-      "name": "防火门4",
-      "property": 1,
-      "state": 0,
-      "address": "A小区B栋C单元xxx号"
-    },
-    {
-      "name": "防火门5",
-      "property": 0,
-      "state": 1,
-      "address": "E小区B栋C单元xxx号"
-    },
-    {
       "name": "防火门36",
       "property": 0,
       "state": 0,
       "address": "D小区B栋C单元xxx号"
     },
     {
-      "name": "防火门7",
-      "property": 0,
-      "state": 1,
-      "address": "A小区B栋C单元xxx号"
-    },
-    {
       "name": "防火门1",
-      "property": 0,
+      "property": 1,
       "state": 1,
       "address": "F小区B栋C单元xxx号"
     },
@@ -63,7 +39,7 @@
     },
     {
       "name": "防火门4",
-      "property": 1,
+      "property": 0,
       "state": 0,
       "address": "A小区B栋C单元edxxx号"
     },
@@ -72,18 +48,6 @@
       "property": 0,
       "state": 0,
       "address": "E小区B栋C单元23xxx号"
-    },
-    {
-      "name": "防火门6",
-      "property": 0,
-      "state": 0,
-      "address": "c小区B栋C单元xxx号"
-    },
-    {
-      "name": "防火门87",
-      "property": 0,
-      "state": 0,
-      "address": "f小区B栋C单元xxx号"
     }
   ]
 }

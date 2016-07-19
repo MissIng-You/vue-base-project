@@ -4,7 +4,7 @@
     <div class="card card-blockquote">
       <div class="card-header card-primary-outline">
         <i class="card-mask fa fa-users"></i>
-        <span class="card-title">用户管理</span>
+        <span class="card-title">防火门管理</span>
         <span class="card-search-group">
             <span class="input-group input-group-sm input-width-sm">
               <input type="text" class="form-control" @keypress.enter="onSearch" v-model="queryMeta.search" placeholder="在此搜索用户/手机信息">
@@ -14,8 +14,8 @@
         <span class="card-state card-state-hover pull-right" @click="onTableAdd"><i class="fa fa-fw fa-plus"></i></span>
       </div>
       <div class="card-body">
-        <add-fire-view :meta="addFireMeta" :validate="addFireValidateMeta"></add-fire-view>
-        <update-fire-view :meta="updateFireMeta"></update-fire-view>
+        <add-fire-view :meta="addFireMeta" :validate="addFireValidateMeta" ></add-fire-view>
+        <update-fire-view :meta="updateFireMeta" :validate="updateFireValidateMeta" ></update-fire-view>
         <delete-fire-view :meta="deleteFireMeta"></delete-fire-view>
         <vuetable v-ref:vuetable
                   api-url="/api/user-service/getFireListMock.json"
@@ -90,7 +90,66 @@
           currentPage: 1
         },
         addFireMeta: {},
-        addFireValidateMeta: [],
+        addFireValidateMeta: [
+          {
+            id: 'FireDoorID',
+            label: '防火门ID',
+            name: 'FireDoorID',
+            placeholder: '请输入防火门ID',
+            validate: { required: { rule: true, message: '防火门ID是必须的' } }
+          },
+          {
+            id: 'FloorID',
+            label: '楼层ID',
+            name: 'FloorID',
+            placeholder: '请输入楼层ID',
+            validate: { required: { rule: true, message: '楼层ID是必须的' } }
+          },
+          {
+            id: 'FireDoorType',
+            label: '类型',
+            name: 'FireDoorType',
+            placeholder: '请输入防火门类型',
+            validate: { required: { rule: true, message: '防火门类型是必须的' } }
+          },
+          {
+            id: 'FireDoorAddress',
+            label: '位置',
+            name: 'FireDoorAddress',
+            placeholder: '请输入防火门位置',
+            validate: { required: { rule: true, message: '防火门位置是必须的' } }
+          }
+        ],
+        updateFireValidateMeta: [
+          {
+            id: 'FireDoorID',
+            label: '防火门ID',
+            name: 'FireDoorID',
+            placeholder: '请输入防火门ID',
+            validate: { required: { rule: true, message: '防火门ID是必须的' } }
+          },
+          {
+            id: 'FloorID',
+            label: '楼层ID',
+            name: 'FloorID',
+            placeholder: '请输入楼层ID',
+            validate: { required: { rule: true, message: '楼层ID是必须的' } }
+          },
+          {
+            id: 'FireDoorType',
+            label: '类型',
+            name: 'FireDoorType',
+            placeholder: '请输入防火门类型',
+            validate: { required: { rule: true, message: '防火门类型是必须的' } }
+          },
+          {
+            id: 'FireDoorAddress',
+            label: '位置',
+            name: 'FireDoorAddress',
+            placeholder: '请输入防火门位置',
+            validate: { required: { rule: true, message: '防火门位置是必须的' } }
+          }
+        ],
         updateFireMeta: {},
         deleteFireMeta: {},
         userListMeta: {
@@ -102,12 +161,12 @@
           showPagination: false,
           loadOnStart: false,
           fields: [
-            {name: 'FireID', visible: false},
-            {name: 'FireID', visible: false},
-            {name: 'FireName', title: '登录名称'},
-            {name: 'Telphone', title: '手机号码'},
-            {name: 'FireState', title: '用户状态'},
-            {name: 'AddTime', title: '注册时间'},
+            {name: 'FireDoorCode', visible: false},
+            {name: 'DeviceCode', visible: false},
+            {name: 'FireDoorID', title: '防火门ID'},
+            {name: 'FloorID', title: '楼层ID'},
+            {name: 'FireDoorType', title: '防火门类型'},
+            {name: 'FireDoorAddress', title: '防火门位置'},
             {name: '__actions', title: '操作列'}
           ],
           itemActions: [
@@ -172,18 +231,19 @@
         this._toggleModalType('addFireModal')
       },
       onTableUpdate (data) {
-        if (!data.FireID) return
+        if (!data.FireDoorID) return
         let queryFire = {
-          userid: data.FireID
+          FireDoorID: data.FireDoorID
         }
         this._getFireById(queryFire)
         this._toggleModalType('updateFireModal')
+        console.log('rtest')
       },
       onTableDelete (data) {
-        if (!data.FireID || !data.FireName) return
+        if (!data.FireDoorID || !data.FireDoorType) return
         let tempFireMeta = {
-          FireID: data.FireID,
-          FireName: data.FireName
+          FireDoorID: data.FireDoorID,
+          FireDoorType: data.FireDoorType
         }
         this.$set('deleteFireMeta', tempFireMeta)
         this._toggleModalType('deleteFireModal')

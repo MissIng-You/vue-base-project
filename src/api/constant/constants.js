@@ -1,7 +1,8 @@
 
 // mvc api
 const GET_MENU_LIST_API = '/Menu/GetMenuList'
-const GET_FIRE_MONITOR_LIST_API = '/Fire/GetFireList'
+const GET_SUCCESS_FIRE_MONITOR_LIST_API = '/Fire/SelectRDFireDoorList'
+const GET_ERROR_FIRE_MONITOR_LIST_API = '/Fire/SelectRDFireDoorList'
 const CHECK_LOGIN_API = '/Login/CheckLogin'
 
 // device manage api
@@ -32,9 +33,17 @@ const ADD_ROLE_API = '/Role/AddRole'
 const UPDATE_ROLE_API = '/Role/EditRole'
 const DELETE_ROLE_API = '/Role/DeleteRole'
 
+// community manage api
+const GET_COMMUNITY_LIST_API = '/Community/SelectCommunityList'
+const GET_COMMUNITY_BY_ID_API = '/Community/SelectCommunityByID'
+const ADD_COMMUNITY_API = '/Community/AddCommunity'
+const UPDATE_COMMUNITY_API = '/Community/EditCommunity'
+const DELETE_COMMUNITY_API = '/Community/DeleteCommunity'
+
 const ApiContainersRelative = {
   GET_MENU_LIST_API,
-  GET_FIRE_MONITOR_LIST_API,
+  GET_SUCCESS_FIRE_MONITOR_LIST_API,
+  GET_ERROR_FIRE_MONITOR_LIST_API,
   CHECK_LOGIN_API,
 
   // user api
@@ -63,7 +72,14 @@ const ApiContainersRelative = {
   GET_FIRE_BY_ID_API,
   ADD_FIRE_API,
   UPDATE_FIRE_API,
-  DELETE_FIRE_API
+  DELETE_FIRE_API,
+
+  // community api
+  GET_COMMUNITY_LIST_API,
+  GET_COMMUNITY_BY_ID_API,
+  ADD_COMMUNITY_API,
+  UPDATE_COMMUNITY_API,
+  DELETE_COMMUNITY_API
 }
 
 export default ApiContainersRelative

@@ -4,7 +4,15 @@
     <i class="card-mask fa {{ getIconByState }}"></i>
     <span class="card-title">{{ meta.name }}</span>
     <span class="card-subtitle text-muted" v-html="getPropertyName"></span>
-    <span class="card-state pull-right {{ getStateColorByState }}" v-html="getStateName"></span>
+    <span class="label label-vertical pull-right {{ getStateColorByState }}">{{getStateName}}</span>
+    <!--<span v-if="showMessageByState" class="card-state card-state-hover pull-right {{ getStateColorByState }}" v-html="getStateName"></span>-->
+  </div>
+  <div v-if="!showMessageByState" class="card-body card-body-transparent" style="height: 100px;">
+    <div class="label-group label-group-sm">
+      <template v-for="state in getStates">
+        <span class="label label-pill {{ getStatesColor }}" :style="getStatesStyle(state)">{{state}}</span>
+      </template>
+    </div>
   </div>
   <div class="card-footer">
     <i class="card-icon fa fa-map-marker"></i>

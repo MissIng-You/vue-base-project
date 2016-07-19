@@ -7,7 +7,7 @@
       </div>
       <div slot="modal-body">
         <i class="fa fa-alert"></i>
-        <span>确认删除【{{meta.FireName}}】记录吗?</span>
+        <span>确认删除【{{meta.FireDoorID}}】记录吗?</span>
       </div>
       <div slot="modal-footer">
         <div class="label label-vertical label-info label-pill">{{message}}</div>
@@ -24,7 +24,7 @@
   import ApiService from '../../api'
   import vuestrapBase from 'vuestrap-base-components'
 
-  let { deleteFire } = ApiService.userService
+  let { deleteFire } = ApiService.fireService
 
   export default {
     name: 'AddFireView',
@@ -55,9 +55,10 @@
       },
       onDeleteFire () {
         let self = this
-        let postData = {
-          userid: this.userMeta.FireID
-        }
+        let postData = this.meta
+//        let postData = {
+//          firedoorid: this.userMeta.FireDoorID
+//        }
         deleteFire(postData, function (response) {
           let data = response.data
           let message = ''

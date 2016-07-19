@@ -2,6 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import VueResource from 'vue-resource'
 import VueValidator from 'vue-validator'
+import NProgress from 'nprogress'
 import AppView from './containers/AppView'
 // import HelloView from './containers/HelloView'
 // import ArcgisView from './containers/ArcgisView'
@@ -10,6 +11,7 @@ import AppView from './containers/AppView'
 import 'animate.css'
 import './assets/styles/custom-scss/custom-bootstrap.scss'
 import './assets/styles/font-awesome/css/font-awesome.min.css'
+import 'nprogress/nprogress.css'
 
 Vue.config.debug = true
 Vue.config.devtools = true
@@ -38,10 +40,12 @@ Vue.use(VueResource)
 
 // use vue resource interceptors
 Vue.http.interceptors.push((request, next) => {
+  NProgress.inc(0.1)
   console.log('request params:')
   console.log(request)
 
   next((response) => {
+    NProgress.done()
     console.log('response data:')
     console.log(response)
   })
@@ -59,9 +63,19 @@ var router = new Router({
   linkActiveClass: 'active'
 })
 
+/* const lazyLoading = (path, pkgName) => {
+  return function (resolve) {
+    require.ensure([], function () {
+      let component = require(path)
+      resolve(component)
+    }, pkgName)
+  }
+} */
+
 router.map({
   '/fireDoor': {
     name: 'fireDoor',
+   /* component: lazyLoading('./containers/SidebarView', 'fireDoor'),*/
     component: function (resolve) {
       require.ensure([], function () {
         let sidebar = require('./containers/SidebarView')
@@ -108,6 +122,14 @@ router.map({
             resolve(index)
           }, 'fireDoor.roleManage')
         }
+      },
+      '/communityManage': {
+        component: function (resolve) {
+          require.ensure([], function () {
+            let index = require('./containers/community/CommunityManageView')
+            resolve(index)
+          }, 'fireDoor.communityManage')
+        }
       }
     }
   },
@@ -141,7 +163,12 @@ router.map({
 })
 
 router.beforeEach(function () {
+  NProgress.start()
   window.scrollTo(0, 0)
+})
+
+router.afterEach(function () {
+  NProgress.done()
 })
 
 router.redirect({

@@ -27,7 +27,7 @@
   let { deleteDevice } = ApiService.userService
 
   export default {
-    name: 'AddDeviceView',
+    name: 'DeleteDeviceView',
     components: {
       modal: vuestrapBase.modal
     },
