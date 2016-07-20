@@ -93,28 +93,28 @@
         addFireValidateMeta: [
           {
             id: 'FireDoorID',
-            label: '防火门ID',
+            label: '防火门号',
             name: 'FireDoorID',
             placeholder: '请输入防火门ID',
-            validate: { required: { rule: true, message: '防火门ID是必须的' } }
+            validate: { required: { rule: true, message: '防火门编号是必须的' } }
           },
           {
             id: 'FloorID',
-            label: '楼层ID',
+            label: '楼层编号',
             name: 'FloorID',
-            placeholder: '请输入楼层ID',
+            placeholder: '请输入楼层编号',
             validate: { required: { rule: true, message: '楼层ID是必须的' } }
           },
           {
             id: 'FireDoorType',
-            label: '类型',
+            label: '所属类型',
             name: 'FireDoorType',
             placeholder: '请输入防火门类型',
             validate: { required: { rule: true, message: '防火门类型是必须的' } }
           },
           {
             id: 'FireDoorAddress',
-            label: '位置',
+            label: '所在位置',
             name: 'FireDoorAddress',
             placeholder: '请输入防火门位置',
             validate: { required: { rule: true, message: '防火门位置是必须的' } }
@@ -123,28 +123,28 @@
         updateFireValidateMeta: [
           {
             id: 'FireDoorID',
-            label: '防火门ID',
+            label: '防火门号',
             name: 'FireDoorID',
-            placeholder: '请输入防火门ID',
+            placeholder: '请输入防火门编号',
             validate: { required: { rule: true, message: '防火门ID是必须的' } }
           },
           {
             id: 'FloorID',
-            label: '楼层ID',
+            label: '楼层编号',
             name: 'FloorID',
-            placeholder: '请输入楼层ID',
+            placeholder: '请输入楼层编号',
             validate: { required: { rule: true, message: '楼层ID是必须的' } }
           },
           {
             id: 'FireDoorType',
-            label: '类型',
+            label: '所属类型',
             name: 'FireDoorType',
             placeholder: '请输入防火门类型',
             validate: { required: { rule: true, message: '防火门类型是必须的' } }
           },
           {
             id: 'FireDoorAddress',
-            label: '位置',
+            label: '所在位置',
             name: 'FireDoorAddress',
             placeholder: '请输入防火门位置',
             validate: { required: { rule: true, message: '防火门位置是必须的' } }
@@ -163,8 +163,8 @@
           fields: [
             {name: 'FireDoorCode', visible: false},
             {name: 'DeviceCode', visible: false},
-            {name: 'FireDoorID', title: '防火门ID'},
-            {name: 'FloorID', title: '楼层ID'},
+            {name: 'FireDoorID', title: '防火门编号'},
+            {name: 'FloorID', title: '楼层编号'},
             {name: 'FireDoorType', title: '防火门类型'},
             {name: 'FireDoorAddress', title: '防火门位置'},
             {name: '__actions', title: '操作列'}

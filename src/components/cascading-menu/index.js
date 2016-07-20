@@ -65,12 +65,15 @@ export default {
   },
   methods: {
     toggleSubItems (index, item) {
+      if (!item.isOpen) {
+        let activeElement = this.$el.getElementsByClassName('active')[0]
+        activeElement.classList.remove('active')
+      }
+
       this.$set(`meta.items[${index}].isOpen`, !item.isOpen)
-       // this.$nextTick()    // notify dom update
-      return
     },
     getActiveClassByItem (item) {
-      return item.isOpen && item.subItems && item.subItems.length > 0 ? 'active' : ''
+      return item && item.isOpen ? 'active' : ''
     }
   }
 }

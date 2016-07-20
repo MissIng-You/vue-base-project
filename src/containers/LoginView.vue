@@ -45,6 +45,11 @@
       login
     },
     methods: {
+      _updateUser (loginQuery) {
+        let header = this.$root.$refs.header
+        header.$set('userMeta.username', loginQuery.user)
+        header.$set('isShow', true)
+      },
       _checkLogin (loginQuery) {
         let self = this
 
@@ -57,6 +62,7 @@
             window.setTimeout(function () {
               self.$router.go(data.Redirect)
               self.$set('loginMeta.state', '')
+              self._updateUser(loginQuery)
             }, 500)
           } else if (data.Error) {
             self.$set('loginMeta.message', data.Error)
@@ -75,6 +81,9 @@
 
         this._checkLogin(loginQuery)
       }
+    },
+    ready: function () {
+      this.$root.$refs.header.$set('isShow', false)
     }
   }
 </script>

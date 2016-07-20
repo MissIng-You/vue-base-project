@@ -1,6 +1,6 @@
 <template>
   <div id="header">
-    <navigation :theme="primary" :position="top" :meta="navigationMeta">
+    <navigation v-show="isShow" :theme="primary" :position="top" :meta="navigationMeta">
       <div class="nav-header" slot="header">
         <img src="../../assets/images/logo.png" alt="logo" class="header-logo">
         <span class="header-title">{{navigationMeta.title}}</span>
@@ -11,7 +11,7 @@
           <span class="box-title">{{userMeta.username}}</span>
         </div>
         <div class="nav-footer-wrap animated" :class="{'fadeIn': userMeta.isShow, 'fadeOut': !userMeta.isShow}" v-show="userMeta.isShow">
-          <list :meta="userMeta" orientation="vertical"></list>
+          <list :meta="userMeta" orientation="vertical" @item-click="onItemClick"></list>
         </div>
       </div>
     </navigation>
@@ -27,6 +27,7 @@
     name: 'HeaderView',
     data () {
       return {
+        isShow: true,
         userMeta: {
           username: 'administritor',
           role: '公司超级管理员',
@@ -34,7 +35,7 @@
           items: [{
             icon: 'fa-cog',
             title: '设置',
-            url: '/config'
+            url: '/fireDoor/userManage'
           }, {
             icon: 'fa-sign-in',
             title: '登录',
@@ -67,6 +68,9 @@
     methods: {
       toggleUserProfile () {
         this.$set('userMeta.isShow', !this.userMeta.isShow)
+      },
+      onItemClick (item) {
+        this.$set('userMeta.isShow', false)   // 每项点击后，直接隐藏
       }
     },
     components: {

@@ -44,6 +44,10 @@
             title: '设备管理',
             url: '/fireDoor/deviceManage'
           }, {
+            icon: 'fa-ra',
+            title: '单位管理',
+            url: '/fireDoor/communityManage'
+          }, {
             icon: 'fa-cogs',
             title: '系统管理',
             url: '',

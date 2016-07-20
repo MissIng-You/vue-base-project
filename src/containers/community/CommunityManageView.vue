@@ -4,7 +4,7 @@
     <div class="card card-blockquote">
       <div class="card-header card-primary-outline">
         <i class="card-mask fa fa-users"></i>
-        <span class="card-title">用户管理</span>
+        <span class="card-title">单位管理</span>
         <span class="card-search-group">
             <span class="input-group input-group-sm input-width-sm">
               <input type="text" class="form-control" @keypress.enter="onSearch" v-model="queryMeta.search" placeholder="在此搜索用户/手机信息">
@@ -15,7 +15,7 @@
       </div>
       <div class="card-body">
         <add-community-view :meta="addCommunityMeta" :validate="addCommunityValidateMeta"></add-community-view>
-        <update-community-view :meta="updateCommunityMeta"></update-community-view>
+        <update-community-view :meta="updateCommunityMeta" :validate="addCommunityValidateMeta"></update-community-view>
         <delete-community-view :meta="deleteCommunityMeta"></delete-community-view>
         <vuetable v-ref:vuetable
                   api-url="/api/user-service/getCommunityListMock.json"
@@ -58,7 +58,7 @@
   let {
     getCommunityList,
     getCommunityById
-    } = ApiService.roleService
+    } = ApiService.communityService
   let isLoadedOfFirst = false
 
   export default {
@@ -90,7 +90,39 @@
           currentPage: 1
         },
         addCommunityMeta: {},
-        addCommunityValidateMeta: [],
+        addCommunityValidateMeta: [{
+          id: 'CommunityID',
+          label: '单位编码',
+          name: 'CommunityID',
+          placeholder: '请输入单位编码',
+          validate: {
+            required: {rule: true, message: '单位编码是必须的'}
+          }
+        }, {
+          id: 'CommunityName',
+          label: '单位名称',
+          name: 'CommunityName',
+          placeholder: '请输入单位名称',
+          validate: {
+            required: {rule: true, message: '单位名称是必须的'}
+          }
+        }, {
+          id: 'Address',
+          label: '单位地址',
+          name: 'Address',
+          placeholder: '请输入单位地址',
+          validate: {
+            required: {rule: true, message: '单位地址是必须的'}
+          }
+        }, {
+          id: 'CommunityPhone',
+          label: '单位电话',
+          name: 'CommunityPhone',
+          placeholder: '请输入单位电话',
+          validate: {
+            required: {rule: true, message: '单位电话是必须的'}
+          }
+        }],
         updateCommunityMeta: {},
         deleteCommunityMeta: {},
         userListMeta: {
@@ -102,12 +134,12 @@
           showPagination: false,
           loadOnStart: false,
           fields: [
-            {name: 'CommunityID', visible: false},
-            {name: 'CommunityID', visible: false},
-            {name: 'CommunityName', title: '登录名称'},
-            {name: 'Telphone', title: '手机号码'},
-            {name: 'CommunityState', title: '用户状态'},
-            {name: 'AddTime', title: '注册时间'},
+            {name: 'CommunityID', title: '单位编码', visible: false},
+            {name: 'CommunityName', title: '单位名称'},
+            {name: 'DistrictCode', title: '区域编码', visible: false},
+            {name: 'Address', title: '单位地址'},
+            {name: 'Captain', title: '管理人姓名'},
+            {name: 'CommunityPhone', title: '单位电话'},
             {name: '__actions', title: '操作列'}
           ],
           itemActions: [

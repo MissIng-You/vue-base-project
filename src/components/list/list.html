@@ -1,6 +1,6 @@
 
 <ul class="nav {{getOrientation}} {{getSize}} {{getTheme}}">
-  <li class="nav-item" :id="$index" v-for="item in meta.items">
+  <li class="nav-item" :id="$index" @click="onItemClick($index)" v-for="item in meta.items">
     <box :meta="item" :orientation="getBoxOrientation"></box>
   </li>
 </ul>

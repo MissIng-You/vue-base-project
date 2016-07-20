@@ -35,6 +35,8 @@
 
     + .nav-item{
       margin-top: 0;
+
+      @include border-variant(top, 1px dotted $cm-gray);
     }
   }
 }

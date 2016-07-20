@@ -40,7 +40,7 @@ Vue.use(VueResource)
 
 // use vue resource interceptors
 Vue.http.interceptors.push((request, next) => {
-  NProgress.inc(0.1)
+  NProgress.inc(0.25)
   console.log('request params:')
   console.log(request)
 

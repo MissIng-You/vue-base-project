@@ -55,5 +55,10 @@ export default {
         return 'horizontal'
       }
     }
+  },
+  methods: {
+    onItemClick (item) {
+      this.$dispatch('item-click', item + 1)
+    }
   }
 }

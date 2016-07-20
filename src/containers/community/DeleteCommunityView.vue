@@ -27,7 +27,7 @@
   let { deleteCommunity } = ApiService.userService
 
   export default {
-    name: 'AddCommunityView',
+    name: 'DeleteCommunityView',
     components: {
       modal: vuestrapBase.modal
     },
