@@ -14,7 +14,6 @@
         <!--transition-mode="out-in">-->
       <!--</router-view>-->
       {{msg}}
-
     </div>
   </div>
 </template>
@@ -29,29 +28,28 @@
     name: 'EmptyView',
     data () {
       return {
-        msg: '这里还没有实现，后续完成。。。',
+        msg: '网站正在建设中...',
         navigationMeta: {
           items: [{
             icon: 'fa-leaf',
             title: '实时监控',
             url: '/fireDoor/monitor'
           }, {
+            icon: 'fa-flag',
+            title: '防火门管理',
+            url: '/fireDoor/fireManage'
+          }, {
             icon: 'fa-object-group',
-            title: '设备管理',
+            title: '防火门监控',
             url: '/fireDoor/deviceManage'
           }, {
-            icon: 'fa-cogs',
-            title: '系统管理',
-            url: '',
-            subItems: [{
-              icon: 'fa-users',
-              title: '用户管理',
-              url: '/fireDoor/userManage'
-            }, {
-              icon: 'fa-gears',
-              title: '角色管理',
-              url: '/fireDoor/roleManage'
-            }]
+            icon: 'fa-ra',
+            title: '单位管理',
+            url: '/fireDoor/communityManage'
+          }, {
+            icon: 'fa-users',
+            title: '用户管理',
+            url: '/fireDoor/userManage'
           }]
         }
       }

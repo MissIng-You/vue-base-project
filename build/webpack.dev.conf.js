@@ -38,8 +38,7 @@ module.exports = merge(baseWebpackConfig, {
       'process.env': config.dev.env
     }),
     new webpack.ProvidePlugin({
-      Vue: 'vue',
-      Vue: 'Vue'
+      Vue: 'vue'
       //$: "jquery",
       //jQuery: "jquery",
       //"window.jQuery": "jquery"
@@ -62,7 +61,8 @@ module.exports = merge(baseWebpackConfig, {
     new HtmlWebpackPlugin({
       filename: 'index.html',
       template: 'index.html',
-      inject: true
+      inject: true,
+      favicon: 'src/assets/images/logo.png'
     })
   ]
 })

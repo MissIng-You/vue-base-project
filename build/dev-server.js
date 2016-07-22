@@ -25,7 +25,7 @@ var devMiddleware = require('webpack-dev-middleware')(compiler, {
   },
   stats: {
     colors: true,
-    chunks: true    // show chunks details.
+    chunks: false    // show chunks details.
   }
 })
 

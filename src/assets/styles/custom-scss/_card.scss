@@ -220,6 +220,9 @@
 
     // reset .pagination component.
     .pagination .page-item {
+      .page-link {
+        padding: 4px 10px;
+      }
 
       &:last-child {
         .page-link {
@@ -258,7 +261,7 @@
 // add .card-state and .card-state-*(theme)
 .card-state{
   padding: 8px 10px;
-  margin: -5px -10px;
+  margin: -5px;
   color: $cm-black;
   background-color: darken($cm-gray, 10%);
 

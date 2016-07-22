@@ -1,0 +1,10 @@
+[
+  {
+    "RoleID": "01973025-171E-4B27-ADC9-1F4C50BB7ECA",
+    "RoleName": "超级管理员"
+  },
+  {
+    "RoleID": "01973025-171E-4B27-ADC9-1F4C50BB7ECB",
+    "RoleName": "小区管理员"
+  }
+]

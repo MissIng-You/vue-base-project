@@ -73,7 +73,7 @@ export default {
       this.$set(`meta.items[${index}].isOpen`, !item.isOpen)
     },
     getActiveClassByItem (item) {
-      return item && item.isOpen ? 'active' : ''
+      return item && item.isOpen && item.isOpen === true ? 'active' : ''
     }
   }
 }

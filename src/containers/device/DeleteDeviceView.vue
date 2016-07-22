@@ -24,7 +24,7 @@
   import ApiService from '../../api'
   import vuestrapBase from 'vuestrap-base-components'
 
-  let { deleteDevice } = ApiService.userService
+  let { deleteDevice } = ApiService.deviceService
 
   export default {
     name: 'DeleteDeviceView',
@@ -55,9 +55,10 @@
       },
       onDeleteDevice () {
         let self = this
-        let postData = {
-          userid: this.userMeta.DeviceID
-        }
+        let postData = this.meta
+//        let postData = {
+//          deviceid: this.deviceMeta.DeviceID
+//        }
         deleteDevice(postData, function (response) {
           let data = response.data
           let message = ''

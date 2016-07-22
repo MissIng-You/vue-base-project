@@ -1,0 +1,16 @@
+.vuetable th.sortable:hover {
+  color: #2185d0;
+  cursor: pointer;
+}
+.vuetable-actions {
+  width: 15%;
+  padding: 12px 0px;
+  text-align: center;
+}
+.vuetable-pagination {
+  background: #f9fafb !important;
+}
+.vuetable-pagination-info {
+  margin-top: auto;
+  margin-bottom: auto;
+}

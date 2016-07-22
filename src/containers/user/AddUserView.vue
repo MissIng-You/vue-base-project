@@ -12,11 +12,23 @@
               <div class="form-group">
                 <label :for="field.id" class="col-sm-4 control-label">{{field.label}}<i class="form-mask fa fa-hashtag"></i></label>
                 <div class="col-sm-8">
-                  <input type="text" v-model="field.value" class="form-control form-control-sm"
-                         :id="field.id" :field="field.name" :placeholder="field.placeholder" v-validate="field.validate">
+                  <template v-if="field.type === 'text'">
+                    <input :type="field.type" v-model="meta[field.id]" class="form-control form-control-sm"
+                           :id="field.id" :field="$index.toString()"
+                           :placeholder="field.placeholder" v-validate="field.validate">
+                  </template>
+                  <template v-if="field.type === 'select'">
+                    <multiselect :options="field.options" :on-change="onSelectChange"
+                                 :placeholder="field.placeholder" :selected.sync="field.selected"
+                                 :key="field.id" :label="field.display"
+                                 selected-label="已选中" select-label="点击选中" deselect-label="取消选中">
+                      <span slot="noResult">未找到结果...</span>
+                    </multiselect>
+                  </template>
                 </div>
               </div>
             </template>
+
           </form>
         </validator>
       </div>
@@ -35,42 +47,22 @@
 <script>
   import ApiService from '../../api'
   import vuestrapBase from 'vuestrap-base-components'
+  import ValidateMixins from '../_shared/ValidateMixins'
+  import Multiselect from 'vue-multiselect'
 
   let { addUser } = ApiService.userService
 
   export default {
     name: 'AddUserView',
+    mixins: [ValidateMixins],
     components: {
-      modal: vuestrapBase.modal
-    },
-    props: {
-      meta: {
-        type: Object,
-        default: function () {
-          return {}
-        }
-      },
-      validate: {
-        type: Array,
-        default: function () {
-          return []
-        }
-      }
+      modal: vuestrapBase.modal,
+      Multiselect
     },
     data () {
       return {
         message: '',
         validateMessage: ''
-      }
-    },
-    watch: {
-      'validate': function (newVal, oldVal) {
-        let self = this
-        for (let index = 0; index < newVal.length; index++) {
-          let fieldItem = newVal[index]
-          console.log(newVal)
-          self.$set(`meta.${fieldItem.id}`, fieldItem.value)
-        }
       }
     },
     methods: {
@@ -80,12 +72,12 @@
         window.setTimeout(function () {
           self.$broadcast('hide::modal', 'addUserModal')
           self.$set('message', '')
+          self.$set('validateMessage', '')
+          self._resetUser()
         }, 1000)
       },
       _resetUser () {
-        this.$set('meta.UserName', '')
-        this.$set('meta.RoleID', '')
-        this.$set('meta.Telphone', '')
+        this.$set('meta', {})
       },
       _addUser () {
         let self = this
@@ -110,20 +102,29 @@
         let self = this
         self.$validate(true, function () {
           if (self.$validation.invalid) {
-            let errorLength = self.$validation.errors.length
-            self.$set('validateMessage', self.$validation.errors[errorLength - 1].message)
+            self.$set('validateMessage', self.$validation.errors[0].message)
             return
           }
 
           self._addUser()
         })
       },
+      onSelectChange (newVal) {
+        if (!newVal) return
+        for (let index = 0; index < this.validate.length; index++) {
+          let tempItem = this.validate[index]
+          if (tempItem.type === 'select' || tempItem.type === 'multiselect') {
+            this.$set(`meta.${tempItem.id}`, newVal[tempItem.id])
+            break
+          }
+        }
+      },
       onAddUser () {
         this._validate()
+//        this._hideModal()
       },
       onCancelUser () {
         this._hideModal()
-        this._resetUser()
       }
     }
   }

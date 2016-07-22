@@ -3,11 +3,11 @@
 
     <div class="card card-blockquote">
       <div class="card-header card-primary-outline">
-        <i class="card-mask fa fa-users"></i>
+        <i class="card-mask fa fa-ra"></i>
         <span class="card-title">单位管理</span>
         <span class="card-search-group">
             <span class="input-group input-group-sm input-width-sm">
-              <input type="text" class="form-control" @keypress.enter="onSearch" v-model="queryMeta.search" placeholder="在此搜索用户/手机信息">
+              <input type="text" class="form-control" @keypress.enter="onSearch" v-model="queryMeta.search" placeholder="在此搜索单位/手机信息">
               <span class="input-group-addon btn btn-primary" @click="onSearch"><i class="fa fa-fw fa-search"></i></span>
             </span>
           </span>
@@ -17,7 +17,7 @@
         <add-community-view :meta="addCommunityMeta" :validate="addCommunityValidateMeta"></add-community-view>
         <update-community-view :meta="updateCommunityMeta" :validate="addCommunityValidateMeta"></update-community-view>
         <delete-community-view :meta="deleteCommunityMeta"></delete-community-view>
-        <vuetable v-ref:vuetable
+        <ctable v-ref:ctable
                   api-url="/api/user-service/getCommunityListMock.json"
                   :show-pagination="userDefineMeta.showPagination"
                   pagination-path=""
@@ -29,7 +29,7 @@
                   ascending-icon="fa fa-arrow-up"
                   descending-icon="fa fa-arrow-down"
                   :item-actions="userDefineMeta.itemActions">
-        </vuetable>
+        </ctable>
       </div>
       <div class="card-footer card-danger-outline">
         <i class="card-mask fa fa-pie-chart"></i>
@@ -54,7 +54,7 @@
   import UpdateCommunityView from './UpdateCommunityView'
   import DeleteCommunityView from './DeleteCommunityView'
 
-  let { pagination, vuetable } = customBootstrap
+  let { pagination, ctable } = customBootstrap
   let {
     getCommunityList,
     getCommunityById
@@ -65,7 +65,7 @@
     name: 'CommunityManageView',
     components: {
       pagination,
-      vuetable,
+      ctable,
       AddCommunityView,
       UpdateCommunityView,
       DeleteCommunityView
@@ -91,36 +91,50 @@
         },
         addCommunityMeta: {},
         addCommunityValidateMeta: [{
-          id: 'CommunityID',
-          label: '单位编码',
-          name: 'CommunityID',
-          placeholder: '请输入单位编码',
-          validate: {
-            required: {rule: true, message: '单位编码是必须的'}
-          }
-        }, {
           id: 'CommunityName',
           label: '单位名称',
           name: 'CommunityName',
+          type: 'text',
           placeholder: '请输入单位名称',
           validate: {
             required: {rule: true, message: '单位名称是必须的'}
+          }
+
+        }, {
+          id: 'Captain',
+          label: '负责人姓名',
+//          name: 'CommunityPhone',
+          type: 'text',
+          placeholder: '请输入负责人姓名',
+          validate: {
+            required: {rule: true, message: '负责人姓名是必须的'}
+          }
+        }, {
+          id: 'CaptainPlace',
+          label: '职位',
+//          name: 'CommunityPhone',
+          type: 'text',
+          placeholder: '请输入职位',
+          validate: {
+            required: {rule: true, message: '职位是必须的'}
+          }
+        }, {
+          id: 'CommunityPhone',
+          label: '联系方式',
+          name: 'CommunityPhone',
+          type: 'text',
+          placeholder: '请输入联系方式',
+          validate: {
+            required: {rule: true, message: '联系方式是必须的'}
           }
         }, {
           id: 'Address',
           label: '单位地址',
           name: 'Address',
+          type: 'text',
           placeholder: '请输入单位地址',
           validate: {
             required: {rule: true, message: '单位地址是必须的'}
-          }
-        }, {
-          id: 'CommunityPhone',
-          label: '单位电话',
-          name: 'CommunityPhone',
-          placeholder: '请输入单位电话',
-          validate: {
-            required: {rule: true, message: '单位电话是必须的'}
           }
         }],
         updateCommunityMeta: {},
@@ -137,9 +151,11 @@
             {name: 'CommunityID', title: '单位编码', visible: false},
             {name: 'CommunityName', title: '单位名称'},
             {name: 'DistrictCode', title: '区域编码', visible: false},
+            {name: 'Captain', title: '负责人姓名'},
+            {name: 'CaptainPlace', title: '职位'},
+            {name: 'CommunityPhone', title: '联系方式'},
+            {name: 'CaptainTelphone', title: '手机'},
             {name: 'Address', title: '单位地址'},
-            {name: 'Captain', title: '管理人姓名'},
-            {name: 'CommunityPhone', title: '单位电话'},
             {name: '__actions', title: '操作列'}
           ],
           itemActions: [
@@ -222,15 +238,15 @@
       }
     },
     events: {
-      'vuetable:action': function (action, data) {
-        console.log('vuetable:action', action, data)
+      'ctable:action': function (action, data) {
+        console.log('ctable:action', action, data)
         if (action === 'update-item') {
           this.onTableUpdate(data)
         } else if (action === 'delete-item') {
           this.onTableDelete(data)
         }
       },
-      'vuetable:load-error': function (response) {
+      'ctable:load-error': function (response) {
         console.log('Load Error: ', response)
       }
     }

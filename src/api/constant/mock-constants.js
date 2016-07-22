@@ -27,6 +27,7 @@ const UPDATE_USER_API = '/api/user-service/updateUserMock.json'
 const DELETE_USER_API = '/api/user-service/deleteUserMock.json'
 
 // role manage mock api
+const GET_ALL_ROLE_API = '/api/role-service/getAllRoleMock.json'
 const GET_ROLE_LIST_API = '/api/role-service/getRoleListMock.json'
 const GET_ROLE_BY_ID_API = '/api/role-service/getRoleByIdMock.json'
 const ADD_ROLE_API = '/api/role-service/addRoleMock.json'
@@ -34,6 +35,7 @@ const UPDATE_ROLE_API = '/api/role-service/updateRoleMock.json'
 const DELETE_ROLE_API = '/api/role-service/deleteRoleMock.json'
 
 // community manage mock api
+const GET_ALL_COMMUNITY_API = '/api/community-service/getAllCommunityMock.json'
 const GET_COMMUNITY_LIST_API = '/api/community-service/getCommunityListMock.json'
 const GET_COMMUNITY_BY_ID_API = '/api/community-service/getCommunityByIdMock.json'
 const ADD_COMMUNITY_API = '/api/community-service/addCommunityMock.json'
@@ -54,6 +56,7 @@ const ApiContainersRelative = {
   DELETE_USER_API,
 
   // role api
+  GET_ALL_ROLE_API,
   GET_ROLE_LIST_API,
   GET_ROLE_BY_ID_API,
   ADD_ROLE_API,
@@ -75,6 +78,7 @@ const ApiContainersRelative = {
   DELETE_FIRE_API,
 
   // community api
+  GET_ALL_COMMUNITY_API,
   GET_COMMUNITY_LIST_API,
   GET_COMMUNITY_BY_ID_API,
   ADD_COMMUNITY_API,

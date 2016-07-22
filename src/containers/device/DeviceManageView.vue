@@ -3,11 +3,11 @@
 
     <div class="card card-blockquote">
       <div class="card-header card-primary-outline">
-        <i class="card-mask fa fa-users"></i>
+        <i class="card-mask fa fa-object-group"></i>
         <span class="card-title">设备管理</span>
         <span class="card-search-group">
             <span class="input-group input-group-sm input-width-sm">
-              <input type="text" class="form-control" @keypress.enter="onSearch" v-model="queryMeta.search" placeholder="在此搜索用户/手机信息">
+              <input type="text" class="form-control" @keypress.enter="onSearch" v-model="queryMeta.search" placeholder="在此搜索设备/基站信息">
               <span class="input-group-addon btn btn-primary" @click="onSearch"><i class="fa fa-fw fa-search"></i></span>
             </span>
           </span>
@@ -17,7 +17,7 @@
         <add-device-view :meta="addDeviceMeta" :validate="addDeviceValidateMeta"></add-device-view>
         <update-device-view :meta="updateDeviceMeta" :validate="addDeviceValidateMeta"></update-device-view>
         <delete-device-view :meta="deleteDeviceMeta"></delete-device-view>
-        <vuetable v-ref:vuetable
+        <ctable v-ref:ctable
                   api-url="/api/user-service/getDeviceListMock.json"
                   :show-pagination="userDefineMeta.showPagination"
                   pagination-path=""
@@ -29,7 +29,7 @@
                   ascending-icon="fa fa-arrow-up"
                   descending-icon="fa fa-arrow-down"
                   :item-actions="userDefineMeta.itemActions">
-        </vuetable>
+        </ctable>
       </div>
       <div class="card-footer card-danger-outline">
         <i class="card-mask fa fa-pie-chart"></i>
@@ -54,7 +54,7 @@
   import UpdateDeviceView from './UpdateDeviceView'
   import DeleteDeviceView from './DeleteDeviceView'
 
-  let { pagination, vuetable } = customBootstrap
+  let { pagination, ctable } = customBootstrap
   let {
     getDeviceList,
     getDeviceById
@@ -65,7 +65,7 @@
     name: 'DeviceManageView',
     components: {
       pagination,
-      vuetable,
+      ctable,
       AddDeviceView,
       UpdateDeviceView,
       DeleteDeviceView
@@ -94,6 +94,7 @@
           id: 'DeviceID',
           label: '设备编号',
           name: 'DeviceID',
+          type: 'txt',
           placeholder: '请输入设备编号',
           validate: {
             required: {rule: true, message: '设备编号是必须的'}
@@ -102,6 +103,7 @@
           id: 'DeviceName',
           label: '设备名称',
           name: 'DeviceName',
+          type: 'txt',
           placeholder: '请输入设备名称',
           validate: {
             required: {rule: true, message: '设备名称是必须的'}
@@ -110,6 +112,7 @@
           id: 'Address',
           label: '详细地址',
           name: 'Address',
+          type: 'txt',
           placeholder: '请输入详细地址',
           validate: {
             required: {rule: true, message: '详细地址是必须的'}
@@ -118,6 +121,7 @@
           id: 'JZCoordinate',
           label: '基站地址',
           name: 'JZCoordinate',
+          type: 'txt',
           placeholder: '请输入基站地址',
           validate: {
             required: {rule: true, message: '基站地址是必须的'}
@@ -222,15 +226,15 @@
       }
     },
     events: {
-      'vuetable:action': function (action, data) {
-        console.log('vuetable:action', action, data)
+      'ctable:action': function (action, data) {
+        console.log('ctable:action', action, data)
         if (action === 'update-item') {
           this.onTableUpdate(data)
         } else if (action === 'delete-item') {
           this.onTableDelete(data)
         }
       },
-      'vuetable:load-error': function (response) {
+      'ctable:load-error': function (response) {
         console.log('Load Error: ', response)
       }
     }

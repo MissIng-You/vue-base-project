@@ -55,9 +55,10 @@
       },
       onDeleteUser () {
         let self = this
-        let postData = {
-          userid: this.userMeta.UserID
-        }
+        let postData = this.meta
+//        let postData = {
+//          userid: this.userMeta.UserID
+//        }
         deleteUser(postData, function (response) {
           let data = response.data
           let message = ''

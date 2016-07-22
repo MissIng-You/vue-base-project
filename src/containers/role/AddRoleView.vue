@@ -12,7 +12,7 @@
               <div class="form-group">
                 <label :for="field.id" class="col-sm-4 control-label">{{field.label}}<i class="form-mask fa fa-hashtag"></i></label>
                 <div class="col-sm-8">
-                  <input type="text" v-model="field.value" class="form-control form-control-sm" :field="field.name" :id="field.id" :placeholder="field.placeholder" v-validate="field.validate">
+                  <input type="text" v-model="meta[field.id]" class="form-control form-control-sm" :field="$index.toString()" :id="field.id" :placeholder="field.placeholder" v-validate="field.validate">
                 </div>
               </div>
             </template>
@@ -34,27 +34,15 @@
 <script>
   import ApiService from '../../api'
   import vuestrapBase from 'vuestrap-base-components'
+  import ValidateMixins from '../_shared/ValidateMixins'
 
   let { addRole } = ApiService.roleService
 
   export default {
     name: 'AddRoleView',
+    mixins: [ValidateMixins],
     components: {
       modal: vuestrapBase.modal
-    },
-    props: {
-      meta: {
-        type: Object,
-        default: function () {
-          return {}
-        }
-      },
-      validate: {
-        type: Array,
-        default: function () {
-          return []
-        }
-      }
     },
     data () {
       return {
@@ -69,12 +57,12 @@
         window.setTimeout(function () {
           self.$broadcast('hide::modal', 'addRoleModal')
           self.$set('message', '')
+          self.$set('validateMessage', '')
+          self._resetRole()
         }, 1000)
       },
       _resetRole () {
-        this.$set('meta.RoleName', '')
-        this.$set('meta.RoleID', '')
-        this.$set('meta.Telphone', '')
+        this.$set('meta', {})
       },
       _addRole () {
         let self = this
@@ -100,8 +88,9 @@
         let self = this
         self.$validate(true, function () {
           if (self.$validation.invalid) {
-            let errorLength = self.$validation.errors.length
-            self.$set('validateMessage', self.$validation.errors[errorLength - 1].message)
+//            let errorLength = self.$validation.errors.length
+//            self.$set('validateMessage', self.$validation.errors[errorLength - 1].message)
+            self.$set('validateMessage', self.$validation.errors[0].message)
             console.table(self.$validation.errors)
             return
           }
@@ -110,10 +99,10 @@
       },
       onAddRole () {
         this._validate()
+//        this._hideModal()
       },
       onCancelRole () {
         this._hideModal()
-//        this._resetRole()
       }
     }
   }

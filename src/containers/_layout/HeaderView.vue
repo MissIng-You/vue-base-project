@@ -29,7 +29,7 @@
       return {
         isShow: true,
         userMeta: {
-          username: 'administritor',
+          username: 'admin',
           role: '公司超级管理员',
           isShow: false,
           items: [{

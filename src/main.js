@@ -7,11 +7,19 @@ import AppView from './containers/AppView'
 // import HelloView from './containers/HelloView'
 // import ArcgisView from './containers/ArcgisView'
 
+import VueTables from 'vue-tables'
+
+Vue.use(VueTables.client, {})
+
+// ie9 polyfill
+import 'html5shiv/dist/html5shiv'
+import './shared/ie9_polyfill'
+
 // all styles
 import 'animate.css'
-import './assets/styles/custom-scss/custom-bootstrap.scss'
 import './assets/styles/font-awesome/css/font-awesome.min.css'
 import 'nprogress/nprogress.css'
+import './assets/styles/custom-scss/custom-bootstrap.scss'
 
 Vue.config.debug = true
 Vue.config.devtools = true
@@ -57,7 +65,7 @@ Vue.use(Router)
 // routing
 var router = new Router({
   hashbang: false,
-  history: true,
+  history: false,
   saveScrollPosition: true,
   transitionOnLoad: true,
   linkActiveClass: 'active'

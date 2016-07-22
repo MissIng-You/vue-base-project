@@ -2,6 +2,7 @@ import Vue from 'vue'
 import ApiContainers from '../constant'
 
 let {
+  GET_ALL_COMMUNITY_API,
   GET_COMMUNITY_LIST_API,
   GET_COMMUNITY_BY_ID_API,
   ADD_COMMUNITY_API,
@@ -10,10 +11,13 @@ let {
 
 const postService = (url, query, resolve, reject) => {
   return Vue.http.post(url, query)
-    .then(resolve, reject)
+  .then(resolve, reject)
 }
 
 const communityService = {
+  getAllCommunity: (query, resolve, reject) => {
+    return postService(GET_ALL_COMMUNITY_API, query, resolve, reject)
+  },
   getCommunityList: (query, resolve, reject) => {
     return postService(GET_COMMUNITY_LIST_API, query, resolve, reject)
   },

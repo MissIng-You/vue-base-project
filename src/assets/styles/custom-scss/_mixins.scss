@@ -86,3 +86,12 @@
   position: fixed;
   #{$direct}: $offset;
 }
+
+// text-shadow mixins
+@mixin text-shadow-static($shadow-color: $cm-black) {
+  @include text-shadow-variant(
+      0 1px 1px lighten($shadow-color, 40%),
+      0 2px 2px lighten($shadow-color, 30%),
+      0 3px 3px lighten($shadow-color, 20%)
+  )
+}

@@ -31,7 +31,7 @@
   vertical-align: middle;
   background-color: $cm-white;
   overflow: hidden;
-  height: $cm-sm-width;
+  height: 100%;
 
   @include box-shadow(0 3px 2px 2px $cm-gray);
   @include clearfix();
@@ -45,28 +45,13 @@
 
 .navbar-footer{
   width: 100%;
-  text-align: center;
+  font-size: .8em;
+  padding-right: $cm-space-width;
+  text-align: right;
   height: $cm-footer-width;
   line-height: $cm-footer-width;
   color: $cm-black;
-  background-color: $cm-white;
+  //background-color: $cm-white;
 
-  @include text-shadow-variant(0 1px 1px lighten($cm-black, 30%));
-}
-
-// nav fixed top bottom left right scss.
-.fixed-top{
-  @include fixed-variant(top);
-}
-
-.fixed-bottom{
-  @include fixed-variant(bottom);
-}
-
-.fixed-left{
-  @include fixed-variant(left);
-}
-
-.fixed-right{
-  @include fixed-variant(right);
+  @include text-shadow-static();
 }

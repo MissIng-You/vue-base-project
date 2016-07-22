@@ -11,8 +11,23 @@
             <template v-for="field in validate">
               <div class="form-group">
                 <label :for="field.id" class="col-sm-4 control-label">{{field.label}}<i class="form-mask fa fa-hashtag"></i></label>
+                <!--<div class="col-sm-8">
+                  <input type="text" v-model="meta[field.id]" class="form-control form-control-sm" :field="$index.toString()" :id="field.id" :placeholder="field.placeholder" v-validate="field.validate">
+                </div>-->
                 <div class="col-sm-8">
-                  <input type="text" v-model="field.value" class="form-control form-control-sm" :field="field.name" :id="field.id" :placeholder="field.placeholder" v-validate="field.validate">
+                  <template v-if="field.type === 'text'">
+                    <input :type="field.type" v-model="meta[field.id]" class="form-control form-control-sm"
+                           :id="field.id" :field="$index.toString()"
+                           :placeholder="field.placeholder" v-validate="field.validate">
+                  </template>
+                  <template v-if="field.type === 'select'">
+                    <multiselect :options="field.options" :on-change="onSelectChange"
+                                 :placeholder="field.placeholder" :selected.sync="field.selected"
+                                 :key="field.id" :label="field.display"
+                                 selected-label="已选中" select-label="点击选中" deselect-label="取消选中">
+                      <span slot="noResult">未找到结果...</span>
+                    </multiselect>
+                  </template>
                 </div>
               </div>
             </template>
@@ -34,27 +49,17 @@
 <script>
   import ApiService from '../../api'
   import vuestrapBase from 'vuestrap-base-components'
+  import ValidateMixins from '../_shared/ValidateMixins'
+  import Multiselect from 'vue-multiselect'
 
   let { addFire } = ApiService.fireService
 
   export default {
     name: 'AddFireView',
+    mixins: [ValidateMixins],
     components: {
-      modal: vuestrapBase.modal
-    },
-    props: {
-      meta: {
-        type: Object,
-        default: function () {
-          return {}
-        }
-      },
-      validate: {
-        type: Array,
-        default: function () {
-          return []
-        }
-      }
+      modal: vuestrapBase.modal,
+      Multiselect
     },
     data () {
       return {
@@ -69,13 +74,12 @@
         window.setTimeout(function () {
           self.$broadcast('hide::modal', 'addFireModal')
           self.$set('message', '')
+          self.$set('validateMessage', '')
+          self._resetFire()
         }, 1000)
       },
       _resetFire () {
-        this.$set('meta.FireDoorID', '')
-        this.$set('meta.FloorID', '')
-        this.$set('meta.FireDoorAddress', '')
-        this.$set('meta.FireDoorType', '')
+        this.$set('meta', {})
       },
       _addFire () {
         let self = this
@@ -101,20 +105,31 @@
         let self = this
         self.$validate(true, function () {
           if (self.$validation.invalid) {
-            let errorLength = self.$validation.errors.length
-            self.$set('validateMessage', self.$validation.errors[errorLength - 1].message)
+//            let errorLength = self.$validation.errors.length
+//          永远输出列表中的第一个错误
+            self.$set('validateMessage', self.$validation.errors[0].message)
             console.table(self.$validation.errors)
             return
           }
           self._addFire()
         })
       },
+      onSelectChange (newVal) {
+        if (!newVal) return
+        for (let index = 0; index < this.validate.length; index++) {
+          let tempItem = this.validate[index]
+          if (tempItem.type === 'select' || tempItem.type === 'multiselect') {
+            this.$set(`meta.${tempItem.id}`, newVal[tempItem.id])
+            break
+          }
+        }
+      },
       onAddFire () {
         this._validate()
+//        this._hideModal()
       },
       onCancelFire () {
         this._hideModal()
-        this._resetFire()
       }
     }
   }

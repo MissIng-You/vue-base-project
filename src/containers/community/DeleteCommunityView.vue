@@ -24,7 +24,7 @@
   import ApiService from '../../api'
   import vuestrapBase from 'vuestrap-base-components'
 
-  let { deleteCommunity } = ApiService.userService
+  let { deleteCommunity } = ApiService.communityService
 
   export default {
     name: 'DeleteCommunityView',
@@ -55,9 +55,10 @@
       },
       onDeleteCommunity () {
         let self = this
-        let postData = {
-          userid: this.userMeta.CommunityID
-        }
+        let postData = this.meta
+//        let postData = {
+//          userid: this.userMeta.CommunityID
+//        }
         deleteCommunity(postData, function (response) {
           let data = response.data
           let message = ''

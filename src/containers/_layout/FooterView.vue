@@ -10,7 +10,7 @@
     data () {
       return {
         footerMeta: {
-          title: 'Vue.js Project V1.0'
+          title: '成都万江港利科技股份有限公司'
         }
       }
     }

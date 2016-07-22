@@ -3,11 +3,11 @@
 
     <div class="card card-blockquote">
       <div class="card-header card-primary-outline">
-        <i class="card-mask fa fa-users"></i>
+        <i class="card-mask fa fa-gears"></i>
         <span class="card-title">角色管理</span>
         <span class="card-search-group">
             <span class="input-group input-group-sm input-width-sm">
-              <input type="text" class="form-control" @keypress.enter="onSearch" v-model="queryMeta.search" placeholder="在此搜索用户/手机信息">
+              <input type="text" class="form-control" @keypress.enter="onSearch" v-model="queryMeta.search" placeholder="在此搜索角色名称信息">
               <span class="input-group-addon btn btn-primary" @click="onSearch"><i class="fa fa-fw fa-search"></i></span>
             </span>
           </span>
@@ -17,7 +17,7 @@
         <add-role-view :meta="addRoleMeta" :validate="addRoleValidateMeta"></add-role-view>
         <update-role-view :meta="updateRoleMeta" :validate="updateRoleValidateMeta"></update-role-view>
         <delete-role-view :meta="deleteRoleMeta"></delete-role-view>
-        <vuetable v-ref:vuetable
+        <ctable v-ref:ctable
                   api-url="/api/user-service/getRoleListMock.json"
                   :show-pagination="userDefineMeta.showPagination"
                   pagination-path=""
@@ -29,7 +29,7 @@
                   ascending-icon="fa fa-arrow-up"
                   descending-icon="fa fa-arrow-down"
                   :item-actions="userDefineMeta.itemActions">
-        </vuetable>
+        </ctable>
       </div>
       <div class="card-footer card-danger-outline">
         <i class="card-mask fa fa-pie-chart"></i>
@@ -54,7 +54,7 @@
   import UpdateRoleView from './UpdateRoleView'
   import DeleteRoleView from './DeleteRoleView'
 
-  let { pagination, vuetable } = customBootstrap
+  let { pagination, ctable } = customBootstrap
   let {
     getRoleList,
     getRoleById
@@ -65,7 +65,7 @@
     name: 'RoleManageView',
     components: {
       pagination,
-      vuetable,
+      ctable,
       AddRoleView,
       UpdateRoleView,
       DeleteRoleView
@@ -95,6 +95,7 @@
             id: 'RoleName',
             label: '角色名称',
             name: 'RoleName',
+            type: 'txt',
             placeholder: '请输入角色名称',
             validate: { required: { rule: true, message: '角色名称是必须的' } }
           },
@@ -102,6 +103,7 @@
             id: 'Description',
             label: '角色描述',
             name: 'Description',
+            type: 'txt',
             placeholder: '请输入描述信息',
             validate: { required: { rule: true, message: '角色描述是必须的' } }
           }
@@ -111,6 +113,7 @@
             id: 'RoleName',
             label: '角色名称',
             name: 'RoleName',
+            type: 'txt',
             placeholder: '请输入角色名称',
             validate: { required: { rule: true, message: '角色名称是必须的' } }
           },
@@ -118,6 +121,7 @@
             id: 'Description',
             label: '角色描述',
             name: 'Description',
+            type: 'txt',
             placeholder: '请输入描述信息',
             validate: { required: { rule: true, message: '角色描述是必须的' } }
           }
@@ -220,15 +224,15 @@
       }
     },
     events: {
-      'vuetable:action': function (action, data) {
-        console.log('vuetable:action', action, data)
+      'ctable:action': function (action, data) {
+        console.log('ctable:action', action, data)
         if (action === 'update-item') {
           this.onTableUpdate(data)
         } else if (action === 'delete-item') {
           this.onTableDelete(data)
         }
       },
-      'vuetable:load-error': function (response) {
+      'ctable:load-error': function (response) {
         console.log('Load Error: ', response)
       }
     }

@@ -2,6 +2,7 @@
 // custom box scss.
 
 .box{
+  position: relative;
   display:inline-block;
   padding: $cm-space-width / 2 $cm-space-width;
   width: 100%;
@@ -56,7 +57,7 @@
 
 // themes.
 
-.box-right-dot{
+.box-dot-right{
   position: relative;
 
   .box-title{
@@ -77,15 +78,46 @@
 .box-maroon{
   color: lighten($cm-black, 30%);
 
+  @include transition(all .5s);
+
   &:hover,
   &.active{
-    color: $cm-maroon;
-    background-color: darken($cm-white, 2%);
+    color: darken($cm-white, 2%);
+    background-color: $cm-maroon;
     text-decoration: none;
 
-    @include text-shadow-variant(0 1px $cm-white);
+    @include text-shadow-static(darken($cm-white, 50%));
   }
 
+}
+
+.box-border-left {
+  &::before,
+  &::after {
+    position: absolute;
+    top: 0;
+    content: "";
+    width: 1px;
+    height: 100%;
+    overflow: hidden;
+    background-color: $cm-gray;
+  }
+
+  &::before {
+    left: -3px;
+  }
+
+  &::after {
+    left: -1px;
+  }
+
+  &:hover,
+  &.active {
+    &::before,
+    &::after {
+      background-color: $cm-maroon;
+    }
+  }
 }
 
 .box-purple{
@@ -96,17 +128,17 @@
 
   &:hover,
   &.active{
-    color: $cm-purple;
+    color: $cm-maroon;
     background-color: darken($cm-white, 2%);
     text-decoration: none;
 
     //@include border-variant(left, 3px solid $cm-purple);
-    @include text-shadow-variant(0 1px $cm-white);
+    @include text-shadow-static(darken($cm-white, 50%));
 
     .box-mask:first-child{
       &::before{
-        color: $cm-white;
-        background-color: $cm-purple;
+        //color: $cm-white;
+        background-color: darken($cm-gray, 5%);
       }
     }
   }
@@ -119,6 +151,9 @@
       width: 46px;
       height: 46px;
       padding: $cm-space-width / 2;
+      background-color: $cm-gray;
+
+      @include transition(all .5s);
     }
   }
 

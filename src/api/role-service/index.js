@@ -2,6 +2,7 @@ import Vue from 'vue'
 import ApiContainers from '../constant'
 
 let {
+  GET_ALL_ROLE_API,
   GET_ROLE_LIST_API,
   GET_ROLE_BY_ID_API,
   ADD_ROLE_API,
@@ -14,6 +15,9 @@ const postService = (url, query, resolve, reject) => {
 }
 
 const roleService = {
+  getAllRole: (query, resolve, reject) => {
+    return postService(GET_ALL_ROLE_API, query, resolve, reject)
+  },
   getRoleList: (query, resolve, reject) => {
     return postService(GET_ROLE_LIST_API, query, resolve, reject)
   },

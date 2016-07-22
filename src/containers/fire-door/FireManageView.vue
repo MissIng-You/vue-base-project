@@ -3,11 +3,11 @@
 
     <div class="card card-blockquote">
       <div class="card-header card-primary-outline">
-        <i class="card-mask fa fa-users"></i>
+        <i class="card-mask fa fa-flag"></i>
         <span class="card-title">防火门管理</span>
         <span class="card-search-group">
             <span class="input-group input-group-sm input-width-sm">
-              <input type="text" class="form-control" @keypress.enter="onSearch" v-model="queryMeta.search" placeholder="在此搜索用户/手机信息">
+              <input type="text" class="form-control" @keypress.enter="onSearch" v-model="queryMeta.search" placeholder="在此搜索防火门/楼层信息">
               <span class="input-group-addon btn btn-primary" @click="onSearch"><i class="fa fa-fw fa-search"></i></span>
             </span>
           </span>
@@ -17,7 +17,7 @@
         <add-fire-view :meta="addFireMeta" :validate="addFireValidateMeta" ></add-fire-view>
         <update-fire-view :meta="updateFireMeta" :validate="updateFireValidateMeta" ></update-fire-view>
         <delete-fire-view :meta="deleteFireMeta"></delete-fire-view>
-        <vuetable v-ref:vuetable
+        <ctable v-ref:ctable
                   api-url="/api/user-service/getFireListMock.json"
                   :show-pagination="userDefineMeta.showPagination"
                   pagination-path=""
@@ -29,7 +29,7 @@
                   ascending-icon="fa fa-arrow-up"
                   descending-icon="fa fa-arrow-down"
                   :item-actions="userDefineMeta.itemActions">
-        </vuetable>
+        </ctable>
       </div>
       <div class="card-footer card-danger-outline">
         <i class="card-mask fa fa-pie-chart"></i>
@@ -54,7 +54,7 @@
   import UpdateFireView from './UpdateFireView'
   import DeleteFireView from './DeleteFireView'
 
-  let { pagination, vuetable } = customBootstrap
+  let { pagination, ctable } = customBootstrap
   let {
     getFireList,
     getFireById
@@ -65,7 +65,7 @@
     name: 'FireManageView',
     components: {
       pagination,
-      vuetable,
+      ctable,
       AddFireView,
       UpdateFireView,
       DeleteFireView
@@ -95,27 +95,40 @@
             id: 'FireDoorID',
             label: '防火门号',
             name: 'FireDoorID',
-            placeholder: '请输入防火门ID',
+            type: 'text',
+            placeholder: '请输入防火门编号',
             validate: { required: { rule: true, message: '防火门编号是必须的' } }
           },
           {
             id: 'FloorID',
             label: '楼层编号',
             name: 'FloorID',
+            type: 'text',
             placeholder: '请输入楼层编号',
-            validate: { required: { rule: true, message: '楼层ID是必须的' } }
+            validate: { required: { rule: true, message: '楼层编号是必须的' } }
           },
           {
             id: 'FireDoorType',
+            display: 'FireDoorTypeName',
             label: '所属类型',
             name: 'FireDoorType',
+            type: 'select',
+            selected: '',
             placeholder: '请输入防火门类型',
+            options: [{
+              FireDoorType: 0,
+              FireDoorTypeName: '常开'
+            }, {
+              FireDoorType: 1,
+              FireDoorTypeName: '常闭'
+            }],
             validate: { required: { rule: true, message: '防火门类型是必须的' } }
           },
           {
             id: 'FireDoorAddress',
             label: '所在位置',
             name: 'FireDoorAddress',
+            type: 'text',
             placeholder: '请输入防火门位置',
             validate: { required: { rule: true, message: '防火门位置是必须的' } }
           }
@@ -125,27 +138,40 @@
             id: 'FireDoorID',
             label: '防火门号',
             name: 'FireDoorID',
+            type: 'text',
             placeholder: '请输入防火门编号',
-            validate: { required: { rule: true, message: '防火门ID是必须的' } }
+            validate: { required: { rule: true, message: '防火门编号是必须的' } }
           },
           {
             id: 'FloorID',
             label: '楼层编号',
             name: 'FloorID',
+            type: 'text',
             placeholder: '请输入楼层编号',
-            validate: { required: { rule: true, message: '楼层ID是必须的' } }
+            validate: { required: { rule: true, message: '楼层编号是必须的' } }
           },
           {
             id: 'FireDoorType',
+            display: 'FireDoorTypeName',
             label: '所属类型',
             name: 'FireDoorType',
+            type: 'select',
+            selected: '',
             placeholder: '请输入防火门类型',
+            options: [{
+              FireDoorType: 0,
+              FireDoorTypeName: '常开'
+            }, {
+              FireDoorType: 1,
+              FireDoorTypeName: '常闭'
+            }],
             validate: { required: { rule: true, message: '防火门类型是必须的' } }
           },
           {
             id: 'FireDoorAddress',
             label: '所在位置',
             name: 'FireDoorAddress',
+            type: 'text',
             placeholder: '请输入防火门位置',
             validate: { required: { rule: true, message: '防火门位置是必须的' } }
           }
@@ -165,7 +191,8 @@
             {name: 'DeviceCode', visible: false},
             {name: 'FireDoorID', title: '防火门编号'},
             {name: 'FloorID', title: '楼层编号'},
-            {name: 'FireDoorType', title: '防火门类型'},
+//            ctable组件里面callback回调函数可以多个，以|分隔
+            {name: 'FireDoorType', title: '防火门类型', callback: '_convertDoorType|'},
             {name: 'FireDoorAddress', title: '防火门位置'},
             {name: '__actions', title: '操作列'}
           ],
@@ -186,6 +213,9 @@
       }
     },
     methods: {
+      _convertDoorType (value) {
+        return value === 0 ? '常开' : '常闭'
+      },
       _getFireList (userQuery) {
         let self = this
         getFireList(userQuery, function (response) {
@@ -250,15 +280,15 @@
       }
     },
     events: {
-      'vuetable:action': function (action, data) {
-        console.log('vuetable:action', action, data)
+      'ctable:action': function (action, data) {
+        console.log('ctable:action', action, data)
         if (action === 'update-item') {
           this.onTableUpdate(data)
         } else if (action === 'delete-item') {
           this.onTableDelete(data)
         }
       },
-      'vuetable:load-error': function (response) {
+      'ctable:load-error': function (response) {
         console.log('Load Error: ', response)
       }
     }

@@ -13,11 +13,11 @@ const UPDATE_DEVICE_API = '/Device/EditDevice'
 const DELETE_DEVICE_API = '/Device/DeleteDevice'
 
 // fire manage api
-const GET_FIRE_LIST_API = '/Fire/SelectFireList'
-const GET_FIRE_BY_ID_API = '/Fire/SelectFireByID'
-const ADD_FIRE_API = '/Fire/AddFire'
-const UPDATE_FIRE_API = '/Fire/EditFire'
-const DELETE_FIRE_API = '/Fire/DeleteFire'
+const GET_FIRE_LIST_API = '/FireDoor/SelectFireList'
+const GET_FIRE_BY_ID_API = '/FireDoor/SelectFireByID'
+const ADD_FIRE_API = '/FireDoor/AddFire'
+const UPDATE_FIRE_API = '/FireDoor/EditFire'
+const DELETE_FIRE_API = '/FireDoor/DeleteFire'
 
 // user manage api
 const GET_USER_LIST_API = '/User/SelectUserList'
@@ -27,6 +27,7 @@ const UPDATE_USER_API = '/User/EditUser'
 const DELETE_USER_API = '/User/DeleteUser'
 
 // role manage api
+const GET_ALL_ROLE_API = '/Role/SelectAllRole'
 const GET_ROLE_LIST_API = '/Role/SelectRoleList'
 const GET_ROLE_BY_ID_API = '/Role/SelectRoleByID'
 const ADD_ROLE_API = '/Role/AddRole'
@@ -34,6 +35,7 @@ const UPDATE_ROLE_API = '/Role/EditRole'
 const DELETE_ROLE_API = '/Role/DeleteRole'
 
 // community manage api
+const GET_ALL_COMMUNITY_API = '/Community/SelectAllCommunity'
 const GET_COMMUNITY_LIST_API = '/Community/SelectCommunityList'
 const GET_COMMUNITY_BY_ID_API = '/Community/SelectCommunityByID'
 const ADD_COMMUNITY_API = '/Community/AddCommunity'
@@ -54,6 +56,7 @@ const ApiContainersRelative = {
   DELETE_USER_API,
 
   // role api
+  GET_ALL_ROLE_API,
   GET_ROLE_LIST_API,
   GET_ROLE_BY_ID_API,
   ADD_ROLE_API,
@@ -75,6 +78,7 @@ const ApiContainersRelative = {
   DELETE_FIRE_API,
 
   // community api
+  GET_ALL_COMMUNITY_API,
   GET_COMMUNITY_LIST_API,
   GET_COMMUNITY_BY_ID_API,
   ADD_COMMUNITY_API,

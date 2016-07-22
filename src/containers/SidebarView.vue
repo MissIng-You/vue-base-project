@@ -1,6 +1,6 @@
 <template>
   <div id="menulist" class="layout">
-    <div class="layout-left fixed">
+    <div class="layout-left fixed-left">
       <cascading-menu :theme="primary" position="left"
                   :meta="navigationMeta" v-ref:sidebar></cascading-menu>
     </div>
@@ -41,25 +41,16 @@
             url: '/fireDoor/fireManage'
           }, {
             icon: 'fa-object-group',
-            title: '设备管理',
+            title: '防火门监控',
             url: '/fireDoor/deviceManage'
           }, {
             icon: 'fa-ra',
             title: '单位管理',
             url: '/fireDoor/communityManage'
           }, {
-            icon: 'fa-cogs',
-            title: '系统管理',
-            url: '',
-            subItems: [{
-              icon: 'fa-users',
-              title: '用户管理',
-              url: '/fireDoor/userManage'
-            }, {
-              icon: 'fa-gears',
-              title: '角色管理',
-              url: '/fireDoor/roleManage'
-            }]
+            icon: 'fa-users',
+            title: '用户管理',
+            url: '/fireDoor/userManage'
           }]
         }
       }

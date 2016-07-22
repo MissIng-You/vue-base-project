@@ -10,8 +10,7 @@ import pagination from './pagination'
 import fireCard from './fire-card'
 import fireCardList from './fire-card-list'
 
-import Vuetable from './table/Vuetable'
-import VuetablePagination from './table/VuetablePagination'
+import ctable from './ctable'
 
 const customBootstrap = {
   box,
@@ -22,8 +21,7 @@ const customBootstrap = {
   pagination,
   fireCard,
   fireCardList,
-  vuetable: Vuetable,
-  'vuetable-pagination': VuetablePagination
+  ctable
 }
 
 // export all compontents

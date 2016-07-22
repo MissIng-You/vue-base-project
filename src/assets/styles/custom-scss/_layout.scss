@@ -16,7 +16,6 @@ body,
 }
 
 .layout{
-
   @include clearfix();
 
   .layout-left,
@@ -25,11 +24,14 @@ body,
   }
 
   .layout-left{
+    position: fixed;
+    left: 0;
     width: $cm-sidebar-max-width;
+    height: 100%;
   }
 
   .layout-center{
-    margin: 0 auto;
+    margin-left: $cm-sidebar-max-width;
     padding: $cm-space-width;
     overflow:auto;
     width: $cm-normal-width - $cm-sidebar-max-width;
@@ -41,3 +43,22 @@ body,
   }
 
 }
+
+
+// nav fixed top bottom left right scss.
+.fixed-top{
+  @include fixed-variant(top);
+}
+
+.fixed-bottom{
+  @include fixed-variant(bottom);
+}
+
+.fixed-left{
+  @include fixed-variant(left);
+}
+
+.fixed-right{
+  @include fixed-variant(right);
+}
+

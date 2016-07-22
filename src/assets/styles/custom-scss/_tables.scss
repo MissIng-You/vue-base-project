@@ -16,12 +16,12 @@
   tbody {
     > tr {
       border: none !important;
-      outline: 1px solid $cm-white;
+      //outline: 1px solid $cm-white;
 
       &:hover,
       &.active{
         color: $cm-primary;
-        outline: 1px solid $cm-primary;
+        background-color: darken($cm-white, 5%);
       }
     }
   }

@@ -27,7 +27,7 @@
   let { deleteFire } = ApiService.fireService
 
   export default {
-    name: 'AddFireView',
+    name: 'DeleteFireView',
     components: {
       modal: vuestrapBase.modal
     },

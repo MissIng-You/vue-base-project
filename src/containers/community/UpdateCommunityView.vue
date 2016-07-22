@@ -12,8 +12,8 @@
               <div class="form-group">
                 <label :for="field.id" class="col-sm-4 control-label">{{field.label}}<i class="form-mask fa fa-hashtag"></i></label>
                 <div class="col-sm-8">
-                  <input type="text" v-model="field.value" class="form-control form-control-sm"
-                         :id="field.id" :field="field.name" :placeholder="field.placeholder" v-validate="field.validate">
+                  <input type="text" v-model="meta[field.id]" class="form-control form-control-sm"
+                         :id="field.id" :field="$index.toString()" :placeholder="field.placeholder" v-validate="field.validate">
                 </div>
               </div>
             </template>
@@ -35,63 +35,20 @@
 <script>
   import ApiService from '../../api'
   import vuestrapBase from 'vuestrap-base-components'
+  import ValidateMixins from '../_shared/ValidateMixins'
 
   let { updateCommunity } = ApiService.communityService
 
   export default {
     name: 'UpdateCommunityView',
+    mixins: [ValidateMixins],
     components: {
       modal: vuestrapBase.modal
-    },
-    props: {
-      meta: {
-        type: Object,
-        default: function () {
-          return {}
-        }
-      },
-      validate: {
-        type: Array,
-        default: function () {
-          return []
-        }
-      }
     },
     data () {
       return {
         message: '',
         validateMessage: ''
-      }
-    },
-    watch: {
-      'validate': function (newVal, oldVal) {
-        let self = this
-        for (let index = 0; index < newVal.length; index++) {
-          let fieldItem = newVal[index]
-          console.log(newVal)
-          self.$set(`meta.${fieldItem.id}`, fieldItem.value)
-        }
-      },
-      'meta': {
-        deep: true,
-        handler: function (newVal, oldVal) {
-          let validate = this.validate
-          let self = this
-          // 遍历所有属性值
-          for (let [apiKey, apiValue] of Object.entries(newVal)) {
-            // 遍历所有验证列表
-            for (let index = 0; index < validate.length; index++) {
-              let fieldItem = validate[index]
-
-              if (fieldItem.id === apiKey) {
-                self.validate[index].value = apiValue
-                // 设置验证集合中，每个相对应的字段的值
-                self.$set(`validate[${index}].${fieldItem.id}`, apiValue)
-                break
-              }
-            }
-          }
-        }
       }
     },
     methods: {
@@ -101,12 +58,11 @@
         window.setTimeout(function () {
           self.$broadcast('hide::modal', 'updateCommunityModal')
           self.$set('message', '')
+          self._resetCommunity()
         }, 1000)
       },
       _resetCommunity () {
-        this.$set('meta.CommunityName', '')
-        this.$set('meta.CommunityID', '')
-        this.$set('meta.Address', '')
+        this.$set('meta', {})
       },
       _updateCommunity () {
         let self = this
@@ -131,8 +87,9 @@
         let self = this
         self.$validate(true, function () {
           if (self.$validation.invalid) {
-            let errorLength = self.$validation.errors.length
-            self.$set('validateMessage', self.$validation.errors[errorLength - 1].message)
+//            let errorLength = self.$validation.errors.length
+//            self.$set('validateMessage', self.$validation.errors[errorLength - 1].message)
+            self.$set('validateMessage', self.$validation.errors[0].message)
             return
           }
 
@@ -141,6 +98,7 @@
       },
       onUpdateCommunity () {
         this._validate()
+//        this._hideModal()
       },
       onCancelCommunity () {
         this._hideModal()
