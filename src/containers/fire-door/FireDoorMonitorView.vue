@@ -3,20 +3,20 @@
     <div class="card card-blockquote">
       <div class="card-header">
         <i class="card-mask fa fa-leaf"></i>
-        <span class="card-title">防火实时监控</span>
+        <span class="card-title">实时监控</span>
         <span class="card-subtitle">({{getTotalCount}}条记录)</span>
         <span class="card-search-group">
             <span class="input-group input-group-sm input-width-sm">
-              <input type="text" class="form-control" @keyup="onSearch" v-model="queryMeta.search" placeholder="在此搜索防火门位置">
-              <span class="input-group-addon btn btn-primary" @click="onSearch"><i class="fa fa-fw fa-search"></i></span>
+              <input type="text" class="form-control" @keypress.enter="onSearch" v-model="queryMeta.search" placeholder="在此搜索防火门位置">
+              <span class="input-group-addon btn btn-primary-outline" @click="onSearch"><i class="fa fa-fw fa-search"></i></span>
             </span>
           </span>
         <i class="card-mask fa fa-fw pull-right" :class="{'fa-cogs': !showConfigBox, 'fa-close': showConfigBox}"></i>
       </div>
       <div class="card-body">
         <div class="card-body-divider">
-          <span class="card-body-title card-body-title-danger">{{errorFireListMeta.totalCount}} 条异常记录</span>
-            <span class="card-pagination pull-right">
+          <span class="card-body-title card-body-title-danger">{{errorFireListMeta.totalCount ? errorFireListMeta.totalCount + '条' : '无'}}异常记录</span>
+            <span v-if="errorFireListMeta.totalCount" class="card-pagination pull-right">
               <pagination shape="circle"
                           :total-rows="paginationMeta.errorTotalCount"
                           :current-page.sync="paginationMeta.errorCurrentPage"
@@ -25,12 +25,12 @@
               </pagination>
             </span>
         </div>
-        <fire-card-list orientation="horizontal" :meta="errorFireListMeta"></fire-card-list>
+        <fire-card-list v-if="errorFireListMeta.items.length" orientation="horizontal" :meta="errorFireListMeta" @item-click="onFireCardItemClick"></fire-card-list>
       </div>
       <div class="card-body">
         <div class="card-body-divider">
-          <span class="card-body-title card-body-title-success">{{successFireListMeta.totalCount}} 条正常常记录</span>
-            <span class="card-pagination pull-right">
+          <span class="card-body-title card-body-title-success">{{successFireListMeta.totalCount ? successFireListMeta.totalCount + '条' : '无'}}正常记录</span>
+            <span v-if="successFireListMeta.totalCount" class="card-pagination pull-right">
               <pagination shape="circle"
                           :total-rows="paginationMeta.successTotalCount"
                           :current-page.sync="paginationMeta.successCurrentPage"
@@ -39,15 +39,17 @@
               </pagination>
             </span>
         </div>
-        <fire-card-list orientation="horizontal" :meta="successFireListMeta"></fire-card-list>
+        <fire-card-list v-if="successFireListMeta.items.length" orientation="horizontal" :meta="successFireListMeta"></fire-card-list>
       </div>
     </div>
+    <history-fire-view :meta="addFireMeta" :validate="fireValidateMeta" ></history-fire-view>
   </div>
 </template>
 
 <script>
   import customBootstrap from '../../components'
   import ApiService from '../../api'
+  import HistoryFireView from './HistoryFireView'
 
   let { fireCardList, cascadingMenu, pagination } = customBootstrap
   let { getSuccessFireMonitorList, getErrorFireMonitorList } = ApiService.monitorService
@@ -59,7 +61,8 @@
     components: {
       fireCardList,
       cascadingMenu,
-      pagination
+      pagination,
+      HistoryFireView
     },
     // http://router.vuejs.org/en/pipeline/data.html
     route: {
@@ -98,6 +101,9 @@
       }
     },
     methods: {
+      _toggleModalType (type) {
+        this.$broadcast('show::modal', type)
+      },
       _getQueryParams (state) {
         let { perPage, successCurrentPage, errorCurrentPage } = this.paginationMeta
         let pageIndex = 0
@@ -164,6 +170,9 @@
       onSearch () {
         this._getFireMonitorList(0)   // 获取正常数据
         this._getFireMonitorList(1)   // 获取异常数据
+      },
+      onFireCardItemClick (item) {
+        this._toggleModalType('historyFireModal')
       },
       onSuccessItemClick (item) {
         this.$set('paginationMeta.successCurrentPage', item)

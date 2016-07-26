@@ -36,13 +36,13 @@
             title: '实时监控',
             url: '/fireDoor/monitor'
           }, {
+            icon: 'fa-object-group',
+            title: '防火门监控器',
+            url: '/fireDoor/deviceManage'
+          }, {
             icon: 'fa-flag',
             title: '防火门管理',
             url: '/fireDoor/fireManage'
-          }, {
-            icon: 'fa-object-group',
-            title: '防火门监控',
-            url: '/fireDoor/deviceManage'
           }, {
             icon: 'fa-ra',
             title: '单位管理',

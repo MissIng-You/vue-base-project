@@ -21,7 +21,7 @@ export default {
       let theme = ''
 
       // 属性值与状态值相同，则表示正常；反之表示异常
-      if (this.meta.state === this.meta.property) {
+      if (this.meta.TJGZStatus === this.meta.FireDoorType) {
         theme = 'card-default-outline'
       } else {
         theme = 'card-default-outline'
@@ -33,7 +33,7 @@ export default {
       let messageState = false
 
       // 二者相等，表示正常，否则，表示异常
-      if (this.meta.state === this.meta.property) {
+      if (this.meta.TJGZStatus === this.meta.FireDoorType) {
         messageState = true
       }
 
@@ -43,7 +43,7 @@ export default {
       let stateIcon = ''
 
       // "0"表示正常；"1"表示异常
-      if (this.meta.state === this.meta.property) {
+      if (this.meta.TJGZStatus === this.meta.FireDoorType) {
         stateIcon = 'fa-info-circle card-mask-success'
       } else {
         stateIcon = 'fa-warning card-mask-danger'
@@ -51,35 +51,35 @@ export default {
 
       return stateIcon
     },
-    getPropertyName () {
-      let propertyName = ''
+    getFireDoorTypeName () {
+      let FireDoorTypeName = ''
 
       // "0"表示"常开门"；"1"表示"常关门"
-      if (this.meta.property === 0) {
-        propertyName = '【常开式】'
+      if (this.meta.FireDoorType === 0) {
+        FireDoorTypeName = '【常开式】'
       } else {
-        propertyName = '【常关式】'
+        FireDoorTypeName = '【常关式】'
       }
 
-      return propertyName
+      return FireDoorTypeName
     },
     getStateName () {
-      let propertyName = ''
+      let FireDoorTypeName = ''
 
       // "0"表示正常；"1"表示异常
-      if (this.meta.state === this.meta.property) {
-        propertyName = '正常'
+      if (this.meta.TJGZStatus === this.meta.FireDoorType) {
+        FireDoorTypeName = '正常'
       } else {
-        propertyName = `异常(${this.getStates.length})`
+        FireDoorTypeName = `异常(${this.getStates.length})`
       }
 
-      return propertyName
+      return FireDoorTypeName
     },
     getStateColorByState () {
       let stateColor = ''
 
       // "0"表示正常；"1"表示异常
-      if (this.meta.state === this.meta.property) {
+      if (this.meta.TJGZStatus === this.meta.FireDoorType) {
         stateColor = 'label-success'
       } else {
         stateColor = 'label-danger'
@@ -88,22 +88,22 @@ export default {
       return stateColor
     },
     getStates () {
-      let descriptions = []
+      let TJGZDescriptions = []
 
-      if (this.meta.description) {
-        descriptions = this.meta.description.split(',')
-      } else if (this.meta.description === '') {
-        descriptions.push('未提供异常描述')
+      if (this.meta.TJGZDescription) {
+        TJGZDescriptions = this.meta.TJGZDescription.split(',')
+      } else if (this.meta.TJGZDescription === '') {
+        TJGZDescriptions.push('未提供异常描述')
       }
 
-      return descriptions
+      return TJGZDescriptions
     },
     getStatesColor () {
       let statesColor = ''
 
-      if (this.meta.description) {
+      if (this.meta.TJGZDescription) {
         statesColor = 'label-default'
-      } else if (this.meta.description === '') {
+      } else if (this.meta.TJGZDescription === '') {
         statesColor = 'label-default'
       } else {
         statesColor = 'label-success'
@@ -113,7 +113,7 @@ export default {
     }
   },
   methods: {
-    getStatesStyle (state) {
+    getStatesStyle (TJGZStatus) {
      /* let length = state && state.length
       let width = '100%'
 
@@ -126,6 +126,9 @@ export default {
       return {
         width
       }  */
+    },
+    onFireCardClick () {
+      this.$dispatch('fire-card-click')
     }
   }
 }

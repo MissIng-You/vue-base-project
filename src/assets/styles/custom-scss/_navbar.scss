@@ -5,13 +5,13 @@
   display: block;
   text-align: left;
   background-color: $cm-white;
+  height: $cm-header-width;
 
   @include box-shadow(0 0 2px 2px $cm-gray);
   @include clearfix();
   @include user-select();
 
   > .nav{
-    line-height: 1.7;
     display: inline-block;
     vertical-align: text-top;
   }

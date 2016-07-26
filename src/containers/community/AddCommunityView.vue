@@ -12,7 +12,7 @@
               <div class="form-group">
                 <label :for="field.id" class="col-sm-4 control-label">{{field.label}}<i class="form-mask fa fa-hashtag"></i></label>
                 <div class="col-sm-8">
-                  <input type="text" v-model="meta[field.id]" class="form-control form-control-sm"
+                  <input type="text" v-model="meta[field.id]" class="form-control form-control-sm" @keyup="_validate()"
                          :id="field.id" :field="$index.toString()" :placeholder="field.placeholder" v-validate="field.validate">
                 </div>
               </div>
@@ -78,6 +78,8 @@
             self._hideModal()
           } else if (data.Error) {
             message = data.Error
+          } else if (data.errors) {
+            message = data.errors[0].errors[0]
           } else {
             message = '未知错误，请联系管理员!'
           }
@@ -86,19 +88,24 @@
       },
       _validate () {
         let self = this
+        let isValid = false
         self.$validate(true, function () {
           if (self.$validation.invalid) {
 //            let errorLength = self.$validation.errors.length
+//          永远输出列表中的第一个错误
             self.$set('validateMessage', self.$validation.errors[0].message)
-            return
+            console.table(self.$validation.errors)
+          } else {
+            self.$set('validateMessage', '')
+            isValid = true
           }
-
-          self._addCommunity()
         })
+        return isValid
       },
       onAddCommunity () {
-        this._validate()
-//        this._hideModal()
+        if (this._validate()) {
+          this._addCommunity()
+        }
       },
       onCancelCommunity () {
         this._hideModal()

@@ -2,6 +2,7 @@ import Vue from 'vue'
 import ApiContainers from '../constant'
 
 let {
+  GET_HISTORY_FIRE_LIST_API,
   GET_FIRE_LIST_API,
   GET_FIRE_BY_ID_API,
   ADD_FIRE_API,
@@ -14,6 +15,9 @@ const postService = (url, query, resolve, reject) => {
 }
 
 const fireService = {
+  getHistoryFireList: (query, resolve, reject) => {
+    return postService(GET_HISTORY_FIRE_LIST_API, query, resolve, reject)
+  },
   getFireList: (query, resolve, reject) => {
     return postService(GET_FIRE_LIST_API, query, resolve, reject)
   },

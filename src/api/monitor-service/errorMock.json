@@ -2,60 +2,60 @@
   "Total": 14,
   "Items": [
     {
-      "name": "防火门11",
-      "property": 0,
-      "state": 1,
-      "address": "F小区B栋C单元xxx号",
-      "description": "通讯故障,主电故障,回路故障,部件故障,线路故障,备电故障,常关防火门打开"
+      "FireDoorName": "防火门11",
+      "FireDoorType": 0,
+      "TJGZStatus": 1,
+      "FireDoorAddress": "F小区B栋C单元xxx号",
+      "TJGZDescription": "通讯故障,主电故障,回路故障,部件故障,线路故障,备电故障,常关防火门打开"
     },
     {
-      "name": "防火门43",
-      "property": 1,
-      "state": 0,
-      "address": "A小区B栋C单元xxx号",
-      "description": "通讯故障,主电故障,回路故障,部件故障,线路故障,备电故障,常开防火门关闭"
+      "FireDoorName": "防火门43",
+      "FireDoorType": 1,
+      "TJGZStatus": 0,
+      "FireDoorAddress": "A小区B栋C单元xxx号",
+      "TJGZDescription": "通讯故障,主电故障,回路故障,部件故障,线路故障,备电故障,常开防火门关闭"
     },
     {
-      "name": "防火门25",
-      "property": 0,
-      "state": 1,
-      "address": "E小区B栋C单元xxx号",
-      "description": "通讯故障,主电故障,回路故障,部件故障,线路故障,备电故障,常开防火门关闭,常关防火门打开"
+      "FireDoorName": "防火门25",
+      "FireDoorType": 0,
+      "TJGZStatus": 1,
+      "FireDoorAddress": "E小区B栋C单元xxx号",
+      "TJGZDescription": "通讯故障,主电故障,回路故障,部件故障,线路故障,备电故障,常开防火门关闭,常关防火门打开"
     },
     {
-      "name": "防火门37",
-      "property": 0,
-      "state": 1,
-      "address": "A小区B栋C单元xxx号",
-      "description": "通讯故障,主电故障,回路故障,常关防火门打开"
+      "FireDoorName": "防火门37",
+      "FireDoorType": 0,
+      "TJGZStatus": 1,
+      "FireDoorAddress": "A小区B栋C单元xxx号",
+      "TJGZDescription": "通讯故障,主电故障,回路故障,常关防火门打开"
     },
     {
-      "name": "防火门49",
-      "property": 1,
-      "state": 0,
-      "address": "A小区B栋C单元edxxx号",
-      "description": "通讯故障,主电故障,回路故障,常关防火门打开"
+      "FireDoorName": "防火门49",
+      "FireDoorType": 1,
+      "TJGZStatus": 0,
+      "FireDoorAddress": "A小区B栋C单元edxxx号",
+      "TJGZDescription": "通讯故障,主电故障,回路故障,常关防火门打开"
     },
     {
-      "name": "防火门12",
-      "property": 0,
-      "state": 1,
-      "address": "F小区B栋C单元xxx号",
-      "description": "通讯故障,主电故障,常关防火门打开"
+      "FireDoorName": "防火门12",
+      "FireDoorType": 0,
+      "TJGZStatus": 1,
+      "FireDoorAddress": "F小区B栋C单元xxx号",
+      "TJGZDescription": "通讯故障,主电故障,常关防火门打开"
     },
     {
-      "name": "防火门14",
-      "property": 1,
-      "state": 0,
-      "address": "A小区B栋C单元xxx号",
-      "description": "通讯故障,主电故障,回路故障,部件故障,线路故障,备电故障,常开防火门关闭"
+      "FireDoorName": "防火门14",
+      "FireDoorType": 1,
+      "TJGZStatus": 0,
+      "FireDoorAddress": "A小区B栋C单元xxx号",
+      "TJGZDescription": "通讯故障,主电故障,回路故障,部件故障,线路故障,备电故障,常开防火门关闭"
     },
     {
-      "name": "防火门54",
-      "property": 0,
-      "state": 1,
-      "address": "E小区B栋C单元xxx号",
-      "description": "通讯故障,主电故障,常关防火门打开"
+      "FireDoorName": "防火门54",
+      "FireDoorType": 0,
+      "TJGZStatus": 1,
+      "FireDoorAddress": "E小区B栋C单元xxx号",
+      "TJGZDescription": "通讯故障,主电故障,常关防火门打开"
     }
   ]
 }

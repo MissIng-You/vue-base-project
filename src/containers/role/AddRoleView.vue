@@ -86,16 +86,19 @@
       },
       _validate () {
         let self = this
+        let isValid = false
         self.$validate(true, function () {
           if (self.$validation.invalid) {
 //            let errorLength = self.$validation.errors.length
-//            self.$set('validateMessage', self.$validation.errors[errorLength - 1].message)
+//          永远输出列表中的第一个错误
             self.$set('validateMessage', self.$validation.errors[0].message)
             console.table(self.$validation.errors)
-            return
+          } else {
+            self.$set('validateMessage', '')
+            isValid = true
           }
-          self._addRole()
         })
+        return isValid
       },
       onAddRole () {
         this._validate()

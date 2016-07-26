@@ -6,6 +6,12 @@
   vertical-align: middle;
 }
 
+.label-hover {
+  &:hover {
+    cursor: pointer;
+  }
+}
+
 .label {
   font-weight: normal;
 }

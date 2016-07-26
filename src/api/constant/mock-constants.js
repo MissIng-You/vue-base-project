@@ -13,6 +13,7 @@ const UPDATE_DEVICE_API = '/api/device-service/updateDeviceMock.json'
 const DELETE_DEVICE_API = '/api/device-service/deleteDeviceMock.json'
 
 // fire manage mock api
+const GET_HISTORY_FIRE_LIST_API = '/api/fire-service/getHistoryFireListMock.json'
 const GET_FIRE_LIST_API = '/api/fire-service/getFireListMock.json'
 const GET_FIRE_BY_ID_API = '/api/fire-service/getFireByIdMock.json'
 const ADD_FIRE_API = '/api/fire-service/addFireMock.json'
@@ -71,6 +72,7 @@ const ApiContainersRelative = {
   DELETE_DEVICE_API,
 
   // fire api
+  GET_HISTORY_FIRE_LIST_API,
   GET_FIRE_LIST_API,
   GET_FIRE_BY_ID_API,
   ADD_FIRE_API,

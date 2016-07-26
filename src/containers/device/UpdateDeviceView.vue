@@ -3,7 +3,7 @@
     <modal id="updateDeviceModal" size="sm" :fade="true">
       <div slot="modal-header">
         <i class="modal-mask fa fa-pencil"></i>
-        <span class="modal-title">修改设备</span>
+        <span class="modal-title">修改防火门监控器</span>
       </div>
       <div slot="modal-body">
         <validator name="validation">
@@ -12,7 +12,7 @@
               <div class="form-group">
                 <label :for="field.id" class="col-sm-4 control-label">{{field.label}}<i class="form-mask fa fa-hashtag"></i></label>
                 <div class="col-sm-8">
-                  <input type="text" v-model="meta[field.id]" class="form-control form-control-sm"
+                  <input type="text" v-model="meta[field.id]" class="form-control form-control-sm" @keyup="_validate"
                          :id="field.id" :field="$index.toString()" :placeholder="field.placeholder" v-validate="field.validate">
                 </div>
               </div>
@@ -77,6 +77,8 @@
             self._hideModal()
           } else if (data.Error) {
             message = data.Error
+          } else if (data.errors) {
+            message = data.errors[0].errors[0]
           } else {
             message = '未知错误，请联系管理员!'
           }
@@ -85,21 +87,24 @@
       },
       _validate () {
         let self = this
+        let isValid = false
         self.$validate(true, function () {
           if (self.$validation.invalid) {
 //            let errorLength = self.$validation.errors.length
-//          console.table(self.$validation.errors)
-//            self.$set('validateMessage', self.$validation.errors[errorLength - 1].message)
+//          永远输出列表中的第一个错误
             self.$set('validateMessage', self.$validation.errors[0].message)
-            return
+            console.table(self.$validation.errors)
+          } else {
+            self.$set('validateMessage', '')
+            isValid = true
           }
-
-          self._updateDevice()
         })
+        return isValid
       },
       onUpdateDevice () {
-        this._validate()
-//        this._hideModal()
+        if (this._validate()) {
+          this._updateDevice()
+        }
       },
       onCancelDevice () {
         this._hideModal()

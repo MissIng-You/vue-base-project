@@ -2,75 +2,84 @@
   "Total": 140,
   "Items": [
     {
-      "DeviceID": "01973025-171E-4B27-ADC9-1F4C50BB7ECA",
-      "DeviceCode": "01973025-171E-4B27-ADC9-1F4C50BB7ECA",
+      "CommunityName": "万江港利",
+      "DeviceID": "1F4C50BB7ECA",
+      "CommunityID": "01973025-171E-4B27-ADC9-1F4C50BB7ECA",
       "DeviceName": "设备1",
       "Address": "test1",
-      "AddressCoordinate": "14078749473",
       "JZCoordinate": "成都市环球中心"
     },
     {
-      "DeviceID": "01973025-171E-4B27-ADC9-1F4C50BB7ECA",
-      "DeviceCode": "01973025-171E-4B27-ADC9-1F4C50BB7ECA",
+      "CommunityName": "万江港利",
+      "DeviceID": "1F4C50BB7ECA",
+      "CommunityID": "01973025-171E-4B27-ADC9-1F4C50BB7ECA",
       "DeviceName": "设备1",
-      "Address": "test1",
-      "AddressCoordinate": "14078749473",
+      "DeviceAddress": "test1",
       "JZCoordinate": "成都市环球中心"
     },
     {
-      "DeviceID": "01973025-171E-4B27-ADC9-1F4C50BB7ECA",
-      "DeviceCode": "01973025-171E-4B27-ADC9-1F4C50BB7ECA",
+      "CommunityName": "万江港利",
+      "DeviceID": "1F4C50BB7ECA",
+      "CommunityID": "01973025-171E-4B27-ADC9-1F4C50BB7ECA",
       "DeviceName": "设备1",
-      "Address": "test1",
-      "AddressCoordinate": "14078749473",
+      "DeviceAddress": "test1",
+
       "JZCoordinate": "成都市环球中心"
     },
     {
-      "DeviceID": "01973025-171E-4B27-ADC9-1F4C50BB7ECA",
-      "DeviceCode": "01973025-171E-4B27-ADC9-1F4C50BB7ECA",
+      "CommunityName": "万江港利",
+      "DeviceID": "1F4C50BB7ECA",
+      "CommunityID": "01973025-171E-4B27-ADC9-1F4C50BB7ECA",
       "DeviceName": "设备1",
-      "Address": "test1",
-      "AddressCoordinate": "14078749473",
+      "DeviceAddress": "test1",
       "JZCoordinate": "成都市环球中心"
     },
     {
-      "DeviceID": "01973025-171E-4B27-ADC9-1F4C50BB7ECA",
-      "DeviceCode": "01973025-171E-4B27-ADC9-1F4C50BB7ECA",
+      "CommunityName": "万江港利",
+      "DeviceID": "1F4C50BB7ECA",
+      "CommunityID": "01973025-171E-4B27-ADC9-1F4C50BB7ECA",
       "DeviceName": "设备1",
-      "Address": "test1",
-      "AddressCoordinate": "14078749473",
+      "DeviceAddress": "test1",
       "JZCoordinate": "成都市环球中心"
     },
     {
-      "DeviceID": "01973025-171E-4B27-ADC9-1F4C50BB7ECA",
-      "DeviceCode": "01973025-171E-4B27-ADC9-1F4C50BB7ECA",
+      "CommunityName": "万江港利",
+      "DeviceID": "1F4C50BB7ECA",
+      "CommunityID": "01973025-171E-4B27-ADC9-1F4C50BB7ECA",
       "DeviceName": "设备1",
-      "Address": "test1",
-      "AddressCoordinate": "14078749473",
+      "DeviceAddress": "test1",
       "JZCoordinate": "成都市环球中心"
     },
     {
-      "DeviceID": "01973025-171E-4B27-ADC9-1F4C50BB7ECA",
-      "DeviceCode": "01973025-171E-4B27-ADC9-1F4C50BB7ECA",
+      "CommunityName": "万江港利",
+      "DeviceID": "1F4C50BB7ECA",
+      "CommunityID": "01973025-171E-4B27-ADC9-1F4C50BB7ECA",
       "DeviceName": "设备1",
-      "Address": "test1",
-      "AddressCoordinate": "14078749473",
+      "DeviceAddress": "test1",
       "JZCoordinate": "成都市环球中心"
     },
     {
-      "DeviceID": "01973025-171E-4B27-ADC9-1F4C50BB7ECA",
-      "DeviceCode": "01973025-171E-4B27-ADC9-1F4C50BB7ECA",
+      "CommunityName": "万江港利",
+      "DeviceID": "1F4C50BB7ECA",
+      "CommunityID": "01973025-171E-4B27-ADC9-1F4C50BB7ECA",
       "DeviceName": "设备1",
-      "Address": "test1",
-      "AddressCoordinate": "14078749473",
+      "DeviceAddress": "test1",
       "JZCoordinate": "成都市环球中心"
     },
     {
-      "DeviceID": "01973025-171E-4B27-ADC9-1F4C50BB7ECA",
-      "DeviceCode": "01973025-171E-4B27-ADC9-1F4C50BB7ECA",
+      "CommunityName": "万江港利",
+      "DeviceID": "1F4C50BB7ECA",
+      "CommunityID": "01973025-171E-4B27-ADC9-1F4C50BB7ECA",
       "DeviceName": "设备1",
-      "Address": "test1",
-      "AddressCoordinate": "14078749473",
+      "DeviceAddress": "test1",
+      "JZCoordinate": "成都市环球中心"
+    },
+    {
+      "CommunityName": "万江港利",
+      "DeviceID": "1F4C50BB7ECA",
+      "CommunityID": "01973025-171E-4B27-ADC9-1F4C50BB7ECA",
+      "DeviceName": "设备1",
+      "DeviceAddress": "test1",
       "JZCoordinate": "成都市环球中心"
     }
    ]

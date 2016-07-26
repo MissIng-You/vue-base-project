@@ -7,7 +7,7 @@
       </div>
       <div slot="modal-body">
         <i class="fa fa-alert"></i>
-        <span>确认删除【{{meta.FireDoorID}}】记录吗?</span>
+        <span>确认删除【{{meta.FireDoorName}}】记录吗?</span>
       </div>
       <div slot="modal-footer">
         <div class="label label-vertical label-info label-pill">{{message}}</div>

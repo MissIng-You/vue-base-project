@@ -14,7 +14,7 @@
                 <div class="col-sm-8">
                   <template v-if="field.type === 'text'">
                     <input :type="field.type" v-model="meta[field.id]" class="form-control form-control-sm"
-                           :id="field.id" :field="$index.toString()"
+                           :id="field.id" :field="$index.toString()" @keyup="_validate()"
                            :placeholder="field.placeholder" v-validate="field.validate">
                   </template>
                   <template v-if="field.type === 'select'">
@@ -90,6 +90,8 @@
             self._hideModal()
           } else if (data.Error) {
             message = data.Error
+          } else if (data.errors) {
+            message = data.errors[0].errors[0]
           } else {
             message = '未知错误，请联系管理员!'
           }
@@ -98,16 +100,17 @@
       },
       _validate () {
         let self = this
+        let isValid = false
         self.$validate(true, function () {
           if (self.$validation.invalid) {
-//            let errorLength = self.$validation.errors.length
-//            self.$set('validateMessage', self.$validation.errors[errorLength - 1].message)
             self.$set('validateMessage', self.$validation.errors[0].message)
-            return
+            console.table(self.$validation.errors)
+          } else {
+            self.$set('validateMessage', '')
+            isValid = true
           }
-
-          self._updateUser()
         })
+        return isValid
       },
       onSelectChange (newVal) {
         if (!newVal) return
@@ -120,8 +123,9 @@
         }
       },
       onUpdateUser () {
-        this._validate()
-//        this._hideModal()
+        if (this._validate()) {
+          this._updateUser()
+        }
       },
       onCancelUser () {
         this._hideModal()

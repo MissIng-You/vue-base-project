@@ -1,6 +1,5 @@
 <template>
   <div id="index-view">
-
     <div class="card card-blockquote">
       <div class="card-header card-primary-outline">
         <i class="card-mask fa fa-flag"></i>
@@ -8,28 +7,28 @@
         <span class="card-search-group">
             <span class="input-group input-group-sm input-width-sm">
               <input type="text" class="form-control" @keypress.enter="onSearch" v-model="queryMeta.search" placeholder="在此搜索防火门/楼层信息">
-              <span class="input-group-addon btn btn-primary" @click="onSearch"><i class="fa fa-fw fa-search"></i></span>
+              <span class="input-group-addon btn btn-primary-outline" @click="onSearch"><i class="fa fa-fw fa-search"></i></span>
             </span>
           </span>
         <span class="card-state card-state-hover pull-right" @click="onTableAdd"><i class="fa fa-fw fa-plus"></i></span>
       </div>
-      <div class="card-body">
-        <add-fire-view :meta="addFireMeta" :validate="addFireValidateMeta" ></add-fire-view>
-        <update-fire-view :meta="updateFireMeta" :validate="updateFireValidateMeta" ></update-fire-view>
-        <delete-fire-view :meta="deleteFireMeta"></delete-fire-view>
+      <div v-if="fireListMeta.items.length" class="card-body">
         <ctable v-ref:ctable
-                  api-url="/api/user-service/getFireListMock.json"
-                  :show-pagination="userDefineMeta.showPagination"
+                  api-url="/api/fire-service/getFireListMock.json"
+                  :show-pagination="fireDefineMeta.showPagination"
                   pagination-path=""
-                  :load-on-start="userDefineMeta.loadOnStart"
-                  :fields="userDefineMeta.fields"
-                  :table-data="userListMeta.items"
+                  :load-on-start="fireDefineMeta.loadOnStart"
+                  :fields="fireDefineMeta.fields"
+                  :table-data="fireListMeta.items"
                   :sort-order="sortOrder"
                   table-class="table table-sm table-bordered table-striped table-hover table-hover-outline"
                   ascending-icon="fa fa-arrow-up"
                   descending-icon="fa fa-arrow-down"
-                  :item-actions="userDefineMeta.itemActions">
+                  :item-actions="fireDefineMeta.itemActions">
         </ctable>
+      </div>
+      <div v-if="!fireListMeta.items.length" class="card-body">
+        <empty-data-view @alert="onTableAdd"></empty-data-view>
       </div>
       <div class="card-footer card-danger-outline">
         <i class="card-mask fa fa-pie-chart"></i>
@@ -43,6 +42,10 @@
           </pagination>
         </span>
       </div>
+      <history-fire-view :meta="historyFireMeta"></history-fire-view>
+      <add-fire-view :meta="addFireMeta" :validate="fireValidateMeta" ></add-fire-view>
+      <update-fire-view :meta="updateFireMeta" :validate="fireValidateMeta" ></update-fire-view>
+      <delete-fire-view :meta="deleteFireMeta"></delete-fire-view>
     </div>
   </div>
 </template>
@@ -50,9 +53,11 @@
 <script>
   import customBootstrap from '../../components'
   import ApiService from '../../api'
+  import EmptyDataView from '../_shared/EmptyDataView'
   import AddFireView from './AddFireView'
   import UpdateFireView from './UpdateFireView'
   import DeleteFireView from './DeleteFireView'
+  import HistoryFireView from './HistoryFireView'
 
   let { pagination, ctable } = customBootstrap
   let {
@@ -66,9 +71,11 @@
     components: {
       pagination,
       ctable,
+      EmptyDataView,
       AddFireView,
       UpdateFireView,
-      DeleteFireView
+      DeleteFireView,
+      HistoryFireView
     },
     route: {
       data: function (transition) {
@@ -89,123 +96,101 @@
           totalCount: 100,
           currentPage: 1
         },
+        historyFireMeta: {},
         addFireMeta: {},
-        addFireValidateMeta: [
+        fireValidateMeta: [
           {
-            id: 'FireDoorID',
-            label: '防火门号',
-            name: 'FireDoorID',
+            id: 'CommunityName',
+            label: '单位名称',
             type: 'text',
-            placeholder: '请输入防火门编号',
-            validate: { required: { rule: true, message: '防火门编号是必须的' } }
+            placeholder: '请输入单位名称',
+            validate: { required: { rule: true, message: '单位名称是必须的' } }
           },
           {
-            id: 'FloorID',
-            label: '楼层编号',
-            name: 'FloorID',
+            id: 'BuildingNum',
+            label: '所属楼栋',
             type: 'text',
-            placeholder: '请输入楼层编号',
-            validate: { required: { rule: true, message: '楼层编号是必须的' } }
+            placeholder: '例如：2栋-3楼',
+            validate: { required: { rule: true, message: '所属楼栋是必须的' } }
+          },
+          {
+            id: 'DeviceCode',
+            label: '监控器编号',
+            type: 'text',
+            placeholder: '请输入防火门监控器编号',
+            validate: { required: { rule: true, message: '监控器编号是必须的' } }
+          },
+          {
+            id: 'DeviceName',
+            label: '监控器名称',
+            type: 'text',
+            placeholder: '请输入防火门监控器名称',
+            validate: { required: { rule: true, message: '监控器名称是必须的' } }
+          },
+          {
+            id: 'FireDoorName',
+            label: '防火门名称',
+            type: 'text',
+            placeholder: '请输入防火门名称',
+            validate: { required: { rule: true, message: '防火门名称是必须的' } }
           },
           {
             id: 'FireDoorType',
             display: 'FireDoorTypeName',
             label: '所属类型',
-            name: 'FireDoorType',
+            placeholder: '请选择防火门类型',
             type: 'select',
             selected: '',
-            placeholder: '请输入防火门类型',
             options: [{
               FireDoorType: 0,
               FireDoorTypeName: '常开'
             }, {
               FireDoorType: 1,
               FireDoorTypeName: '常闭'
-            }],
-            validate: { required: { rule: true, message: '防火门类型是必须的' } }
+            }]
           },
           {
             id: 'FireDoorAddress',
-            label: '所在位置',
-            name: 'FireDoorAddress',
+            label: '安装位置',
             type: 'text',
-            placeholder: '请输入防火门位置',
-            validate: { required: { rule: true, message: '防火门位置是必须的' } }
-          }
-        ],
-        updateFireValidateMeta: [
-          {
-            id: 'FireDoorID',
-            label: '防火门号',
-            name: 'FireDoorID',
-            type: 'text',
-            placeholder: '请输入防火门编号',
-            validate: { required: { rule: true, message: '防火门编号是必须的' } }
-          },
-          {
-            id: 'FloorID',
-            label: '楼层编号',
-            name: 'FloorID',
-            type: 'text',
-            placeholder: '请输入楼层编号',
-            validate: { required: { rule: true, message: '楼层编号是必须的' } }
-          },
-          {
-            id: 'FireDoorType',
-            display: 'FireDoorTypeName',
-            label: '所属类型',
-            name: 'FireDoorType',
-            type: 'select',
-            selected: '',
-            placeholder: '请输入防火门类型',
-            options: [{
-              FireDoorType: 0,
-              FireDoorTypeName: '常开'
-            }, {
-              FireDoorType: 1,
-              FireDoorTypeName: '常闭'
-            }],
-            validate: { required: { rule: true, message: '防火门类型是必须的' } }
-          },
-          {
-            id: 'FireDoorAddress',
-            label: '所在位置',
-            name: 'FireDoorAddress',
-            type: 'text',
-            placeholder: '请输入防火门位置',
-            validate: { required: { rule: true, message: '防火门位置是必须的' } }
+            placeholder: '请输入防火门安装位置',
+            validate: { required: { rule: true, message: '防火门的安装位置是必须的' } }
           }
         ],
         updateFireMeta: {},
         deleteFireMeta: {},
-        userListMeta: {
+        fireListMeta: {
           totalCount: 0,
           items: []
         },
-        userDefineMeta: {
+        fireDefineMeta: {
           modalType: 'normal',
           showPagination: false,
           loadOnStart: false,
           fields: [
-            {name: 'FireDoorCode', visible: false},
-            {name: 'DeviceCode', visible: false},
-            {name: 'FireDoorID', title: '防火门编号'},
-            {name: 'FloorID', title: '楼层编号'},
-//            ctable组件里面callback回调函数可以多个，以|分隔
+            {name: 'CommunityID', visible: false},
+            {name: 'CommunityName', title: '单位名称'},
+            {name: 'FloorID', visible: false},
+            {name: 'FloorDoorID', visible: false},
+            {name: 'FireDoorID', visible: false},
+            {name: 'DeviceCode', title: '监控器编号'},
+            {name: 'DeviceName', title: '监控器名称'},
+            {name: 'BuildingNum', title: '所属楼栋'},
+            {name: 'FireDoorName', title: '防火门名称'},
             {name: 'FireDoorType', title: '防火门类型', callback: '_convertDoorType|'},
-            {name: 'FireDoorAddress', title: '防火门位置'},
+            {name: 'FireDoorAddress', title: '安装位置'},
             {name: '__actions', title: '操作列'}
           ],
           itemActions: [
-//            { name: 'view-item', label: '', icon: 'fa fa-fw fa-eye', class: 'btn btn-xs  btn-info' },
-            { name: 'update-item', label: '', icon: 'fa fa-fw fa-pencil', class: 'btn btn-xs btn-success' },
-            { name: 'delete-item', label: '', icon: 'fa fa-fw fa-trash', class: 'btn btn-xs btn-danger' }
+            { name: 'history-item', label: '', icon: 'fa fa-fw fa-history', class: 'btn btn-xs btn-warning-outline' },
+            { name: 'update-item', label: '', icon: 'fa fa-fw fa-pencil', class: 'btn btn-xs btn-success-outline' },
+            { name: 'delete-item', label: '', icon: 'fa fa-fw fa-trash', class: 'btn btn-xs btn-danger-outline' }
           ]
         }
       }
     },
     watch: {
-      'userListMeta.totalCount': function (newVal, oldVal) {
+      'fireListMeta.totalCount': function (newVal, oldVal) {
         this.$set('paginationMeta.totalCount', newVal)
       },
       'queryMeta.pageIndex': function (newVal, oldVal) {
@@ -214,20 +199,28 @@
     },
     methods: {
       _convertDoorType (value) {
-        return value === 0 ? '常开' : '常闭'
+        let createHtml = (value, clazz) => {
+          return '<span class="label label-pill ' + clazz + '">' + value + '</span>'
+        }
+        if (value === 0) {
+          return createHtml('常开', 'label-primary')
+        } else if (value === 1) {
+          return createHtml('常闭', 'label-info')
+        }
       },
-      _getFireList (userQuery) {
+      _getFireList (fireQuery) {
         let self = this
-        getFireList(userQuery, function (response) {
+        getFireList(fireQuery, function (response) {
           let data = response.data
-          self.$set('userListMeta.totalCount', data.Total)
-          self.$set('userListMeta.items', data.Items)
+          self.$set('fireListMeta.totalCount', data.Total)
+          self.$set('fireListMeta.items', data.Items)
         })
       },
-      _getFireById (userQuery) {
+      _getFireById (fireQuery) {
         let self = this
-        getFireById(userQuery, function (response) {
-          self.$set('updateFireMeta', response.data)
+        getFireById(fireQuery, function (response) {
+          if (!response.data && !response.data.Success) return
+          self.$set('updateFireMeta', response.data.Result)
         })
       },
       _searchFire () {
@@ -238,8 +231,9 @@
             Page: pageIndex,
             Size: pageSize
           },
-          username: searchSplits.length > 0 ? searchSplits[0] : '',
-          telphone: searchSplits.length > 1 ? searchSplits[1] : ''
+          deviceName: searchSplits.length > 0 ? searchSplits[0] : '',
+          communityName: searchSplits.length > 1 ? searchSplits[1] : '',
+          fireDoorName: searchSplits.length > 2 ? searchSplits[2] : ''
         }
 
         console.log(queryParams)
@@ -260,22 +254,23 @@
       onTableAdd () {
         this._toggleModalType('addFireModal')
       },
+      onTableHistory (data) {
+        if (!data.FireDoorID) return
+        this.$set('historyFireMeta', data)
+        this._toggleModalType('historyFireModal')
+      },
       onTableUpdate (data) {
         if (!data.FireDoorID) return
         let queryFire = {
-          FireDoorID: data.FireDoorID
+          fireDoorId: data.FireDoorID
         }
         this._getFireById(queryFire)
+//        this.$set('updateFireMeta', data)
         this._toggleModalType('updateFireModal')
-        console.log('rtest')
       },
       onTableDelete (data) {
-        if (!data.FireDoorID || !data.FireDoorType) return
-        let tempFireMeta = {
-          FireDoorID: data.FireDoorID,
-          FireDoorType: data.FireDoorType
-        }
-        this.$set('deleteFireMeta', tempFireMeta)
+        if (!data.FireDoorID) return
+        this.$set('deleteFireMeta', data)
         this._toggleModalType('deleteFireModal')
       }
     },
@@ -286,6 +281,8 @@
           this.onTableUpdate(data)
         } else if (action === 'delete-item') {
           this.onTableDelete(data)
+        } else if (action === 'history-item') {
+          this.onTableHistory(data)
         }
       },
       'ctable:load-error': function (response) {

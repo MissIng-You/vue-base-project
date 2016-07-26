@@ -2,7 +2,10 @@
 // custom button component scss
 
 // reset .btn
-.btn {
+.btn,
+.btn.active,
+.btn:active,
+.btn:focus {
   outline: 0;
 }
 

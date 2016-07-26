@@ -8,9 +8,11 @@ $enable-transitions: true;
 // set default font family
 $font-family-base: "Microsoft Yahei" !default;
 
+// set default font size
+$font-size-root: 14px !default;
+
 // import bootstrap all scss.
 @import "../bootstrap-scss/bootstrap";
-
 
 
 // set text shadow enabled
@@ -38,7 +40,8 @@ $enable-text-shadows: true;
 @import "card";
 @import "tables";
 @import "pagination";
-@import "button";
+@import "buttons";
+@import "alert";
 @import "animated";
 @import "forms";
 @import "label";

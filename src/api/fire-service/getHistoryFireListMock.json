@@ -1,0 +1,41 @@
+{
+  "Total": 140,
+  "Items": [
+    {
+      "StateCode": "skt",
+      "StateName": "通讯故障",
+      "StateCount": 23,
+      "StateTime": "2016-7-27 12:30:00"
+    },
+    {
+      "StateCode": "skt",
+      "StateName": "主电故障",
+      "StateCount": 33,
+      "StateTime": "2016-7-27 12:30:00"
+    },
+    {
+      "StateCode": "skt",
+      "StateName": "回路故障",
+      "StateCount": 28,
+      "StateTime": "2016-7-27 12:30:00"
+    },
+    {
+      "StateCode": "skt",
+      "StateName": "部件故障",
+      "StateCount": 93,
+      "StateTime": "2016-7-27 12:30:00"
+    },
+    {
+      "StateCode": "skt",
+      "StateName": "线路故障",
+      "StateCount": 4,
+      "StateTime": "2016-7-27 12:30:00"
+    },
+    {
+      "StateCode": "skt",
+      "StateName": "备电故障",
+      "StateCount": 23,
+      "StateTime": "2016-7-27 12:30:00"
+    }
+   ]
+}

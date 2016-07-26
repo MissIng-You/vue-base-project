@@ -1,6 +1,5 @@
 <template>
   <div id="index-view">
-
     <div class="card card-blockquote">
       <div class="card-header card-primary-outline">
         <i class="card-mask fa fa-ra"></i>
@@ -8,28 +7,28 @@
         <span class="card-search-group">
             <span class="input-group input-group-sm input-width-sm">
               <input type="text" class="form-control" @keypress.enter="onSearch" v-model="queryMeta.search" placeholder="在此搜索单位/手机信息">
-              <span class="input-group-addon btn btn-primary" @click="onSearch"><i class="fa fa-fw fa-search"></i></span>
+              <span class="input-group-addon btn btn-primary-outline" @click="onSearch"><i class="fa fa-fw fa-search"></i></span>
             </span>
           </span>
         <span class="card-state card-state-hover pull-right" @click="onTableAdd"><i class="fa fa-fw fa-plus"></i></span>
       </div>
-      <div class="card-body">
-        <add-community-view :meta="addCommunityMeta" :validate="addCommunityValidateMeta"></add-community-view>
-        <update-community-view :meta="updateCommunityMeta" :validate="addCommunityValidateMeta"></update-community-view>
-        <delete-community-view :meta="deleteCommunityMeta"></delete-community-view>
+      <div v-if="communityListMeta.items.length" class="card-body">
         <ctable v-ref:ctable
-                  api-url="/api/user-service/getCommunityListMock.json"
-                  :show-pagination="userDefineMeta.showPagination"
+                  api-url="/api/community-service/getCommunityListMock.json"
+                  :show-pagination="communityDefineMeta.showPagination"
                   pagination-path=""
-                  :load-on-start="userDefineMeta.loadOnStart"
-                  :fields="userDefineMeta.fields"
-                  :table-data="userListMeta.items"
+                  :load-on-start="communityDefineMeta.loadOnStart"
+                  :fields="communityDefineMeta.fields"
+                  :table-data="communityListMeta.items"
                   :sort-order="sortOrder"
                   table-class="table table-sm table-bordered table-striped table-hover table-hover-outline"
                   ascending-icon="fa fa-arrow-up"
                   descending-icon="fa fa-arrow-down"
-                  :item-actions="userDefineMeta.itemActions">
+                  :item-actions="communityDefineMeta.itemActions">
         </ctable>
+      </div>
+      <div v-if="!communityListMeta.items.length" class="card-body">
+        <empty-data-view @alert="onTableAdd"></empty-data-view>
       </div>
       <div class="card-footer card-danger-outline">
         <i class="card-mask fa fa-pie-chart"></i>
@@ -44,12 +43,16 @@
         </span>
       </div>
     </div>
+    <add-community-view :meta="addCommunityMeta" :validate="addCommunityValidateMeta"></add-community-view>
+    <update-community-view :meta="updateCommunityMeta" :validate="addCommunityValidateMeta"></update-community-view>
+    <delete-community-view :meta="deleteCommunityMeta"></delete-community-view>
   </div>
 </template>
 
 <script>
   import customBootstrap from '../../components'
   import ApiService from '../../api'
+  import EmptyDataView from '../_shared/EmptyDataView'
   import AddCommunityView from './AddCommunityView'
   import UpdateCommunityView from './UpdateCommunityView'
   import DeleteCommunityView from './DeleteCommunityView'
@@ -66,6 +69,7 @@
     components: {
       pagination,
       ctable,
+      EmptyDataView,
       AddCommunityView,
       UpdateCommunityView,
       DeleteCommunityView
@@ -73,7 +77,6 @@
     route: {
       data: function (transition) {
         if (isLoadedOfFirst) return transition.next()
-
         this._searchCommunity()
       }
     },
@@ -93,7 +96,6 @@
         addCommunityValidateMeta: [{
           id: 'CommunityName',
           label: '单位名称',
-          name: 'CommunityName',
           type: 'text',
           placeholder: '请输入单位名称',
           validate: {
@@ -103,7 +105,6 @@
         }, {
           id: 'Captain',
           label: '负责人姓名',
-//          name: 'CommunityPhone',
           type: 'text',
           placeholder: '请输入负责人姓名',
           validate: {
@@ -111,26 +112,33 @@
           }
         }, {
           id: 'CaptainPlace',
-          label: '职位',
-//          name: 'CommunityPhone',
+          label: '所属职位',
           type: 'text',
-          placeholder: '请输入职位',
+          placeholder: '请输入所属职位',
           validate: {
-            required: {rule: true, message: '职位是必须的'}
+            required: {rule: true, message: '所属职位是必须的'}
           }
         }, {
           id: 'CommunityPhone',
           label: '联系方式',
-          name: 'CommunityPhone',
           type: 'text',
-          placeholder: '请输入联系方式',
+          placeholder: '请输入区号-号码',
           validate: {
-            required: {rule: true, message: '联系方式是必须的'}
+            required: {rule: true, message: '联系方式是必须的'},
+            telephone: {rule: true, message: '(区号)电话号码的格式不正确'}
+          }
+        }, {
+          id: 'CaptainTelphone',
+          label: '手机号码',
+          type: 'text',
+          placeholder: '请输入手机号码',
+          validate: {
+            required: {rule: true, message: '手机号码是必须的'},
+            mobilephone: {rule: true, message: '手机号码格式不正确'}
           }
         }, {
           id: 'Address',
           label: '单位地址',
-          name: 'Address',
           type: 'text',
           placeholder: '请输入单位地址',
           validate: {
@@ -139,11 +147,11 @@
         }],
         updateCommunityMeta: {},
         deleteCommunityMeta: {},
-        userListMeta: {
+        communityListMeta: {
           totalCount: 0,
           items: []
         },
-        userDefineMeta: {
+        communityDefineMeta: {
           modalType: 'normal',
           showPagination: false,
           loadOnStart: false,
@@ -152,22 +160,21 @@
             {name: 'CommunityName', title: '单位名称'},
             {name: 'DistrictCode', title: '区域编码', visible: false},
             {name: 'Captain', title: '负责人姓名'},
-            {name: 'CaptainPlace', title: '职位'},
+            {name: 'CaptainPlace', title: '所属职位'},
             {name: 'CommunityPhone', title: '联系方式'},
-            {name: 'CaptainTelphone', title: '手机'},
+            {name: 'CaptainTelphone', title: '手机号码'},
             {name: 'Address', title: '单位地址'},
             {name: '__actions', title: '操作列'}
           ],
           itemActions: [
-//            { name: 'view-item', label: '', icon: 'fa fa-fw fa-eye', class: 'btn btn-xs  btn-info' },
-            { name: 'update-item', label: '', icon: 'fa fa-fw fa-pencil', class: 'btn btn-xs btn-success' },
-            { name: 'delete-item', label: '', icon: 'fa fa-fw fa-trash', class: 'btn btn-xs btn-danger' }
+            { name: 'update-item', label: '', icon: 'fa fa-fw fa-pencil', class: 'btn btn-xs btn-success-outline' },
+            { name: 'delete-item', label: '', icon: 'fa fa-fw fa-trash', class: 'btn btn-xs btn-danger-outline' }
           ]
         }
       }
     },
     watch: {
-      'userListMeta.totalCount': function (newVal, oldVal) {
+      'communityListMeta.totalCount': function (newVal, oldVal) {
         this.$set('paginationMeta.totalCount', newVal)
       },
       'queryMeta.pageIndex': function (newVal, oldVal) {
@@ -175,18 +182,19 @@
       }
     },
     methods: {
-      _getCommunityList (userQuery) {
+      _getCommunityList (communityQuery) {
         let self = this
-        getCommunityList(userQuery, function (response) {
+        getCommunityList(communityQuery, function (response) {
           let data = response.data
-          self.$set('userListMeta.totalCount', data.Total)
-          self.$set('userListMeta.items', data.Items)
+          self.$set('communityListMeta.totalCount', data.Total)
+          self.$set('communityListMeta.items', data.Items)
         })
       },
-      _getCommunityById (userQuery) {
+      _getCommunityById (communityQuery) {
         let self = this
-        getCommunityById(userQuery, function (response) {
-          self.$set('updateCommunityMeta', response.data)
+        getCommunityById(communityQuery, function (response) {
+          if (response.data && !response.data.Success) return
+          self.$set('updateCommunityMeta', response.data.Result)
         })
       },
       _searchCommunity () {
@@ -197,8 +205,8 @@
             Page: pageIndex,
             Size: pageSize
           },
-          username: searchSplits.length > 0 ? searchSplits[0] : '',
-          telphone: searchSplits.length > 1 ? searchSplits[1] : ''
+          communityName: searchSplits.length > 0 ? searchSplits[0] : '',
+          captain: searchSplits.length > 1 ? searchSplits[1] : ''
         }
 
         console.log(queryParams)
@@ -222,18 +230,19 @@
       onTableUpdate (data) {
         if (!data.CommunityID) return
         let queryCommunity = {
-          userid: data.CommunityID
+          communityId: data.CommunityID
         }
         this._getCommunityById(queryCommunity)
+//        this.$set('updateCommunityMeta', data)
         this._toggleModalType('updateCommunityModal')
       },
       onTableDelete (data) {
-        if (!data.CommunityID || !data.CommunityName) return
-        let tempCommunityMeta = {
-          CommunityID: data.CommunityID,
-          CommunityName: data.CommunityName
-        }
-        this.$set('deleteCommunityMeta', tempCommunityMeta)
+        if (!data.CommunityID) return
+//        let tempCommunityMeta = {
+//          communityId: data.CommunityID
+//          CommunityName: data.CommunityName
+//        }
+        this.$set('deleteCommunityMeta', data)
         this._toggleModalType('deleteCommunityModal')
       }
     },

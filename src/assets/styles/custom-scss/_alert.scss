@@ -1,0 +1,12 @@
+
+// reset alert component scss.
+
+// reset .alert
+.alert {
+  padding: $cm-space-width;
+  margin-bottom: 0;
+
+  + .alert {
+    margin-bottom: $cm-space-width;
+  }
+}

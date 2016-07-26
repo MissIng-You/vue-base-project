@@ -1,6 +1,5 @@
 <template>
   <div id="index-view">
-
     <div class="card card-blockquote">
       <div class="card-header card-primary-outline">
         <i class="card-mask fa fa-users"></i>
@@ -8,15 +7,12 @@
         <span class="card-search-group">
             <span class="input-group input-group-sm input-width-sm">
               <input type="text" class="form-control" @keypress.enter="onSearch" v-model="queryMeta.search" placeholder="在此搜索用户/手机信息">
-              <span class="input-group-addon btn btn-primary" @click="onSearch"><i class="fa fa-fw fa-search"></i></span>
+              <span class="input-group-addon btn btn-primary-outline" @click="onSearch"><i class="fa fa-fw fa-search"></i></span>
             </span>
           </span>
         <span class="card-state card-state-hover pull-right" @click="onTableAdd"><i class="fa fa-fw fa-plus"></i></span>
       </div>
-      <div class="card-body">
-        <add-user-view :meta="addUserMeta" :validate="userValidateMeta"></add-user-view>
-        <update-user-view :meta="updateUserMeta" :validate="userValidateMeta"></update-user-view>
-        <delete-user-view :meta="deleteUserMeta"></delete-user-view>
+      <div v-if="userListMeta.items.length" class="card-body">
         <ctable v-ref:ctable
                   api-url="/api/user-service/getUserListMock.json"
                   :show-pagination="userDefineMeta.showPagination"
@@ -31,6 +27,9 @@
                   :item-actions="userDefineMeta.itemActions">
         </ctable>
       </div>
+      <div v-if="!userListMeta.items.length" class="card-body">
+        <empty-data-view @alert="onTableAdd"></empty-data-view>
+      </div>
       <div class="card-footer card-danger-outline">
         <i class="card-mask fa fa-pie-chart"></i>
         <span class="card-title">{{paginationMeta.totalCount}}(条)</span>
@@ -44,12 +43,17 @@
         </span>
       </div>
     </div>
+    <add-user-view :meta="addUserMeta" :validate="userValidateMeta"></add-user-view>
+    <update-user-view :meta="updateUserMeta" :validate="userValidateMeta"></update-user-view>
+    <delete-user-view :meta="deleteUserMeta"></delete-user-view>
   </div>
 </template>
 
 <script>
   import customBootstrap from '../../components'
   import ApiService from '../../api'
+  import moment from 'moment'
+  import EmptyDataView from '../_shared/EmptyDataView'
   import AddUserView from './AddUserView'
   import UpdateUserView from './UpdateUserView'
   import DeleteUserView from './DeleteUserView'
@@ -68,6 +72,7 @@
     components: {
       pagination,
       ctable,
+      EmptyDataView,
       AddUserView,
       UpdateUserView,
       DeleteUserView
@@ -97,7 +102,7 @@
           placeholder: '请输入用户姓名',
           type: 'text',
           validate: {
-            required: {rule: true, message: '用户姓名是必须的'}
+            required: {rule: true, message: '登录名称是必须的'}
           }
         }, {
           id: 'RealName',
@@ -113,7 +118,8 @@
           placeholder: '请输入联系方式',
           type: 'text',
           validate: {
-            required: {rule: true, message: '联系方式是必须的'}
+            required: {rule: true, message: '联系方式是必须的'},
+            mobilephone: {rule: true, message: '(区号)电话号码的格式不正确'}
           }
         }, {
           id: 'RoleID',
@@ -121,34 +127,31 @@
           label: '用户角色',
           placeholder: '请输入/选择用户角色',
           type: 'select',
-          selected: '',
+          selected: {
+            RoleID: '01973025-171E-4B27-ADC9-1F4C50BB7EC',
+            RoleName: '管理员'
+          },
           options: [{
             RoleID: '01973025-171E-4B27-ADC9-1F4C50BB7EC',
             RoleName: '管理员'
           }, {
             RoleID: '01973025-171E-4B27-ADC9-1F4C50BB7EB',
             RoleName: '普通管理员'
-          }],
-          validate: {
-            required: {rule: true, message: '用户角色是必须的'}
-          }
+          }]
         }, {
           id: 'CommunityID',
           display: 'CommunityName',
           label: '所属单位',
           placeholder: '请输入/选择所属单位',
           type: 'select',
-          selected: '',
+          selected: {},
           options: [{
             CommunityID: '01973025-171E-4B27-ADC9-1F4C50BB7EC',
             CommunityName: 'A单位'
           }, {
             CommunityID: '01973025-171E-4B27-ADC9-1F4C50BB7EB',
             CommunityName: 'B单位'
-          }],
-          validate: {
-            required: {rule: true, message: '用户角色是必须的'}
-          }
+          }]
         }],
         updateUserMeta: {},
         deleteUserMeta: {},
@@ -170,14 +173,13 @@
             {name: 'CommunityName', title: '所属单位'},
             {name: 'Telphone', title: '联系方式'},
             {name: 'UserState', title: '用户状态', callback: '_convertUserState|'},
-            {name: 'AddTime', title: '注册时间'},
-            {name: 'ModifyTime', title: '修改时间'},
+            {name: 'AddTime', title: '注册时间', callback: '_convertTime|'},
+            {name: 'ModifyTime', title: '修改时间', callback: '_convertTime|'},
             {name: '__actions', title: '操作列'}
           ],
           itemActions: [
-//            { name: 'view-item', label: '', icon: 'fa fa-fw fa-eye', class: 'btn btn-xs  btn-info' },
-            { name: 'update-item', label: '', icon: 'fa fa-fw fa-pencil', class: 'btn btn-xs btn-success' },
-            { name: 'delete-item', label: '', icon: 'fa fa-fw fa-trash', class: 'btn btn-xs btn-danger' }
+            { name: 'update-item', label: '', icon: 'fa fa-fw fa-pencil', class: 'btn btn-xs btn-success-outline' },
+            { name: 'delete-item', label: '', icon: 'fa fa-fw fa-trash', class: 'btn btn-xs btn-danger-outline' }
           ]
         }
       }
@@ -194,7 +196,8 @@
       _getAllRole (data) {
         let self = this
         getAllRole({}, function (response) {
-          let data = response.data
+          if (response.data && !response.data.Items) return
+          let data = response.data.Items
           for (let index = 0; index < self.userValidateMeta.length; index++) {
             let tempItem = self.userValidateMeta[index]
             if (tempItem.id === 'RoleID') {
@@ -209,7 +212,8 @@
       _getAllCommunity (data) {
         let self = this
         getAllCommunity({}, function (response) {
-          let data = response.data
+          if (response.data && !response.data.Items) return
+          let data = response.data.Items
           for (let index = 0; index < self.userValidateMeta.length; index++) {
             let tempItem = self.userValidateMeta[index]
             if (tempItem.id === 'CommunityID') {
@@ -221,13 +225,19 @@
           }
         })
       },
+      _convertTime (value) {
+        return moment(value).format('YYYY-MM-DD HH:mm')
+      },
       _convertUserState (value) {
+        let createHtml = (value, clazz) => {
+          return '<span class="label label-pill ' + clazz + '">' + value + '</span>'
+        }
         if (value === 0) {
-          return '未注册'
+          return createHtml('未激活', 'label-secondary')
         } else if (value === 1) {
-          return '正常'
+          return createHtml('正常', 'label-info')
         } else {
-          return '禁用'
+          return createHtml('禁用', 'label-danger')
         }
       },
       _getUserList (userQuery) {
@@ -241,7 +251,8 @@
       _getUserById (userQuery) {
         let self = this
         getUserById(userQuery, function (response) {
-          self.$set('updateUserMeta', response.data)
+          if (response.data && !response.data.Success) return
+          self.$set('updateUserMeta', response.data.Result)
         })
       },
       _searchUser () {
@@ -252,8 +263,8 @@
             Page: pageIndex,
             Size: pageSize
           },
-          username: searchSplits.length > 0 ? searchSplits[0] : '',
-          telphone: searchSplits.length > 1 ? searchSplits[1] : ''
+          realName: searchSplits.length > 0 ? searchSplits[0] : '',
+          communityName: searchSplits.length > 1 ? searchSplits[1] : ''
         }
 
         console.log(queryParams)
@@ -278,21 +289,18 @@
       },
       onTableUpdate (data) {
         if (!data.UserID) return
-        let queryUser = {
-          userid: data.UserID
+        let queryFire = {
+          userId: data.UserID
         }
-        this._getUserById(queryUser)
+        this._getUserById(queryFire)
+//        this.$set('updateUserMeta', data)
         this._toggleModalType('updateUserModal')
         this._getAllRole(data)
         this._getAllCommunity(data)
       },
       onTableDelete (data) {
-        if (!data.UserID || !data.UserName) return
-        let tempUserMeta = {
-          UserID: data.UserID,
-          UserName: data.UserName
-        }
-        this.$set('deleteUserMeta', tempUserMeta)
+        if (!data.UserID) return
+        this.$set('deleteUserMeta', data)
         this._toggleModalType('deleteUserModal')
       }
     },

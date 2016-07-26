@@ -1,8 +1,8 @@
 
 // mvc api
 const GET_MENU_LIST_API = '/Menu/GetMenuList'
-const GET_SUCCESS_FIRE_MONITOR_LIST_API = '/Fire/SelectRDFireDoorList'
-const GET_ERROR_FIRE_MONITOR_LIST_API = '/Fire/SelectRDFireDoorList'
+const GET_SUCCESS_FIRE_MONITOR_LIST_API = '/FireDoor/SelectFireDoorRDList'
+const GET_ERROR_FIRE_MONITOR_LIST_API = '/FireDoor/SelectFireDoorRDList'
 const CHECK_LOGIN_API = '/Login/CheckLogin'
 
 // device manage api
@@ -13,11 +13,12 @@ const UPDATE_DEVICE_API = '/Device/EditDevice'
 const DELETE_DEVICE_API = '/Device/DeleteDevice'
 
 // fire manage api
-const GET_FIRE_LIST_API = '/FireDoor/SelectFireList'
-const GET_FIRE_BY_ID_API = '/FireDoor/SelectFireByID'
-const ADD_FIRE_API = '/FireDoor/AddFire'
-const UPDATE_FIRE_API = '/FireDoor/EditFire'
-const DELETE_FIRE_API = '/FireDoor/DeleteFire'
+const GET_HISTORY_LIST_API = '/FireDoor/SelectFireDoorHDList'
+const GET_FIRE_LIST_API = '/FireDoor/SelectFireDoorList'
+const GET_FIRE_BY_ID_API = '/FireDoor/SelectFireDoorByID'
+const ADD_FIRE_API = '/FireDoor/AddFireDoor'
+const UPDATE_FIRE_API = '/FireDoor/EditFireDoor'
+const DELETE_FIRE_API = '/FireDoor/DeleteFireDoor'
 
 // user manage api
 const GET_USER_LIST_API = '/User/SelectUserList'
@@ -71,6 +72,7 @@ const ApiContainersRelative = {
   DELETE_DEVICE_API,
 
   // fire api
+  GET_HISTORY_LIST_API,
   GET_FIRE_LIST_API,
   GET_FIRE_BY_ID_API,
   ADD_FIRE_API,

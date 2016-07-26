@@ -164,7 +164,9 @@
 
 }
 
-.box-thermometer{
+.box.box-thermometer{
+  padding: 0;
+  line-height: 50px;
 
   .box-mask{
     width: 50px;
@@ -178,6 +180,7 @@
     width: $cm-footer-wrap-width - $cm-space-width - 50px;
     margin-left: -$cm-space-width;
     padding: $cm-space-width / 2 0 $cm-space-width / 2 $cm-space-width ;
+    text-align: left;
 
     @include text-truncate();
   }

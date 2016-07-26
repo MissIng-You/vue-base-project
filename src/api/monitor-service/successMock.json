@@ -2,52 +2,52 @@
   "Total": 124,
   "Items": [
     {
-      "name": "防火门2",
-      "property": 0,
-      "state": 0,
-      "address": "B小区B栋C单元xxx号"
+      "FireDoorName": "防火门2",
+      "FireDoorType": 0,
+      "TJGZStatus": 0,
+      "FireDoorAddress": "B小区B栋C单元xxx号"
     },
     {
-      "name": "防火门23",
-      "property": 1,
-      "state": 1,
-      "address": "C小区B栋C单元xxx号"
+      "FireDoorName": "防火门23",
+      "FireDoorType": 1,
+      "TJGZStatus": 1,
+      "FireDoorAddress": "C小区B栋C单元xxx号"
     },
     {
-      "name": "防火门36",
-      "property": 0,
-      "state": 0,
-      "address": "D小区B栋C单元xxx号"
+      "FireDoorName": "防火门36",
+      "FireDoorType": 0,
+      "TJGZStatus": 0,
+      "FireDoorAddress": "D小区B栋C单元xxx号"
     },
     {
-      "name": "防火门1",
-      "property": 1,
-      "state": 1,
-      "address": "F小区B栋C单元xxx号"
+      "FireDoorName": "防火门1",
+      "FireDoorType": 1,
+      "TJGZStatus": 1,
+      "FireDoorAddress": "F小区B栋C单元xxx号"
     },
     {
-      "name": "防火门12",
-      "property": 0,
-      "state": 0,
-      "address": "B小区B栋C单元xxx号"
+      "FireDoorName": "防火门12",
+      "FireDoorType": 0,
+      "TJGZStatus": 0,
+      "FireDoorAddress": "B小区B栋C单元xxx号"
     },
     {
-      "name": "防火门3",
-      "property": 1,
-      "state": 1,
-      "address": "C小区B栋C单元xxx号"
+      "FireDoorName": "防火门3",
+      "FireDoorType": 1,
+      "TJGZStatus": 1,
+      "FireDoorAddress": "C小区B栋C单元xxx号"
     },
     {
-      "name": "防火门4",
-      "property": 0,
-      "state": 0,
-      "address": "A小区B栋C单元edxxx号"
+      "FireDoorName": "防火门4",
+      "FireDoorType": 0,
+      "TJGZStatus": 0,
+      "FireDoorAddress": "A小区B栋C单元edxxx号"
     },
     {
-      "name": "防火门35",
-      "property": 0,
-      "state": 0,
-      "address": "E小区B栋C单元23xxx号"
+      "FireDoorName": "防火门35",
+      "FireDoorType": 0,
+      "TJGZStatus": 0,
+      "FireDoorAddress": "E小区B栋C单元23xxx号"
     }
   ]
 }

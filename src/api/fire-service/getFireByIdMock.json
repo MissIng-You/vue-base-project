@@ -1,8 +1,14 @@
 {
-  "FireDoorID": "000001",
-  "FloorID": "W5N8",
-  "FireDoorCode": "01973025-171E-4B27-ADC9-1F4C50BB7ECA",
-  "DeviceCode": "01973025-171E-4B27-ADC9-1F4C50BB7ECA",
-  "FireDoorAddress": "成都市环球中心",
-  "FireDoorType": 1
+  "Success": true,
+  "Result": {
+    "CommunityName": "万江港利",
+    "MonitorID": "1F4C50BB7ECA",
+    "MonitorName": "监控器1",
+    "FireDoorID": "1F4C50BB7ECA",
+    "FireDoorName": "超级防火门",
+    "FloorID": "W5N8",
+    "FireDoorHistoryState": "正常使用",
+    "FireDoorAddress": "成都市环球中心",
+    "FireDoorType": 1
+  }
 }

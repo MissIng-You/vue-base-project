@@ -43,6 +43,22 @@ Vue.transition('fade', {
 // use vue validator
 Vue.use(VueValidator)
 
+// 验证电话号码
+Vue.validator('telephone', function (val) {
+  if (val === '') {
+    return false
+  }
+  // 区号和电话号之间带横线/^((0\d{2,3})-)(\d{7,8})(-(\d{3,}))?$/
+  return /^(0\d{2,3})\-(\d{7,8})$/.test(val)
+})
+
+// 验证手机号码
+Vue.validator('mobilephone', function (val) {
+  if (val === '') {
+    return false
+  }
+  return /^1[3|4|5|7|8]\d{9}$/.test(val)
+})
 // use vue resource
 Vue.use(VueResource)
 

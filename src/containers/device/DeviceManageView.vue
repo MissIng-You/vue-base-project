@@ -1,35 +1,34 @@
 <template>
   <div id="index-view">
-
     <div class="card card-blockquote">
       <div class="card-header card-primary-outline">
         <i class="card-mask fa fa-object-group"></i>
-        <span class="card-title">设备管理</span>
+        <span class="card-title">防火门监控器</span>
         <span class="card-search-group">
             <span class="input-group input-group-sm input-width-sm">
               <input type="text" class="form-control" @keypress.enter="onSearch" v-model="queryMeta.search" placeholder="在此搜索设备/基站信息">
-              <span class="input-group-addon btn btn-primary" @click="onSearch"><i class="fa fa-fw fa-search"></i></span>
+              <span class="input-group-addon btn btn-primary-outline" @click="onSearch"><i class="fa fa-fw fa-search"></i></span>
             </span>
           </span>
         <span class="card-state card-state-hover pull-right" @click="onTableAdd"><i class="fa fa-fw fa-plus"></i></span>
       </div>
-      <div class="card-body">
-        <add-device-view :meta="addDeviceMeta" :validate="addDeviceValidateMeta"></add-device-view>
-        <update-device-view :meta="updateDeviceMeta" :validate="addDeviceValidateMeta"></update-device-view>
-        <delete-device-view :meta="deleteDeviceMeta"></delete-device-view>
+      <div v-if="deviceListMeta.items.length" class="card-body">
         <ctable v-ref:ctable
-                  api-url="/api/user-service/getDeviceListMock.json"
-                  :show-pagination="userDefineMeta.showPagination"
+                  api-url="/api/device-service/getDeviceListMock.json"
+                  :show-pagination="deviceDefineMeta.showPagination"
                   pagination-path=""
-                  :load-on-start="userDefineMeta.loadOnStart"
-                  :fields="userDefineMeta.fields"
-                  :table-data="userListMeta.items"
+                  :load-on-start="deviceDefineMeta.loadOnStart"
+                  :fields="deviceDefineMeta.fields"
+                  :table-data="deviceListMeta.items"
                   :sort-order="sortOrder"
                   table-class="table table-sm table-bordered table-striped table-hover table-hover-outline"
                   ascending-icon="fa fa-arrow-up"
                   descending-icon="fa fa-arrow-down"
-                  :item-actions="userDefineMeta.itemActions">
+                  :item-actions="deviceDefineMeta.itemActions">
         </ctable>
+      </div>
+      <div v-if="!deviceListMeta.items.length" class="card-body">
+        <empty-data-view @alert="onTableAdd"></empty-data-view>
       </div>
       <div class="card-footer card-danger-outline">
         <i class="card-mask fa fa-pie-chart"></i>
@@ -44,12 +43,16 @@
         </span>
       </div>
     </div>
+    <add-device-view :meta="addDeviceMeta" :validate="DeviceValidateMeta"></add-device-view>
+    <update-device-view :meta="updateDeviceMeta" :validate="DeviceValidateMeta"></update-device-view>
+    <delete-device-view :meta="deleteDeviceMeta"></delete-device-view>
   </div>
 </template>
 
 <script>
   import customBootstrap from '../../components'
   import ApiService from '../../api'
+  import EmptyDataView from '../_shared/EmptyDataView'
   import AddDeviceView from './AddDeviceView'
   import UpdateDeviceView from './UpdateDeviceView'
   import DeleteDeviceView from './DeleteDeviceView'
@@ -66,6 +69,7 @@
     components: {
       pagination,
       ctable,
+      EmptyDataView,
       AddDeviceView,
       UpdateDeviceView,
       DeleteDeviceView
@@ -73,7 +77,6 @@
     route: {
       data: function (transition) {
         if (isLoadedOfFirst) return transition.next()
-
         this._searchDevice()
       }
     },
@@ -90,11 +93,18 @@
           currentPage: 1
         },
         addDeviceMeta: {},
-        addDeviceValidateMeta: [{
+        DeviceValidateMeta: [{
+          id: 'CommunityName',
+          label: '单位名称',
+          type: 'text',
+          placeholder: '请输入单位名称',
+          validate: {
+            required: {rule: true, message: '单位名称是必须的'}
+          }
+        }, {
           id: 'DeviceID',
           label: '设备编号',
-          name: 'DeviceID',
-          type: 'txt',
+          type: 'text',
           placeholder: '请输入设备编号',
           validate: {
             required: {rule: true, message: '设备编号是必须的'}
@@ -102,26 +112,23 @@
         }, {
           id: 'DeviceName',
           label: '设备名称',
-          name: 'DeviceName',
-          type: 'txt',
+          type: 'text',
           placeholder: '请输入设备名称',
           validate: {
             required: {rule: true, message: '设备名称是必须的'}
           }
         }, {
           id: 'Address',
-          label: '详细地址',
-          name: 'Address',
-          type: 'txt',
-          placeholder: '请输入详细地址',
+          label: '安装地址',
+          type: 'text',
+          placeholder: '请输入安装地址',
           validate: {
-            required: {rule: true, message: '详细地址是必须的'}
+            required: {rule: true, message: '安装地址是必须的'}
           }
         }, {
           id: 'JZCoordinate',
           label: '基站地址',
-          name: 'JZCoordinate',
-          type: 'txt',
+          type: 'text',
           placeholder: '请输入基站地址',
           validate: {
             required: {rule: true, message: '基站地址是必须的'}
@@ -129,33 +136,33 @@
         }],
         updateDeviceMeta: {},
         deleteDeviceMeta: {},
-        userListMeta: {
+        deviceListMeta: {
           totalCount: 0,
           items: []
         },
-        userDefineMeta: {
+        deviceDefineMeta: {
           modalType: 'normal',
           showPagination: false,
           loadOnStart: false,
           fields: [
-            {name: 'DeviceID', visible: false, title: '设备编号'},
-            {name: 'DeviceCode', title: '设备编码'},
+            {name: 'DeviceID', visible: false},
+            {name: 'CommunityID', visible: false},
+            {name: 'CommunityName', title: '单位名称'},
+            {name: 'DeviceCode', title: '设备编号'},
             {name: 'DeviceName', title: '设备名称'},
-            {name: 'Address', title: '详细地址'},
-            {name: 'AddressCoordinate', visible: false, title: '地址坐标'},
+            {name: 'Address', title: '安装地址'},
             {name: 'JZCoordinate', title: '基站地址'},
             {name: '__actions', title: '操作列'}
           ],
           itemActions: [
-//            { name: 'view-item', label: '', icon: 'fa fa-fw fa-eye', class: 'btn btn-xs  btn-info' },
-            { name: 'update-item', label: '', icon: 'fa fa-fw fa-pencil', class: 'btn btn-xs btn-success' },
-            { name: 'delete-item', label: '', icon: 'fa fa-fw fa-trash', class: 'btn btn-xs btn-danger' }
+            { name: 'update-item', label: '', icon: 'fa fa-fw fa-pencil', class: 'btn btn-xs btn-success-outline' },
+            { name: 'delete-item', label: '', icon: 'fa fa-fw fa-trash', class: 'btn btn-xs btn-danger-outline' }
           ]
         }
       }
     },
     watch: {
-      'userListMeta.totalCount': function (newVal, oldVal) {
+      'deviceListMeta.totalCount': function (newVal, oldVal) {
         this.$set('paginationMeta.totalCount', newVal)
       },
       'queryMeta.pageIndex': function (newVal, oldVal) {
@@ -163,18 +170,19 @@
       }
     },
     methods: {
-      _getDeviceList (userQuery) {
+      _getDeviceList (deviceQuery) {
         let self = this
-        getDeviceList(userQuery, function (response) {
+        getDeviceList(deviceQuery, function (response) {
           let data = response.data
-          self.$set('userListMeta.totalCount', data.Total)
-          self.$set('userListMeta.items', data.Items)
+          self.$set('deviceListMeta.totalCount', data.Total)
+          self.$set('deviceListMeta.items', data.Items)
         })
       },
-      _getDeviceById (userQuery) {
+      _getDeviceById (deviceQuery) {
         let self = this
-        getDeviceById(userQuery, function (response) {
-          self.$set('updateDeviceMeta', response.data)
+        getDeviceById(deviceQuery, function (response) {
+          if (!response.data && !response.data.Success) return
+          self.$set('updateDeviceMeta', response.data.Result)
         })
       },
       _searchDevice () {
@@ -185,8 +193,8 @@
             Page: pageIndex,
             Size: pageSize
           },
-          username: searchSplits.length > 0 ? searchSplits[0] : '',
-          telphone: searchSplits.length > 1 ? searchSplits[1] : ''
+          deviceName: searchSplits.length > 0 ? searchSplits[0] : '',
+          communityName: searchSplits.length > 1 ? searchSplits[1] : ''
         }
 
         console.log(queryParams)
@@ -210,18 +218,19 @@
       onTableUpdate (data) {
         if (!data.DeviceID) return
         let queryDevice = {
-          userid: data.DeviceID
+          deviceId: data.DeviceID
         }
         this._getDeviceById(queryDevice)
+//        this.$set('updateDeviceMeta', data)
         this._toggleModalType('updateDeviceModal')
       },
       onTableDelete (data) {
-        if (!data.DeviceID || !data.DeviceName) return
-        let tempDeviceMeta = {
-          DeviceID: data.DeviceID,
-          DeviceName: data.DeviceName
-        }
-        this.$set('deleteDeviceMeta', tempDeviceMeta)
+        if (!data.DeviceID) return
+//        let tempDeviceMeta = {
+//          deviceId: data.DeviceID
+//          DeviceName: data.DeviceName
+//        }
+        this.$set('deleteDeviceMeta', data)
         this._toggleModalType('deleteDeviceModal')
       }
     },

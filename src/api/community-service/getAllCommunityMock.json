@@ -1,14 +1,35 @@
-[
-  {
-    "CommunityID": "01973025-171E-4B27-ADC9-1F4C50BB7ECA",
-    "CommunityName": "A单位"
-  },
-  {
-    "CommunityID": "01973025-171E-4B27-ADC9-1F4C50BB7ECB",
-    "CommunityName": "B单位"
-  },
-  {
-    "CommunityID": "01973025-171E-4B27-ADC9-1F4C50BB7ECC",
-    "CommunityName": "C单位"
-  }
-]
+{
+  "Total": 140,
+  "Items": [
+    {
+      "CommunityID": "01973025-171E-4B27-ADC9-1F4C50BB7ECA",
+      "CommunityName": "成都市万江港利A单元",
+      "DistrictCode": "01973025-171E-4B27-ADC9-1F4C50BB7ECA",
+      "Address": "环球中心",
+      "Captain": "gu",
+      "CommunityPhone": "02887878888",
+      "CaptainPlace": "经理",
+      "CaptainTelphone": "15225888868"
+    },
+    {
+      "CommunityID": "01973025-171E-4B27-ADC9-1F4C50BB7ECB",
+      "CommunityName": "成都市万江港利c单元",
+      "DistrictCode": "01973025-171E-4B27-ADC9-1F4C50BB7ECA",
+      "Address": "环球中心",
+      "Captain": "gu",
+      "CommunityPhone": "02887878888",
+      "CaptainPlace": "经理",
+      "CaptainTelphone": "15225888868"
+    },
+    {
+      "CommunityID": "01973025-171E-4B27-ADC9-1F4C50BB7ECC",
+      "CommunityName": "成都市万江港利B单元",
+      "DistrictCode": "01973025-171E-4B27-ADC9-1F4C50BB7ECA",
+      "Address": "环球中心",
+      "Captain": "gu",
+      "CommunityPhone": "02887878888",
+      "CaptainPlace": "职员",
+      "CaptainTelphone": "15225888868"
+    }
+  ]
+}

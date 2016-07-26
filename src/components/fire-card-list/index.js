@@ -27,5 +27,11 @@ export default {
 
       return `nav-${this.theme}`
     }
+  },
+  methods: {
+    onFireCardItemClick (item) {
+      console.log(`${item + 1} clicked!`)
+      this.$dispatch('item-click', item + 1)
+    }
   }
 }
